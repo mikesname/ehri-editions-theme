@@ -1,0 +1,487 @@
+@media only screen and (max-width: 1180px) {
+	#home #site-title {
+		margin: 5.5% 0 0 7px;
+		width: 75%;
+	}
+	#home #site-subtitle {
+		margin: 15px 0 7px 10px;
+	}
+	header {
+	  margin-bottom: 0;
+	}
+	#site-title {
+	  line-height: 30px;
+	  margin: 6% 0 10px 11px;
+	  max-width: 480px; 
+	}
+	#site-subtitle {
+
+	  width: 60%; 
+	}
+}
+
+@media only screen and (max-width: 930px) {
+
+h1 {
+  font-size: 32px;
+}
+
+h3 {
+  clear:both;
+  display: block;
+  padding: 25px 0 0 0;
+  margin-bottom: 25px;
+}
+
+  .home-map-wrapper {
+	  height: 459px;
+	}
+	
+.items.show h3 {
+  margin: 0 0 25px 0;
+}
+
+h4 {
+  margin-top: 25px;
+  padding: 25px 0 0 195px;
+}
+
+#home h4 {
+  margin-top: 25px;
+  padding: 25px 0 0 195px;
+}
+
+.items #content {
+  min-width: 0;
+  width: 90%;
+}
+
+.items #contentDescription{
+  min-width: 0;
+  width: 100%;
+}
+
+.items-content-button {
+  margin: 6px 2px 0 0;
+}
+
+.search h1 {
+  margin-top: 5px;
+  margin-bottom: -10px;
+  width: 100%;
+}
+
+.search-results-pagination {
+  margin: 30px 0 31px 0;
+  width: 100%;
+}
+
+.nav-bar {
+  display: none;
+}
+
+.nav-bar-mobile {
+  display: block;
+}
+
+#nav-bar-mobile-icons {
+  display: inline;
+
+}
+
+.nav-bar-menu,
+.nav-bar-search {
+  background: var(--colorBackground);
+  border-bottom: 1px solid var(--colorLine);
+  bottom: auto;
+  color: var(--colorText);
+  display: none;
+  font-size: 14px;
+  height: auto;
+  left: 0;
+  margin: 0;
+  overflow: auto;
+  padding: 5% 5% 2% 5%;
+  position: relative;
+  top: 50px;
+  width: 100%;
+  z-index: 9000;
+}
+
+.nav-bar-menu-back,
+.nav-bar-search-back {
+  display: none;
+}
+
+.nav-bar-search-category {
+  margin-left: 0;
+  padding: 20px 0 0 0;
+}
+
+.nav-bar-search-group{
+  margin-left: 0;
+}
+
+.nav-bar-search-item {
+  margin-left: 0;
+}
+
+.nav-bar-search-line {
+  margin: 5px 0 0 0;
+  width: 100%;
+}
+
+#content {
+  margin-left: 5%;
+  width: 90%;
+}
+
+.content-info-annotation {
+  display: block;
+}
+
+footer {
+  border-left: 0;
+  border-right: 0;
+  padding: 0 0 10px 0;
+}
+
+footer p {
+  margin-left: 5%;
+
+}
+
+.footer-logo {
+  margin-right: 15px;
+  width: 80px;
+}
+
+header {
+
+  margin-left: 5%;
+  margin-top: 50px;
+}
+
+#home header {
+  height: 270px;
+  margin-left: 5%;
+
+}
+
+.header-overlay {
+  height: 230px;
+  margin: -180px 0 0 0;
+}
+
+.header-image {
+  min-height: 80px;
+  margin-left: 0;
+  margin-top: calc(-50px + 5%);
+  height: 110px;
+   top: 50px;
+
+}
+
+#home .header-image {
+height: 270px;
+  margin-left: 0;
+  top: 50px;
+}
+
+#home .header-overlay {
+  height: 280px;
+  margin: -230px 0 0 0;
+}
+
+#site-title {
+ margin-top: calc(-125px + 1%);
+ margin-left: 0;
+ width: 90%;
+}
+
+#home #site-title {
+  margin-top: calc(80px + 8%);
+  margin-left: 0;
+  font-size: 28px;
+  line-height: normal;
+}
+
+#site-subtitle {
+  display: none;
+}
+
+#home #site-subtitle {
+  display: block;
+  margin-left: 0;
+  margin-top: 1.5%;
+
+}
+
+  .homepage-text {
+
+    margin: 0 0 15px 0;
+
+  }
+
+.featured,
+#featured-exhibit {
+  margin: 30px 0 0 0;
+  padding: 0 0 25px 0;
+
+}
+
+
+#site-logo{
+  border: 8px solid var(--colorBackground);
+  border-bottom: 6px solid var(--colorBackground);
+  border-top: 8px solid var(--colorBackground);
+  top: 70px;
+}
+#site-logo img {
+  width: 60px;
+}
+
+#primary {
+  width: 100%;
+  }
+  
+  #home #primary {
+  width: 100%;
+  }
+  
+  .home-map {
+	  margin-left: -5%;
+	  width: 100%;
+	}
+
+
+#header-search{
+  padding: 0;
+  margin-top: calc(-110px - 5%);
+  margin-left: 0;
+  width: 90%;
+}
+
+#header-search input[type=text]{
+  width: 100%;
+}
+
+#search-container button {
+
+  float: right;
+  margin-right: 20px;
+  width: 24px;
+}
+
+#search-container {
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.search-result {
+  min-width: 0;
+  width: 100%;
+}
+
+.search-result-wrapper {
+  margin-left: 0;
+  width: 100%;
+}
+
+.search-result-title {
+  color: var(--colorTitle);
+  margin: 0 0 0 93px;
+}
+
+#home .search-result-title {
+  margin: 0;
+}
+
+.search-result-wrapper {
+  padding: 0;
+}
+
+.search-result p {
+  display: inline-block;
+  float: none;
+  margin: 12px 0 0 0;
+  width: 100%;
+}
+
+
+.search-result img {
+  height: 76px;
+  width: 76px;
+  margin: 0 17px 5px 0;
+}
+
+.search-result-image-blank {
+  display: none;
+}
+
+#search-container input[type=text] {
+  padding: 10px;
+  width: 100%;
+}
+
+#search-container {
+  padding: 0;
+  position: relative;
+  margin: 0;
+  width: 100%;
+}
+
+#nav-bar-search #search-container button {
+  right: -10px;
+  top: 4px;
+}
+
+
+.header-search-background {
+  opacity: 0;
+  margin: -80px 0 55px -110px;
+}
+
+.related-chapters {
+  margin: 25px 0 0 0;
+}
+
+.related-chapters-box {
+  width: 100%;
+}
+
+.related-chapters-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  text-transform: none;
+}
+
+.related-chapters img {
+  display: none;
+}
+
+.related-chapters p {
+  margin: -5px 0 0 0;
+}
+
+#home .related-chapters-box {
+  margin-bottom: 40px;
+}
+
+#home .related-chapters-title {
+  font-size: 22px;
+  margin: 0 0 25px 0;
+}
+
+#home .related-chapters p {
+  font-size: 14px;
+}
+
+#item-pagination-desktop {
+  display: none;
+}
+
+#item-pagination-mobile {
+  display: block;
+}
+
+.item-pagination-next {
+  margin: 15px 0 0 50px;
+   float: right;
+}
+
+#content-share {
+  display: none;
+}
+
+#content-info {
+  display: none;
+}
+
+#content-share-mobile {
+  display: block;
+}
+
+#content-files {
+  display: none;
+}
+
+#content-files-mobile {
+  display: block;
+}
+
+#content-files-zoom-icon{
+  top: 35px;
+}
+
+#content-files-gallery-icon {
+  top: 105px;
+}
+
+#content-files-counter {
+  top: 130px;
+}
+
+.map-document {
+  display: none;
+}
+
+.map-document-mobile {
+  display: block;
+}
+
+.map-document-text {
+  display: none;
+}
+
+.element-map {
+  display: none;
+}
+
+.exhibits #content,
+.exhibits #contentDescription {
+  clear:both;
+  font-size: var(--fontDocumentSize);
+  line-height: 1.5em;
+  margin: 0 5%;
+  max-width: 715px;
+  padding: 0;
+  position: relative;
+  width: 90%;
+}
+
+}
+
+@media only screen and (max-width: 670px) {
+
+#site-logo{
+  display: none;
+}
+
+
+.navigation {
+  width: 100%;
+}
+
+}
+
+
+@media only screen and (max-width: 530px) {
+
+#home #site-logo{
+  display: none;
+}
+
+#site-logo{
+  display: none;
+}
+
+#site-title {
+ margin-top: -120px;
+}
+
+}
