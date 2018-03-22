@@ -131,7 +131,6 @@ $("#map-button").click(function() {
 			2. Kárný, M.: Obóz familijny w Brzezince dla Zydów z Theresienstadt, in: Zeszyty oświecimskie nr 20, 1993, s.159.
 		</div>
 	</div>
-	</div>
 	<div id="language-01" class="element-text-document"><?php echo $textString; ?></div>
 	<?php if ($language02) { ?>
 		<div id="language-02" class="element-text-document" style="display:none"><?php echo $textOriginalString; ?></div>

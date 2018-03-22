@@ -26,7 +26,7 @@
 <!-- slick -->
 <script type="text/javascript" src="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.js" ?>"></script>
 <script type="text/javascript">
-  $(document).ready(function(){
+  jQuery(document).ready(function($){
   $('.featured-carousel').slick({
 	  dots: true,
 	  infinite: true,
