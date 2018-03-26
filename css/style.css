@@ -61,6 +61,7 @@
 #nav-bar-limit-expand,
 #nav-bar-limit-shrink,
 .nav-bar-search-item-close,
+.search-button-solr,
 #search-container button,
 #header-search button,
 .search-result-image-next,
@@ -747,7 +748,7 @@ img a {
   margin: 0 0 15px 15px;
   padding: 5px 0 0 0;
   text-transform: none;
-  width: 240px;
+  width: 250px;
 }
 
 .nav-bar-search-line {
@@ -1379,16 +1380,16 @@ header a:hover {
   opacity: 0.8
 }
 
-#content-files,
-#content-files-mobile {
+#content-files {
   background: var(--colorBackground);
   color: var(--colorText);
-  float: right;
-  height: 0;
-  margin: -82px -235px 0 0;
+  height: 215px;
+  margin: 0;
   padding: 0;
-  position: relative;
-  width: 200px;
+  position: absolute;
+  right: -295px;
+  margin-top: -82px;
+  width: 265px;
 }
 
 #content-files-mobile {
@@ -1409,7 +1410,7 @@ header a:hover {
   padding: 0;
   pointer-events: none;
   position: absolute;
-  top: 75px;
+  top: 82px;
 }
 
 #content-files-zoom-icon {
@@ -1431,12 +1432,12 @@ header a:hover {
   left: 73px;
   padding: 0;
   position: absolute;
-  top: 100px;
+  top: 107px;
 }
 
 #content-files img,
 #content-files-mobile img {
-  margin: 0 0 10000px 0;
+  margin: 0;
 }
 
 #content-info {
@@ -1482,7 +1483,7 @@ header a:hover {
   overflow: hidden;
   padding: 0;
   position: relative;
-  width: 263px;
+  width: 265px;
 }
 
 .content-info-person-body {
@@ -1647,20 +1648,27 @@ nav + .exhibit {
   display: inline-block;
 }
 
-#primary #item-images {
-  max-height: 240px;
-  margin-bottom: 18px;
-  margin-right: -10px;
+#primary #galleryitem,
+#primary #photogallery
+ {
+  height: 100%;
+  max-width: 150px;
+  margin: 0;
   overflow: hidden;
+  padding: 0;
+  width: 100%;
 }
 
 .fullsize {
   margin-right: 10px;
 }
 
-#item-images img {
-  max-height: 215px;
-  width: 150px;
+#primary #galleryitem img {
+  height: 100%;
+  margin: 0;
+  max-height: 225px;
+  padding: 0;
+  width: auto;
 }
 
 .items.show h3 {
@@ -2303,6 +2311,10 @@ footer nav + p {
 
 .exhibit-items img:first-of-type {
   width: 100%;
+}
+
+.exhibit-examples {
+
 }
 
 /* ?????? */
