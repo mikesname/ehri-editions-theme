@@ -63,7 +63,7 @@ $("#map-button").click(function() {
 												'link'=>array( 'itemprop'=>'contentUrl')),'thumbnail'); ?>			
 			<div id="content-files-zoom-icon" class="material-icons">zoom_in</div>
 			<div id="content-files-gallery-icon" class="material-icons">insert_drive_file</div>
-			<div id="content-files-counter"><?php get_theme_option('Item FileGallery'); ?></div>
+			<div id="content-files-counter"><?php echo metadata('item', 'file_count'); ?></div>
 		</div>	
 	<?php endif; ?>
 	<div id="contentDescription"><p><?php echo $metadataString; ?></p>
@@ -85,7 +85,7 @@ $("#map-button").click(function() {
 												'link'=>array( 'itemprop'=>'contentUrl')),'thumbnail'); ?>			
 			<div id="content-files-zoom-icon" class="material-icons">zoom_in</div>
 			<div id="content-files-gallery-icon" class="material-icons">insert_drive_file</div>
-			<div id="content-files-counter"><?php get_theme_option('Item FileGallery'); ?></div>
+			<div id="content-files-counter"><?php echo metadata('item', 'file_count'); ?></div>
 		</div>	
 		
 		<script>
