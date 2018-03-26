@@ -4,27 +4,26 @@ echo head(array(
     'bodyclass' => 'exhibits show'));
 ?>
 <script>
-$( document ).ready(function(){ 
-	if ($(window).width() > 980) {
-			$("#nav-bar-menu").show( 0, function() {});
-			$("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu-selected');
-		if ($(window).width() < 1180) {
-			$("#nav-bar-menu").attr('class', 'nav-bar-menu-shadow');
-			setTimeout(function(){
-				$( "#nav-bar-menu" ).hide( "slide", 1000, function() {});
-				$("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
-				$("#container").animate({ 'margin-left': '0' }, 1000);
-				$("#footer").animate({ 'margin-left': '0' }, 1000);
-			}, 700);
-		} else {
-			$("#container").animate({ 'margin-left': '240px'}, 0);
-			$("#footer").animate({ 'margin-left': '240px'}, 0);
-			$("#nav-bar-menu").show( 0, function() {});
-			$("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu-selected');
-		}
-	}
-});
-
+    jQuery(function($){
+        if ($(window).width() > 980) {
+                $("#nav-bar-menu").show( 0, function() {});
+                $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu-selected');
+            if ($(window).width() < 1180) {
+                $("#nav-bar-menu").attr('class', 'nav-bar-menu-shadow');
+                setTimeout(function(){
+                    $( "#nav-bar-menu" ).hide( "slide", 1000, function() {});
+                    $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
+                    $("#container").animate({ 'margin-left': '0' }, 1000);
+                    $("#footer").animate({ 'margin-left': '0' }, 1000);
+                }, 700);
+            } else {
+                $("#container").animate({ 'margin-left': '240px'}, 0);
+                $("#footer").animate({ 'margin-left': '240px'}, 0);
+                $("#nav-bar-menu").show( 0, function() {});
+                $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu-selected');
+            }
+        }
+    });
 </script>
 
 <div class="exhibit-pagination">
