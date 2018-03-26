@@ -44,10 +44,10 @@
 	<link rel="stylesheet" type="text/css" href="themes/ehri/slick/slick.css"/>
 	
 	<!-- photoswipe -->
-	<link rel="stylesheet" type="text/css" href="themes/ehri/photoswipe/dist/photoswipe.css"> 
-	<link rel="stylesheet" type="text/css" href="themes/ehri/photoswipe/dist/default-skin/default-skin.css"> 
-	<script src="themes/ehri/photoswipe/dist/photoswipe.min.js"></script> 
-	<script src="themes/ehri/photoswipe/dist/photoswipe-ui-default.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/photoswipe.css"> 
+	<link rel="stylesheet" type="text/css" href="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/default-skin/default-skin.css"> 
+	<script src="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/photoswipe.min.js"></script> 
+	<script src="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/photoswipe-ui-default.min.js"></script> 
 
 </head>
 
