@@ -33,28 +33,27 @@
 	<?php queue_js_file('jquery-ui', 'javascripts/vendor'); ?>
 	<?php queue_js_file('jquery-fullscreen', 'javascripts/vendor'); ?>
 	<?php queue_js_file('jspdf.min', 'javascripts/vendor'); ?>
-    
+	<?php queue_js_file('photoswipe.min', 'photoswipe/dist'); ?>
+	<?php queue_js_file('photoswipe-ui-default.min', 'photoswipe/dist'); ?>
     <?php echo head_js(); ?>
+    
     
     <!-- fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Roboto|Roboto+Mono" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
 	<!-- slick -->
-	<link rel="stylesheet" type="text/css" href="themes/ehri/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.css" ?>" />
 	
 	<!-- photoswipe -->
-	<link rel="stylesheet" type="text/css" href="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/photoswipe.css"> 
-	<link rel="stylesheet" type="text/css" href="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/default-skin/default-skin.css"> 
-	<script src="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/photoswipe.min.js"></script> 
-	<script src="https://editionstest.ehri-project-stage.eu/themes/ehri/photoswipe/dist/photoswipe-ui-default.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>" /> 
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>" /> 
 
 </head>
 
  <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
  
 <!-- url and customized functions-->
-<?php $documentRoot = "http://localhost/Omeka"; ?>
 <?php $include = "./themes/ehri/common/custom.php"; ?>
 <?php include($include); ?>
 
@@ -93,10 +92,10 @@
 
 <div class="nav-bar-menu" id="nav-bar-menu">
 	<div class="nav-bar-menu-back" id="nav-bar-menu-back"><div class="nav-bar-back-icon">chevron_left</div></div>
-	<a class="nav-bar-menu-item" href="https://editionstest.ehri-project-stage.eu/">Home</a>
+	<a class="nav-bar-menu-item" href="<?php echo WEB_ROOT ?>">Home</a>
 	<br>
 	<a class="nav-bar-menu-item">Introduction</a>
-	<a class="nav-bar-menu-item" href="http://localhost/Omeka/exhibits/show/early-holocaust-documentation/early-holocaust-documentation">Early Holocaust Documentation</a>
+	<a class="nav-bar-menu-item">Early Holocaust Documentation</a>
 	<a class="nav-bar-menu-subitem">Chapter 1</a>
 	<a class="nav-bar-menu-subitem">Chapter 2</a>
 	<a class="nav-bar-menu-item">Additional narrative text</a>
@@ -334,7 +333,7 @@ $(document).ready(function(){
 		<div class="header-overlay"></div>
         <header role="banner">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>     
-            <a href="https://editionstest.ehri-project-stage.eu/"><div id="site-title"><?php echo option('site_title'); ?></div></a>
+            <a href="<?php echo WEB_ROOT ?>"><div id="site-title"><?php echo option('site_title'); ?></div></a>
             <div id="site-subtitle"><?php echo $description; ?></div>  
         </header>
 		<div id="site-logo"><?php echo link_to_home_page(theme_logo()); ?></div>
