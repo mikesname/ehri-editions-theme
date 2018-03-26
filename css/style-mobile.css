@@ -408,14 +408,24 @@ height: 270px;
 
 #content-files {
   display: none;
+  
 }
 
 #content-files-mobile {
   display: block;
+  position: relative;
+  
 }
 
 #content-files-zoom-icon{
+  color: var(--colorLink);
+
+  left: 115px;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
   top: 35px;
+  
 }
 
 #content-files-gallery-icon {
