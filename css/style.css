@@ -18,6 +18,7 @@
   --colorLine: #e0e0e0;
   --colorLineDashed: #cbcbcb;
   --colorLink: #83014c;
+  --colorLinkHover: #83014c;
   --colorTitle: #360f4f;
   --colorText: #5e5e5e;
   --fontDocument: 'Roboto Mono', monospace;
@@ -29,7 +30,7 @@
 }
 
  /*! DEFAULT FONT */
- h1, h2, h3, h4, h5, h6, 
+h1, h2, h3, h4, h5, h6,
 #content-share-report, 
 #content-share-subtitle,
 #content-share-title, 
@@ -67,7 +68,7 @@
 .search-result-image-next,
 .search-result-image-previous
   {
-  font-family: 'Material Icons';
+  font-family: 'Material Icons', serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -83,12 +84,12 @@
 }
 
 /* webkit scrollbars */
-#nav-bar-search { 
-	::-webkit-scrollbar { width: 7px; }
-	::-webkit-scrollbar-track { background: var(--colorBackground); }
-	::-webkit-scrollbar-thumb { background: #efefef; }
-	::-webkit-scrollbar-thumb:hover { background: #ccc; }
-}
+/*#nav-bar-search { */
+	/*::-webkit-scrollbar { width: 7px; }*/
+	/*::-webkit-scrollbar-track { background: var(--colorBackground); }*/
+	/*::-webkit-scrollbar-thumb { background: #efefef; }*/
+	/*::-webkit-scrollbar-thumb:hover { background: #ccc; }*/
+/*}*/
 
 *:focus {
     outline: none;
@@ -439,7 +440,7 @@ h1 {
   min-height: 72px;
   text-transform: none;
   max-width: 700px;
-  word-break: break-word;
+  word-break: normal;
   width: 90%;
 }
 
@@ -530,7 +531,7 @@ a:link {
 }
 
 a:hover, a:active {
-  color: --var(colorLinkHover);
+  color: var(--colorLinkHover);
 }
 
 img a {
@@ -757,6 +758,12 @@ img a {
   height: 1px;
   margin: 5px 15px 20px 15px;
   width: 248px;
+}
+
+.nav-bar-search-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .nav-bar-search-item{
@@ -1063,7 +1070,6 @@ header a:hover {
   width: 270px;
 }
 
-}
 #search-container input[type=text], #search-container button {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -1194,6 +1200,15 @@ header a:hover {
   margin: 30px 0 31px 0;
   padding: 10px;
   width: 382px;
+}
+
+.search-results-pagination li {
+  float: left;
+  list-style-type: none;
+}
+
+.search-results-pagination input[type='text'] {
+  width: 35px;
 }
 
 .search-result-image-next,
@@ -2491,4 +2506,3 @@ footer nav + p {
   }
 
   /* @end */
-}

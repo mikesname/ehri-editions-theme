@@ -41,10 +41,6 @@ jQuery(function($) {
 		<div class="addthis_inline_share_toolbox"></div>
 	</div>
 
-	<div id="metadata-button" class="items-content-button">Metadata</div>
-	<div id="document-text-button" class="items-content-button">Document text</div>
-	<div id="map-button" class="items-content-button">Map</div>
-	
     <!-- Items metadata -->
     <div id="item-texts">
         <?php echo tei_editions_render_item_text('item'); ?>

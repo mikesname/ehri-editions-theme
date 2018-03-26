@@ -50,62 +50,87 @@
  <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
  
 <!-- url and customized functions-->
-<?php $include = "./themes/ehri/common/custom.php"; ?>
+<?php $documentRoot = "http://localhost/Omeka"; ?>
+<?php $include = dirname(__FILE__) . "/custom.php"; ?>
 <?php include($include); ?>
 
 <!-- desktop navbar -->
-<div class="nav-bar">
-	<div class="nav-bar-button-search" id="nav-bar-button-search">
-		<div id="nav-bar-icon-search" class="material-icons">search</div>
-		<div id="nav-bar-icon-text-search">SEARCH</div>
-	</div>
-	<div class="nav-bar-button-menu" id="nav-bar-button-menu" >
-		<div id="nav-bar-icon-menu" class="material-icons">menu</div>
-		<div id="nav-bar-icon-text-menu">MENU</div>
-	</div>
-</div>
-			
-<div class="nav-bar-search" id="nav-bar-search">
-	<div class="nav-bar-search-back" id="nav-bar-search-back"><div class="nav-bar-back-icon">chevron_left</div></div>
-	<div id="search-container" role="search">
-		<?php echo search_form(array('submit_value' => 'search')); ?>
-	</div>
-	<div class="nav-bar-search-category">Applied facets</div>
-	<div class="nav-bar-search-item">None</div>
-	<div class="nav-bar-search-line"></div>
-	<div id="nav-bar-limit-toggle"><div class="nav-bar-search-category">Limit your search</div><div id="nav-bar-limit-expand">keyboard_arrow_down</div><div id="nav-bar-limit-shrink">keyboard_arrow_up</div></div>
-	<div id="nav-bar-limit-search">
-		<div class="nav-bar-search-group">Collection</div>
-		<div class="nav-bar-search-item">None</div>
-		<div class="nav-bar-search-group">Subjects</div>
-		<div class="nav-bar-search-item">None</div>
-		<div class="nav-bar-search-group">Places</div>
-		<div class="nav-bar-search-item">None</div>
-		<div class="nav-bar-search-group">Persons</div>
-		<div class="nav-bar-search-item">None</div>
-	</div>
-</div>
+   			<div class="nav-bar">
+				<div class="nav-bar-button-search" id="nav-bar-button-search">
+					<div id="nav-bar-icon-search" class="material-icons">search</div>
+					<div id="nav-bar-icon-text-search">SEARCH</div>
+				</div>
+				<div class="nav-bar-button-menu" id="nav-bar-button-menu" >
+					<div id="nav-bar-icon-menu" class="material-icons">menu</div>
+					<div id="nav-bar-icon-text-menu">MENU</div>
+				</div>
+			</div>
+						
+			<div class="nav-bar-search" id="nav-bar-search">
+				<div class="nav-bar-search-back" id="nav-bar-search-back"><div class="nav-bar-back-icon">chevron_left</div></div>
+				<div id="search-container" role="search">
+					<?php echo search_form(array('submit_value' => 'search')); ?>
+                </div>
 
-<div class="nav-bar-menu" id="nav-bar-menu">
-	<div class="nav-bar-menu-back" id="nav-bar-menu-back"><div class="nav-bar-back-icon">chevron_left</div></div>
-	<a class="nav-bar-menu-item" href="<?php echo WEB_ROOT ?>">Home</a>
-	<br>
-	<a class="nav-bar-menu-item">Introduction</a>
-	<a class="nav-bar-menu-item">Early Holocaust Documentation</a>
-	<a class="nav-bar-menu-subitem">Chapter 1</a>
-	<a class="nav-bar-menu-subitem">Chapter 2</a>
-	<a class="nav-bar-menu-item">Additional narrative text</a>
-	<a class="nav-bar-menu-subitem">Chapter 1</a>
-	<a class="nav-bar-menu-subitem">Chapter 2</a>
-	<a class="nav-bar-menu-subitem">Chapter 3</a>
-	<br>
-	<a class="nav-bar-menu-item">Search individual testimony via map</a>
-	<a class="nav-bar-menu-item">Witnesses</a>
-	<a class="nav-bar-menu-item">Timeline</a>
-	<br>
-	<br>
-	<a class="nav-bar-menu-item">Index</a>
-</div>
+                <?php if(isset($results)): ?>
+                    <!-- Applied facets. -->
+                <?php $appliedFacets = SolrSearch_Helpers_Facet::parseFacets(); ?>
+                <?php if (!empty($appliedFacets)): ?>
+                        <div class="nav-bar-search-category"><?php echo __('Applied Facets'); ?></div>
+                        <div class="solr-applied-facets">
+                            <ul class="nav-bar-search-items">
+                                <!-- Get the applied facets. -->
+                                <?php foreach ($appliedFacets as $f): ?>
+                                    <li class="nav-bar-search-item">
+
+                                        <!-- Facet label. -->
+                                        <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
+                                        <span class="applied-facet-label"><?php echo $label; ?>: </span>
+                                        <span class="applied-facet-value"><?php echo $f[1]; ?></span>
+
+                                        <!-- Remove link. -->
+                                        <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+                                        <a class="nav-bar-search-item-close" href="<?php echo $url; ?>">close</a>
+                                    </li>
+                                <?php endforeach; ?>
+
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Facets. -->
+                    <div class="solr-facets nav-bar-limit-toggle">
+                        <div class="nav-bar-search-category"><?php echo __('Limit your search'); ?></div>
+                        <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
+                            <!-- Does the facet have any hits? -->
+                            <?php if (count(get_object_vars($facets))): ?>
+
+                                <div class="solr-facet">
+                                    <!-- Facet label. -->
+                                    <div class="nav-bar-search-group"><?php echo SolrSearch_Helpers_Facet::keyToLabel($name); ?></div>
+                                    <ul class="nav-bar-search-items">
+                                        <!-- Facets. -->
+                                        <?php foreach ($facets as $value => $count): ?>
+                                            <li class="nav-bar-search-item <?php echo $value; ?>">
+
+                                                <!-- Facet URL. -->
+                                                <?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
+
+                                                <!-- Facet link. -->
+                                                <a href="<?php echo $url; ?>" class="facet-value">
+                                                    <?php echo $value; ?>
+                                                    <!-- Facet count. -->
+                                                    (<span class="facet-count"><?php echo $count; ?></span>)
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+			</div>
 <!-- / desktop navbar -->
 
 <!-- mobile navbar -->
