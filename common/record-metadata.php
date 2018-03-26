@@ -58,10 +58,12 @@ $("#map-button").click(function() {
 	?>
 	<?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
 		<div id="content-files">
-			<?php echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox')),'thumbnail'); ?>
-					<div id="content-files-zoom-icon" class="material-icons">zoom_in</div>
+			<?php echo item_image_gallery_custom(array('wrapper'=>array('id'=>'photogallery', 'itemscope'=>'', 'itemtype'=>'http://schema.org/ImageGallery'),
+												'linkWrapper'=>array('id'=>'galleryitem', 'itemprop'=>'associatedMedia', 'itemscope'=>'', 'itemtype'=>'http://schema.org/ImageObject'),
+												'link'=>array( 'itemprop'=>'contentUrl')),'thumbnail'); ?>			
+			<div id="content-files-zoom-icon" class="material-icons">zoom_in</div>
 			<div id="content-files-gallery-icon" class="material-icons">insert_drive_file</div>
-			<div id="content-files-counter">3</div>
+			<div id="content-files-counter"><?php get_theme_option('Item FileGallery'); ?></div>
 		</div>	
 	<?php endif; ?>
 	<div id="contentDescription"><p><?php echo $metadataString; ?></p>
@@ -74,13 +76,21 @@ $("#map-button").click(function() {
 		}
 	} ?>
 	</div>
+	
 	<?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
+
 		<div id="content-files-mobile">
-			<?php echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox')),'thumbnail'); ?>
-					<div id="content-files-zoom-icon" class="material-icons">zoom_in</div>
+			<?php echo item_image_gallery_custom(array('wrapper'=>array('id'=>'photogallery', 'itemscope'=>'', 'itemtype'=>'http://schema.org/ImageGallery'),
+												'linkWrapper'=>array('id'=>'galleryitem', 'itemprop'=>'associatedMedia', 'itemscope'=>'', 'itemtype'=>'http://schema.org/ImageObject'),
+												'link'=>array( 'itemprop'=>'contentUrl')),'thumbnail'); ?>			
+			<div id="content-files-zoom-icon" class="material-icons">zoom_in</div>
 			<div id="content-files-gallery-icon" class="material-icons">insert_drive_file</div>
-			<div id="content-files-counter">3</div>
+			<div id="content-files-counter"><?php get_theme_option('Item FileGallery'); ?></div>
 		</div>	
+		
+		<script>
+
+		</script>
 	<?php endif; ?>
 
 <!-- DOCUMENT TEXT -->
@@ -162,5 +172,6 @@ $("#map-button").click(function() {
 		$( "#language-button-01" ).attr('class', 'element-text-language-selected');
 	});
 </script>
+
 
 <?php
