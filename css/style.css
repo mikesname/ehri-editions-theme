@@ -835,7 +835,11 @@ img a {
   padding-top: 5px;
 }
 
-.nav-bar-menu-subitem{
+.nav-bar-menu ul {
+  padding: 0;
+}
+
+.nav-bar-menu ul li, .nav-bar-menu-subitem{
   cursor: pointer; 
   display: block;
   margin: 0 0 15px 15px;

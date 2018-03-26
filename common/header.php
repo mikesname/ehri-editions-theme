@@ -50,9 +50,7 @@
  <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
  
 <!-- url and customized functions-->
-<?php $documentRoot = "http://localhost/Omeka"; ?>
-<?php $include = dirname(__FILE__) . "/custom.php"; ?>
-<?php include($include); ?>
+<?php include(dirname(__FILE__) . "/custom.php"); ?>
 
 <!-- desktop navbar -->
    			<div class="nav-bar">
@@ -131,6 +129,17 @@
                     </div>
                 <?php endif; ?>
 			</div>
+
+            <div class="nav-bar-menu" id="nav-bar-menu">
+                <div class="nav-bar-menu-back" id="nav-bar-menu-back"><div class="nav-bar-back-icon">chevron_left</div></div>
+
+                <?php foreach (get_db()->getTable("Exhibit")->findAll() as $exhibit): ?>
+                    <a class="nav-bar-menu-item" href="<?php echo $exhibit->getRecordUrl(); ?>">
+                        <?php echo $exhibit->title;?>
+                    </a>
+                    <?php echo exhibit_builder_page_tree($exhibit); ?>
+                <?php endforeach; ?>
+            </div>
 <!-- / desktop navbar -->
 
 <!-- mobile navbar -->
@@ -357,7 +366,7 @@
         <header role="banner">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>     
             <a href="<?php echo WEB_ROOT ?>"><div id="site-title"><?php echo option('site_title'); ?></div></a>
-            <div id="site-subtitle"><?php echo $description; ?></div>  
+            <div id="site-subtitle"><?php echo $description; ?></div>
         </header>
 		<div id="site-logo"><?php echo link_to_home_page(theme_logo()); ?></div>
     <div id="content" role="main" tabindex="-1">
