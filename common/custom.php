@@ -1,3 +1,20 @@
+<script>
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+</script>
+
 <?php
 function link_to_next_item_show_custom($text = null, $props = array())
 {
@@ -27,6 +44,55 @@ function link_to_previous_item_show_custom($text = null, $props = array())
 
         return link_to($previous, 'show', $previous_item . $text, $props);
     }
+}
+
+function item_image_gallery_custom($attrs = array(), $imageType = 'square_thumbnail', $filesShow = false, $item = null)
+{
+    if (!$item) {
+        $item = get_current_record('item');
+    }
+
+    $files = $item->Files;
+    if (!$files) {
+        return '';
+    }
+
+    $defaultAttrs = array(
+        'wrapper' => array('id' => 'item-images'),
+        'linkWrapper' => array(),
+        'figure' => array(),
+        'link' => array(),
+        'image' => array()
+    );
+    $attrs = array_merge($defaultAttrs, $attrs);
+
+    $html = '';
+    if ($attrs['wrapper'] !== null) {
+        $html .= '<div ' . tag_attributes($attrs['wrapper']) . '>';
+    }
+    foreach ($files as $file) {
+        if ($attrs['linkWrapper'] !== null) {
+            $html .= '<figure ' . tag_attributes($attrs['linkWrapper']) . '>';
+        }
+
+        $image = file_image($imageType, $attrs['image'], $file);  
+        list($width, $height) = getimagesize($file->getWebPath('original')); 
+		
+        if ($filesShow) {
+            $html .= link_to($file, 'show', $image, $attrs['link']);
+        } else {
+            $linkAttrs = $attrs['link'] + array('href' => $file->getWebPath('original'));
+            $html .= '<a ' . tag_attributes($linkAttrs) . ' data-size=' . $width . 'x' . $height . '>' . $image . '</a>';
+        }
+
+        if ($attrs['linkWrapper'] !== null) {
+            $html .= '</figure>';
+        }
+    }
+    if ($attrs['wrapper'] !== null) {
+        $html .= '</div>';
+    }
+    return $html;
 }
 
 ?>
