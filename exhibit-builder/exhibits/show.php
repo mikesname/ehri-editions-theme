@@ -28,8 +28,7 @@ $( document ).ready(function(){
 </script>
 
 <div class="exhibit-pagination">
-	<div class="item-pagination-previous"><a href="#"><div id="previous-item-icon" class="material-icons">keyboard_arrow_left</div>Introduction</a></div>
-	<div class="item-pagination-next"><a href="#">Additional narrative texts (interpretations)<div id="next-item-icon" class="material-icons">keyboard_arrow_right</div></a></div>
+    <?php echo exhibit_builder_page_trail();?>
 </div>
 
 <h1><?php echo metadata('exhibit_page', 'title'); ?></h1>

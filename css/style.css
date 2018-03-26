@@ -827,7 +827,11 @@ img a {
   padding: 0;
 }
 
-.nav-bar-menu-item{
+.nav-bar-menu ul {
+  padding: 0;
+}
+
+.nav-bar-menu > ul > li > a, .nav-bar-menu-item{
   cursor: pointer; 
   display: block;
   font-weight: bold;
@@ -835,11 +839,7 @@ img a {
   padding-top: 5px;
 }
 
-.nav-bar-menu ul {
-  padding: 0;
-}
-
-.nav-bar-menu ul li, .nav-bar-menu-subitem{
+.nav-bar-menu > ul > li > ul > li a, .nav-bar-menu-subitem{
   cursor: pointer; 
   display: block;
   margin: 0 0 15px 15px;
@@ -1741,6 +1741,17 @@ nav + .exhibit {
 .exhibit-pagination a {
   color: var(--colorLink);
   float: left;
+}
+
+.exhibit-pagination a, .exhibit-pagination span {
+  display: inline;
+  float: left;
+  margin-right: 15px;
+}
+
+/* HACK */
+.exhibit-pagination br {
+  display: none;
 }
 
 .item .tags {

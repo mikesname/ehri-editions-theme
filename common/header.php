@@ -134,9 +134,6 @@
                 <div class="nav-bar-menu-back" id="nav-bar-menu-back"><div class="nav-bar-back-icon">chevron_left</div></div>
 
                 <?php foreach (get_db()->getTable("Exhibit")->findAll() as $exhibit): ?>
-                    <a class="nav-bar-menu-item" href="<?php echo $exhibit->getRecordUrl(); ?>">
-                        <?php echo $exhibit->title;?>
-                    </a>
                     <?php echo exhibit_builder_page_tree($exhibit); ?>
                 <?php endforeach; ?>
             </div>
