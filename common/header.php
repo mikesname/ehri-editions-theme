@@ -37,6 +37,9 @@
 	<?php queue_js_file('photoswipe-ui-default.min', 'photoswipe/dist'); ?>
     <?php echo head_js(); ?>
     
+    <!-- custom search -->
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/results.css"; ?>" /> 
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/fields.css"; ?>" /> 
     
     <!-- fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Roboto|Roboto+Mono" rel="stylesheet">
@@ -70,8 +73,82 @@
 </div>
 			
 <div class="nav-bar-search" id="nav-bar-search">
-	<div class="nav-bar-search-back" id="nav-bar-search-back"><div class="nav-bar-back-icon">chevron_left</div></div>
+<div class="nav-bar-search-back" id="nav-bar-search-back"><div class="nav-bar-back-icon">chevron_left</div></div>
+<?php if (isset($_GET["q"]) and trim($_GET["q"]) !== ""): ?>
 	<div id="search-container" role="search">
+		<form id="solr-search-form">
+			<input type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php	echo $searchQuery;  ?>" />
+			<input class="search-button-solr" type="submit" value="search" />
+		</form>
+	</div>
+
+	<!-- Applied facets. -->
+	<h2 class="nav-bar-search-category">Applied facets</h2>
+	<div id="solr-applied-facets">
+
+		<!-- Get the applied facets. -->
+		<?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
+		
+		<!-- Facet label. -->
+		<?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+		<div class="nav-bar-search-item"><?php echo $f[1]; ?><a class="nav-bar-search-item-close" href="<?php echo $url; ?>">close</a></div>	
+	  
+		<?php endforeach; ?>
+
+
+		<!-- If facet is empty -->
+		<?php if (count($f)==0) { 
+		  echo "<div class=\"nav-bar-search-item\">None</div>";
+		} ?>
+		  
+	</div>
+
+	<div class="nav-bar-search-line"></div>
+					
+	<!-- Facets. -->
+	<div id="solr-facets">
+		<h2 class="nav-bar-search-category">Limit your search</h2>
+
+		<?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
+
+		<!-- Does the facet have any hits? -->
+		<?php if (count(get_object_vars($facets))) { ?>
+
+		<!-- Facet label. -->
+		<?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
+		<div class="nav-bar-search-group"><?php echo $label; ?></div>
+
+			<!-- Facets. -->
+			<?php foreach ($facets as $value => $count): ?>
+			  <div class="nav-bar-search-item" value="<?php echo $value; ?>">
+
+				<!-- Facet URL. -->
+				<?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
+
+				<!-- Facet link. -->
+				<a href="<?php echo $url; ?>" class="facet-value">
+				  <?php echo $value; ?>
+				</a>
+
+				<!-- Facet count. -->
+				(<span class="facet-count"><?php echo $count; ?></span>)
+
+			  </div>
+			<?php endforeach; ?>
+
+		<?php } ?>
+
+	  <?php endforeach; ?>
+  
+	</div>
+
+  	<?php if ($results->response->numFound==0) { 
+	  echo "<div class=\"nav-bar-search-item\">None</div>";
+	} ?>	
+	</div>	
+<?php else: ?>
+
+	<div id="search-container-wide" role="search">
 		<?php echo search_form(array('submit_value' => 'search')); ?>
 	</div>
 	<div class="nav-bar-search-category">Applied facets</div>
@@ -88,6 +165,7 @@
 		<div class="nav-bar-search-group">Persons</div>
 		<div class="nav-bar-search-item">None</div>
 	</div>
+<?php endif; ?>
 </div>
 
 <div class="nav-bar-menu" id="nav-bar-menu">
@@ -127,23 +205,17 @@
 <!-- jquery menu control -->
 
 <script>
-var searchQuery = getUrlParameter('q');
-if(searchQuery == null) {
-	navBarSearch = $('#nav-bar-search');
-} else {
-	navBarSearch = $('#nav-bar-search-solr');
-}
 $(document).ready(function(){
 	<!-- dekstop -->
 	<!-- desktop/menu -->
 	$( "#nav-bar-button-menu" ).click(function() {
 		if( $("#nav-bar-menu").css("display") == 'none' ) {
-		   if( navBarSearch.css("display") == 'none' ) {
+		   if( $( "#nav-bar-search" ).css("display") == 'none' ) {
 				$( "#nav-bar-menu" ).show( "slide", function() {});
-				navBarSearch.hide( "slide", function() {}); 
+				$( "#nav-bar-search" ).hide( "slide", function() {}); 
 		   } else {
 			   $( "#nav-bar-menu" ).show( 0, function() {});
-			   navBarSearch.hide( 0, function() {}); 
+			   $( "#nav-bar-search" ).hide( 0, function() {}); 
 		   }
 		   $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu-selected');
 		   $("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
@@ -156,7 +228,7 @@ $(document).ready(function(){
 				$("#nav-bar-menu").attr('class', 'nav-bar-menu-shadow');
 			} 			   
 		} else {
-		   navBarSearch.hide( "slide", function() {});
+		   $( "#nav-bar-search" ).hide( "slide", function() {});
 		   $( "#nav-bar-menu" ).hide( "slide", function() {});
 		   $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
 		   $("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
@@ -179,13 +251,13 @@ $(document).ready(function(){
 		$("#nav-bar-limit-search").css('display', 'block');
 		$("#nav-bar-limit-expand").css('display', 'none');
 		$("#nav-bar-limit-shrink").css('display', 'none');
-		if( navBarSearch.css("display") == 'none' ) {
+		if( $( "#nav-bar-search" ).css("display") == 'none' ) {
 		   if( $("#nav-bar-menu").css("display") == 'none' ) {
-				navBarSearch.show( "slide", function() {});
+				$( "#nav-bar-search" ).show( "slide", function() {});
 				$( "#nav-bar-menu" ).hide( "slide", function() {}); 
 				$("#query").focus();
 		   } else {
-			   navBarSearch.show( 0, function() {});
+			   $( "#nav-bar-search" ).show( 0, function() {});
 			   $( "#nav-bar-menu" ).hide( 0, function() {}); 
 				$("#query").focus();
 		   }
@@ -195,13 +267,13 @@ $(document).ready(function(){
 				$("#container").animate({ 'margin-left': '240px'}, 400);
 				$("#footer").animate({ 'margin-left': '240px' }, 400);
 				$("#home-map").attr('class', 'home-map-resized');
-				navBarSearch.attr('class', 'nav-bar-search');
+				$( "#nav-bar-search" ).attr('class', 'nav-bar-search');
 			} else {
-				navBarSearch.attr('class', 'nav-bar-search-shadow');
+				$( "#nav-bar-search" ).attr('class', 'nav-bar-search-shadow');
 			} 
 		} else {
 		   $( "#nav-bar-menu" ).hide( "", function() {});
-		   navBarSearch.hide( "slide", function() {});
+		   $( "#nav-bar-search" ).hide( "slide", function() {});
 		   $("#nav-bar-button-search").attr('class', 'nav-bar-button-search');
 		   $("#nav-bar-button-menu" ).attr('class', 'nav-bar-button-menu');
 		   $("#container").animate({ 'margin-left': '0' }, 400);
@@ -210,7 +282,7 @@ $(document).ready(function(){
 		}		
 	});
 	$( "#nav-bar-search-back" ).click(function() {
-		navBarSearch.hide( "slide", function() {});
+		$( "#nav-bar-search" ).hide( "slide", function() {});
 		$("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
 		$("#container").animate({ 'margin-left': '0' }, 400);
 		$("#footer").animate({ 'margin-left': '0' }, 400);
@@ -225,8 +297,8 @@ $(document).ready(function(){
 					$("#container").animate({ 'margin-left': '0' }, 400);
 					$("#footer").animate({ 'margin-left': '0' }, 400);
 					
-				} else if (navBarSearch.is(":visible")) {
-					navBarSearch.hide( "slide", function() {});
+				} else if ($( "#nav-bar-search" ).is(":visible")) {
+					$( "#nav-bar-search" ).hide( "slide", function() {});
 					$("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
 					$("#container").animate({ 'margin-left': '0' }, 400);
 					$("#footer").animate({ 'margin-left': '0' }, 400);
