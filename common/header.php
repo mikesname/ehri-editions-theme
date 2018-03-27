@@ -158,12 +158,13 @@
     jQuery(function($) {
         <!-- dekstop -->
         <!-- desktop/menu -->
-        var searchQuery = getUrlParameter('q');
-        if(searchQuery == null) {
-            navBarSearch = $('#nav-bar-search');
-        } else {
-            navBarSearch = $('#nav-bar-search-solr');
-        }
+        // var searchQuery = getUrlParameter('q');
+        // if(searchQuery == null) {
+        //     navBarSearch = $('#nav-bar-search');
+        // } else {
+        //     navBarSearch = $('#nav-bar-search-solr');
+        // }
+        var navBarSearch = $('#nav-bar-search');
 
         $( "#nav-bar-button-menu" ).click(function() {
             if( $("#nav-bar-menu").css("display") == 'none' ) {
