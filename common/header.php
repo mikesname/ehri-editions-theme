@@ -148,7 +148,7 @@
 	</div>	
 <?php else: ?>
 
-	<div id="search-container-wide" role="search">
+	<div id="search-container" role="search">
 		<?php echo search_form(array('submit_value' => 'search')); ?>
 	</div>
 	<div class="nav-bar-search-category">Applied facets</div>
