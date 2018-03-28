@@ -18,6 +18,7 @@
   --colorLine: #e0e0e0;
   --colorLineDashed: #cbcbcb;
   --colorLink: #83014c;
+  --colorLinkHover: #83014c;
   --colorTitle: #360f4f;
   --colorText: #5e5e5e;
   --fontDocument: 'Roboto Mono', monospace;
@@ -28,8 +29,8 @@
   --fontTextSize: 10.5pt;
 }
 
- /*! DEFAULT FONT */
- h1, h2, h3, h4, h5, h6, 
+/*! DEFAULT FONT */
+h1, h2, h3, h4, h5, h6,
 #content-share-report, 
 #content-share-subtitle,
 #content-share-title, 
@@ -67,7 +68,7 @@
 .search-result-image-next,
 .search-result-image-previous
   {
-  font-family: 'Material Icons';
+  font-family: 'Material Icons', serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -439,7 +440,7 @@ h1 {
   min-height: 72px;
   text-transform: none;
   max-width: 700px;
-  word-break: break-word;
+  word-break: normal;
   width: 90%;
 }
 
@@ -530,7 +531,7 @@ a:link {
 }
 
 a:hover, a:active {
-  color: --var(colorLinkHover);
+  color: var(--colorLinkHover);
 }
 
 img a {
@@ -759,6 +760,12 @@ img a {
   width: 248px;
 }
 
+.nav-bar-search-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .nav-bar-search-item{
   cursor: pointer; 
   float: left;
@@ -773,6 +780,10 @@ img a {
   display: inline;
   font-size: 14px;
   margin: 5px 0 0 5px;
+}
+
+a.nav-bar-search-item-close {
+  color: var(--colorLink);
 }
 
 .nav-bar-search-group{
@@ -806,6 +817,7 @@ img a {
 #nav-bar-limit-expand,
 #nav-bar-limit-shrink {
   color: var(--colorLink);
+  display: none;
   float: right;
   font-size: 36px;
   margin: 12px -7px 0 0;
@@ -820,7 +832,12 @@ img a {
   padding: 0;
 }
 
-.nav-bar-menu-item{
+.nav-bar-menu ul {
+  padding: 0;
+}
+
+.nav-bar-menu > ul > li > a, 
+.nav-bar-menu-item {
   cursor: pointer; 
   display: block;
   font-weight: bold;
@@ -828,10 +845,23 @@ img a {
   padding-top: 5px;
 }
 
-.nav-bar-menu-subitem{
+.nav-bar-menu > ul > li > ul > li a, 
+.nav-bar-menu-subitem {
   cursor: pointer; 
   display: block;
   margin: 0 0 15px 15px;
+}
+
+.search-button-solr {
+  color: var(--colorLink);
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+  font-size: 20px;
+  height: 28px;
+  position: absolute;
+  right: 23px;
+  top: 21px;
+  width: 24px;
 }
 
 container {
@@ -1129,9 +1159,13 @@ header a:hover {
   margin: -1px 0 0 0;
   max-width: 960px;
   min-height: 197px;
-  min-width: 570px;
+  min-width: 470px;
   padding: 30px 0 30px 0;
   width: calc(100% - 250px);
+}
+
+.search-result-empty {
+  margin: 70px 0 0 0;
 }
 
 .search-result:hover.search-result-title {
@@ -1181,6 +1215,10 @@ header a:hover {
   margin: 12px 0 0 30px;
 }
 
+.search-results {
+  margin: 0 0 30px 0;
+}
+
 .search-result-wrapper {
   margin-left: 135px;
   padding: 5px 0 0 0;
@@ -1191,7 +1229,7 @@ header a:hover {
   background: var(--colorButton);
   font-size: 14px;
   height: 38px;
-  margin: 30px 0 31px 0;
+  margin: 0 0 31px 0;
   padding: 10px;
   width: 382px;
 }
@@ -1201,6 +1239,7 @@ header a:hover {
   float: left;
   color: var(--colorLink);
   font-size: 20px;
+  margin-top: -1px;
   text-transform: none;
   font-weight: normal;
 }
@@ -1212,7 +1251,6 @@ header a:hover {
 .search-result-next,
 .search-result-previous {
   color: var(--colorLink);
-  cursor: pointer;
   float: left;
   font-size: 14px;
   font-weight: bold;
@@ -1648,7 +1686,8 @@ nav + .exhibit {
   display: inline-block;
 }
 
-#primary #galleryitem,
+#primary #gallery-item,
+#primary #gallery-item-mobile,
 #primary #photogallery
  {
   height: 100%;
@@ -1663,7 +1702,8 @@ nav + .exhibit {
   margin-right: 10px;
 }
 
-#primary #galleryitem img {
+#primary #gallery-item img,
+#primary #gallery-item-mobile img {
   height: 100%;
   margin: 0;
   max-height: 225px;
@@ -1715,13 +1755,19 @@ nav + .exhibit {
 }
 
 .item-pagination-next {
+  float: left;
   margin: 0;
 }
 
-.item-pagination a,
-.exhibit-pagination a {
-  color: var(--colorLink);
+.exhibit-pagination a, .exhibit-pagination span {
+  display: inline;
   float: left;
+  margin-right: 15px;
+}
+
+/* HACK */
+.exhibit-pagination br {
+  display: none;
 }
 
 .item .tags {
@@ -1826,9 +1872,11 @@ nav + .exhibit {
 }
 
 .search h1 {
-  margin-bottom: -10px;
-  padding: 20px 0 0 0;
-  width: 850px;
+  margin: 35px 0 0 0;
+  min-width: 470px;
+  max-width: 850px;
+  padding-bottom: 20px;
+  width: calc(100% - 250px);
 }
 
 .search-entry:first-child .advanced-search-joiner {
@@ -2491,4 +2539,3 @@ footer nav + p {
   }
 
   /* @end */
-}
