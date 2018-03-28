@@ -57,8 +57,10 @@
  <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
  
 <!-- url and customized functions-->
-<?php $include = "./themes/ehri/common/custom.php"; ?>
-<?php include($include); ?>
+<?php $include = "./themes/ehri/common/custom.php";
+      include($include); 
+      $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
+?>
 
 <!-- desktop navbar -->
 <div class="nav-bar">
@@ -71,7 +73,7 @@
 		<div id="nav-bar-icon-text-menu">MENU</div>
 	</div>
 </div>
-			
+
 <div class="nav-bar-search" id="nav-bar-search">
 <div class="nav-bar-search-back" id="nav-bar-search-back"><div class="nav-bar-back-icon">chevron_left</div></div>
 <?php if (isset($_GET["q"]) and trim($_GET["q"]) !== ""): ?>
@@ -142,7 +144,7 @@
   
 	</div>
 
-  	<?php if ($results->response->numFound==0) { 
+  	<?php if ((count(get_object_vars($facets)))==0) {
 	  echo "<div class=\"nav-bar-search-item\">None</div>";
 	} ?>	
 	</div>	
@@ -156,13 +158,6 @@
 	<div class="nav-bar-search-line"></div>
 	<div id="nav-bar-limit-toggle"><div class="nav-bar-search-category">Limit your search</div><div id="nav-bar-limit-expand">keyboard_arrow_down</div><div id="nav-bar-limit-shrink">keyboard_arrow_up</div></div>
 	<div id="nav-bar-limit-search">
-		<div class="nav-bar-search-group">Collection</div>
-		<div class="nav-bar-search-item">None</div>
-		<div class="nav-bar-search-group">Subjects</div>
-		<div class="nav-bar-search-item">None</div>
-		<div class="nav-bar-search-group">Places</div>
-		<div class="nav-bar-search-item">None</div>
-		<div class="nav-bar-search-group">Persons</div>
 		<div class="nav-bar-search-item">None</div>
 	</div>
 <?php endif; ?>
@@ -298,10 +293,12 @@ $(document).ready(function(){
 					$("#footer").animate({ 'margin-left': '0' }, 400);
 					
 				} else if ($( "#nav-bar-search" ).is(":visible")) {
-					$( "#nav-bar-search" ).hide( "slide", function() {});
-					$("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
-					$("#container").animate({ 'margin-left': '0' }, 400);
-					$("#footer").animate({ 'margin-left': '0' }, 400);
+					if (!( "header" ).attr('class', 'search')) {
+						$( "#nav-bar-search" ).hide( "slide", function() {});
+						$("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
+						$("#container").animate({ 'margin-left': '0' }, 400);
+						$("#footer").animate({ 'margin-left': '0' }, 400);
+					}
 				}
 				$("#home-map").attr('class', 'home-map');
 				$("#nav-bar-mobile-icon-search").text('search');

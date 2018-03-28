@@ -95,4 +95,39 @@ function item_image_gallery_custom($attrs = array(), $imageType = 'square_thumbn
     return $html;
 }
 
+function pagination_links_custom($options = array())
+{
+    if (Zend_Registry::isRegistered('pagination')) {
+        // If the pagination variables are registered, set them for local use.
+        $p = Zend_Registry::get('pagination');
+    } else {
+        // If the pagination variables are not registered, set required defaults
+        // arbitrarily to avoid errors.
+        $p = array('total_results' => 1, 'page' => 1, 'per_page' => 1);
+    }
+
+    // Set preferred settings.
+    $scrollingStyle = isset($options['scrolling_style']) ? $options['scrolling_style'] : 'Sliding';
+    $partial = isset($options['partial_file']) ? $options['partial_file'] : 'common/pagination_control.php';
+    $pageRange = isset($options['page_range']) ? (int) $options['page_range'] : 10;
+    $totalCount = isset($options['total_results']) ? (int) $options['total_results'] : (int) $p['total_results'];
+    $pageNumber = isset($options['page']) ? (int) $options['page'] : (int) $p['page'];
+    $itemCountPerPage = isset($options['per_page']) ? (int) $options['per_page'] : (int) $p['per_page'];
+    $pageTotal = ceil($totalCount/$pageRange);
+
+    // Create an instance of Zend_Paginator.
+    $paginator = Zend_Paginator::factory($totalCount);
+
+    // Configure the instance.
+    $paginator->setCurrentPageNumber($pageNumber)
+              ->setItemCountPerPage($itemCountPerPage)
+              ->setPageRange($pageRange);
+
+	echo "<div class=\"search-results-pagination\">
+			<div class=\"search-result-previous\"><div class=\"search-result-image-previous\">keyboard_arrow_left</div>Previous</div>
+			<div class=\"search-result-center\"><input class=\"search-result-center-input\" value=\"" . $pageNumber . "\">of " . $pageTotal . "</div>
+			<div class=\"search-result-next\"><div class=\"search-result-image-next\">keyboard_arrow_right</div>Next</div>
+		  </div>";
+}
+
 ?>
