@@ -40,31 +40,13 @@ echo head(array(
 	<div class="addthis_inline_share_toolbox"></div>
 </div>
 
-<div id="exhibit-blocks">
-<?php exhibit_builder_render_exhibit_page(); ?>
-
-<h3><?php echo "Map" ?></h3><div id="map-toggle-fullscreen">Toggle fullscreen<div id="map-toggle-fullscreen-icon" class="material-icons">fullscreen</div></div>
-<iframe class="element-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50905.17188989865!2d-8.71802301985908!3d37.11527485037645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1b304950234d8d%3A0x5410aaa3471afc57!2sLagos!5e0!3m2!1scs!2spt!4v1519825124407" width=100% height="410" frameborder="0" allowfullscreen></iframe>
-
+<div id="exhibit-blocks" class="clearfix">
+    <?php exhibit_builder_render_exhibit_page(); ?>
 </div>
 
-
-    <h4><?php echo __('Related chapters'); ?></h4>
-    <div class="related-chapters-box-exhibit">
-    <a href= <?php $documentRoot ?> "/items/show/2">
-		<div class="related-chapters">
-			<img src= "http://localhost/Omeka/themes/ehri/images/related-chapters.png">
-			<div class="related-chapters-title">Additional narrative texts</div>
-			<p>How belowed Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans</p>
-		</div>
-    </a>
-    <a href= <?php $documentRoot ?> "/items/show/2">
-		<div class="related-chapters">
-			<img src= "http://localhost/Omeka/themes/ehri/images/related-chapters.png">
-			<div class="related-chapters-title">Lorem Ipsum</div>
-			<p>How belowed Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans</p>
-		</div>
-    </a>
-    </div>
+<div id="exhibit-footer">
+    <?php echo exhibit_builder_link_to_previous_page();?>
+    <?php echo exhibit_builder_link_to_next_page();?>
+</div>
 
 <?php echo foot(); ?>
