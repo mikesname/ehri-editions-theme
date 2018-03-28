@@ -6,17 +6,16 @@
 
     <div id="footer-content" class="center-div">
         <p>
-            <img class="footer-logo" src="<?php echo WEB_ROOT . "/themes/ehri/images/logo-bottom-ehri.png" ?>"
-                 title="EHRI">
-            <img class="footer-logo" src="<?php echo WEB_ROOT . "/themes/ehri/images/logo-bottom-na1.png" ?>"
-                 title="NA1">
-            <img class="footer-logo" src="<?php echo WEB_ROOT . "/themes/ehri/images/logo-bottom-na2.png" ?>"
-                 title="NA2">
+            <?php foreach ([1,2,3] as $num): ?>
+                <?php $logo = get_theme_option( "footer_logo$num"); ?>
+                <?php if ($logo): ?>
+                    <img class="footer-logo" src="<?php echo WEB_ROOT . "/files/theme_uploads/$logo";?>"/>
+                <?php endif;?>
+            <?php endforeach; ?>
         </p>
         <?php if ( $footerText = get_theme_option( 'Footer Text' ) ): ?>
             <p><?php echo get_theme_option( 'Footer Text' ); ?></p>
         <?php endif; ?>
-
     </div><!-- end footer-content -->
 
     <?php fire_plugin_hook( 'public_footer', array( 'view' => $this ) ); ?>
