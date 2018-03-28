@@ -6,12 +6,9 @@
 
     <div id="footer-content" class="center-div">
         <p>
-            <?php foreach ([1,2,3] as $num): ?>
-                <?php $logo = get_theme_option( "footer_logo$num"); ?>
-                <?php if ($logo): ?>
-                    <img class="footer-logo" src="<?php echo WEB_ROOT . "/files/theme_uploads/$logo";?>"/>
-                <?php endif;?>
-            <?php endforeach; ?>
+            <?php echo footer_logo(1); ?>
+            <?php echo footer_logo(2); ?>
+            <?php echo footer_logo(3); ?>
         </p>
         <?php if ( $footerText = get_theme_option( 'Footer Text' ) ): ?>
             <p><?php echo get_theme_option( 'Footer Text' ); ?></p>

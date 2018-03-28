@@ -16,6 +16,25 @@ var getUrlParameter = function getUrlParameter(sParam) {
 </script>
 
 <?php
+
+/**
+ * Get the theme's logo image tag.
+ *
+ * @package Omeka\Function\View\Head
+ * @uses get_theme_option()
+ * @return string|null
+ */
+function footer_logo($num = 1)
+{
+    $logo = get_theme_option("Footer Logo$num");
+    if ($logo) {
+        $storage = Zend_Registry::get('storage');
+        $uri = $storage->getUri($storage->getPathByType($logo, 'theme_uploads'));
+        return "<img class='footer-logo' src='$uri'/>";
+    }
+}
+
+
 function link_to_next_item_show_custom($text = null, $props = array())
 {
     if (!$text) {
