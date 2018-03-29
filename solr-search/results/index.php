@@ -81,16 +81,28 @@ if ($(window).width() < 930) {
 	$("#nav-bar-limit-search").css('display', 'none');
 	$("#nav-bar-limit-shrink").css('display', 'none');
 	$("#nav-bar-limit-expand").css('display', 'inline');
+	$("#nav-bar-button-search").attr('class', 'nav-bar-button-search-selected');
+	$("#nav-bar-button-menu" ).attr('class', 'nav-bar-button-menu');
 }
 
-<!-- hide logo -->
 $( window ).resize(function() {
+	<!-- hide logo -->
 	if ($(window).width() < 1000) {
 		$("#site-logo").hide( 0, function() {});
 	} else {
 		$("#site-logo").show( 0, function() {});
 	}
+	
+	<!-- move content -->
+	if ($(window).width() > 930) {
+		$("#nav-bar-search").show( 0, function() {});
+		$("#nav-bar-button-search").attr('class', 'nav-bar-button-search-selected');
+		$("#nav-bar-button-menu" ).attr('class', 'nav-bar-button-menu');
+		$("#container").animate({ 'margin-left': '240px'}, 0);
+		$("#footer").animate({ 'margin-left': '240px' }, 0);
+	}	
 });
+
 </script>
 
 <?php echo foot();
