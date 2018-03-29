@@ -29,8 +29,6 @@
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
     <?php queue_js_file('vendor/jquery-accessibleMegaMenu'); ?>
-    <?php queue_js_file('jquery-3.3.1.min', 'javascripts/vendor'); ?>
-	<?php queue_js_file('jquery-ui', 'javascripts/vendor'); ?>
 	<?php queue_js_file('jquery-fullscreen', 'javascripts/vendor'); ?>
 	<?php queue_js_file('jspdf.min', 'javascripts/vendor'); ?>
 	<?php queue_js_file('photoswipe.min', 'photoswipe/dist'); ?>
@@ -46,12 +44,10 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
 	<!-- slick -->
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.css" ?>" />
-	
-	<!-- photoswipe -->
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>" /> 
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>" /> 
-
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.css"; ?>" />
+    <!-- photoswipe -->
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>" />
 </head>
 
  <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
@@ -75,113 +71,97 @@
 </div>
 
 <div class="nav-bar-search" id="nav-bar-search">
-<div class="nav-bar-search-back" id="nav-bar-search-back"><div class="nav-bar-back-icon">chevron_left</div></div>
-<?php if (isset($_GET["q"]) and trim($_GET["q"]) !== ""): ?>
-	<div id="search-container" role="search">
-		<form id="solr-search-form">
-			<input type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php	echo $searchQuery;  ?>" />
-			<input class="search-button-solr" type="submit" value="search" />
-		</form>
-	</div>
+    <div class="nav-bar-search-back" id="nav-bar-search-back"><div class="nav-bar-back-icon">chevron_left</div></div>
+    <?php if (isset($_GET["q"]) and trim($_GET["q"]) !== ""): ?>
+        <div id="search-container" role="search">
+            <form id="solr-search-form">
+                <input type="text" title="<?php echo __('Search keywords') ?>" name="q" value="<?php	echo $searchQuery;  ?>" />
+                <input class="search-button-solr" type="submit" value="search" />
+            </form>
+        </div>
 
-	<!-- Applied facets. -->
-	<h2 class="nav-bar-search-category">Applied facets</h2>
-	<div id="solr-applied-facets">
+        <!-- Applied facets. -->
+        <h2 class="nav-bar-search-category">Applied facets</h2>
+        <div id="solr-applied-facets">
 
-		<!-- Get the applied facets. -->
-		<?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
-		
-		<!-- Facet label. -->
-		<?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
-		<div class="nav-bar-search-item"><?php echo $f[1]; ?><a class="nav-bar-search-item-close" href="<?php echo $url; ?>">close</a></div>	
-	  
-		<?php endforeach; ?>
+            <!-- Get the applied facets. -->
+            <?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
+                <!-- Facet label. -->
+                <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+                <div class="nav-bar-search-item"><?php echo $f[1]; ?><a class="nav-bar-search-item-close" href="<?php echo $url; ?>">close</a></div>
+            <?php endforeach; ?>
 
 
-		<!-- If facet is empty -->
-		<?php if (count($f)==0) { 
-		  echo "<div class=\"nav-bar-search-item\">None</div>";
-		} ?>
-		  
-	</div>
+            <!-- If facet is empty -->
+            <?php if (count($f)==0): ?>
+                <div class="nav-bar-search-item">None</div>
+            <?php endif; ?>
 
-	<div class="nav-bar-search-line"></div>
-					
-	<!-- Facets. -->
-	<div id="solr-facets">
-		<h2 class="nav-bar-search-category">Limit your search</h2>
+        </div>
 
-		<?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
+        <div class="nav-bar-search-line"></div>
 
-		<!-- Does the facet have any hits? -->
-		<?php if (count(get_object_vars($facets))) { ?>
+        <!-- Facets. -->
+        <div id="solr-facets">
+            <h2 class="nav-bar-search-category">Limit your search</h2>
 
-		<!-- Facet label. -->
-		<?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
-		<div class="nav-bar-search-group"><?php echo $label; ?></div>
+            <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
-			<!-- Facets. -->
-			<?php foreach ($facets as $value => $count): ?>
-			  <div class="nav-bar-search-item" value="<?php echo $value; ?>">
+            <!-- Does the facet have any hits? -->
+            <?php if (count(get_object_vars($facets))) { ?>
 
-				<!-- Facet URL. -->
-				<?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
+            <!-- Facet label. -->
+            <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
+            <div class="nav-bar-search-group"><?php echo $label; ?></div>
 
-				<!-- Facet link. -->
-				<a href="<?php echo $url; ?>" class="facet-value">
-				  <?php echo $value; ?>
-				</a>
+                <!-- Facets. -->
+                <?php foreach ($facets as $value => $count): ?>
+                  <div class="nav-bar-search-item" value="<?php echo $value; ?>">
 
-				<!-- Facet count. -->
-				(<span class="facet-count"><?php echo $count; ?></span>)
+                    <!-- Facet URL. -->
+                    <?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
 
-			  </div>
-			<?php endforeach; ?>
+                    <!-- Facet link. -->
+                    <a href="<?php echo $url; ?>" class="facet-value">
+                      <?php echo $value; ?>
+                    </a>
 
-		<?php } ?>
+                    <!-- Facet count. -->
+                    (<span class="facet-count"><?php echo $count; ?></span>)
 
-	  <?php endforeach; ?>
-  
-	</div>
+                  </div>
+                <?php endforeach; ?>
 
-  	<?php if ((count(get_object_vars($facets)))==0) {
-	  echo "<div class=\"nav-bar-search-item\">None</div>";
-	} ?>	
-	</div>	
-<?php else: ?>
+            <?php } ?>
 
-	<div id="search-container" role="search">
-		<?php echo search_form(array('submit_value' => 'search')); ?>
-	</div>
-	<div class="nav-bar-search-category">Applied facets</div>
-	<div class="nav-bar-search-item">None</div>
-	<div class="nav-bar-search-line"></div>
-	<div id="nav-bar-limit-toggle"><div class="nav-bar-search-category">Limit your search</div><div id="nav-bar-limit-expand">keyboard_arrow_down</div><div id="nav-bar-limit-shrink">keyboard_arrow_up</div></div>
-	<div id="nav-bar-limit-search">
-		<div class="nav-bar-search-item">None</div>
-	</div>
-<?php endif; ?>
+          <?php endforeach; ?>
+
+        </div>
+
+        <?php if (count(get_object_vars($facets)) == 0): ?>
+            <div class="nav-bar-search-item">None</div>
+        <?php endif; ?>
+    <?php else: ?>
+
+        <div id="search-container" role="search">
+            <?php echo search_form(array('submit_value' => 'search')); ?>
+        </div>
+        <div class="nav-bar-search-category">Applied facets</div>
+        <div class="nav-bar-search-item">None</div>
+        <div class="nav-bar-search-line"></div>
+        <div id="nav-bar-limit-toggle"><div class="nav-bar-search-category">Limit your search</div><div id="nav-bar-limit-expand">keyboard_arrow_down</div><div id="nav-bar-limit-shrink">keyboard_arrow_up</div></div>
+        <div id="nav-bar-limit-search">
+            <div class="nav-bar-search-item">None</div>
+        </div>
+    <?php endif; ?>
 </div>
 
 <div class="nav-bar-menu" id="nav-bar-menu">
-	<div class="nav-bar-menu-back" id="nav-bar-menu-back"><div class="nav-bar-back-icon">chevron_left</div></div>
-	<a class="nav-bar-menu-item" href="<?php echo WEB_ROOT ?>">Home</a>
-	<br>
-	<a class="nav-bar-menu-item">Introduction</a>
-	<a class="nav-bar-menu-item">Early Holocaust Documentation</a>
-	<a class="nav-bar-menu-subitem">Chapter 1</a>
-	<a class="nav-bar-menu-subitem">Chapter 2</a>
-	<a class="nav-bar-menu-item">Additional narrative text</a>
-	<a class="nav-bar-menu-subitem">Chapter 1</a>
-	<a class="nav-bar-menu-subitem">Chapter 2</a>
-	<a class="nav-bar-menu-subitem">Chapter 3</a>
-	<br>
-	<a class="nav-bar-menu-item">Search individual testimony via map</a>
-	<a class="nav-bar-menu-item">Witnesses</a>
-	<a class="nav-bar-menu-item">Timeline</a>
-	<br>
-	<br>
-	<a class="nav-bar-menu-item">Index</a>
+    <div class="nav-bar-menu-back" id="nav-bar-menu-back"><div class="nav-bar-back-icon">chevron_left</div></div>
+
+    <?php foreach (get_db()->getTable("Exhibit")->findAll() as $exhibit): ?>
+        <?php echo exhibit_builder_page_tree($exhibit); ?>
+    <?php endforeach; ?>
 </div>
 <!-- / desktop navbar -->
 
@@ -198,9 +178,8 @@
 <!-- / mobile navbar -->
 
 <!-- jquery menu control -->
-
 <script>
-$(document).ready(function(){
+jQuery(function($){
 	<!-- dekstop -->
 	<!-- desktop/menu -->
 	$( "#nav-bar-button-menu" ).click(function() {
@@ -405,7 +384,7 @@ $(document).ready(function(){
         <header role="banner">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>     
             <a href="<?php echo WEB_ROOT ?>"><div id="site-title"><?php echo option('site_title'); ?></div></a>
-            <div id="site-subtitle"><?php echo $description; ?></div>  
+            <div id="site-subtitle"><?php echo $description; ?></div>
         </header>
 		<div id="site-logo"><?php echo link_to_home_page(theme_logo()); ?></div>
     <div id="content" role="main" tabindex="-1">

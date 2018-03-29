@@ -1,70 +1,53 @@
 <?php
-if ($this->pageCount > 1) {
+if ($this->pageCount > 1):
     $getParams = $_GET;
-?>
-<nav class="pagination-nav" aria-label="<?php echo __('Pagination'); ?>">
-    <div class="search-results-pagination">
-		<!-- Previous page link -->
-        <?php if (isset($this->previous)) {?>		
-			<div class="search-result-previous">
-				<?php $getParams['page'] = $previous; ?>
-				<a rel="prev" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>">
-					<div class="search-result-image-previous">keyboard_arrow_left</div>
-					<?php echo __('Previous'); ?>
-				</a>
-			</div>
-        <?php } else { ?>
-			<div class="search-result-previous" style="opacity: 0.4"><div class="search-result-image-previous">keyboard_arrow_left</div>
-				Previous
-			</div>
-        <?php } ?>
+    ?>
+    <nav class="pagination-nav" aria-label="<?php echo __('Pagination'); ?>">
+        <ul class="search-results-pagination">
+            <?php if (isset($this->previous)): ?>
+                <!-- Previous page link -->
+                <li class="search-result-previous">
+                    <?php $getParams['page'] = $previous; ?>
+                    <a rel="prev" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>"><?php echo __('Previous Page'); ?></a>
+                </li>
+            <?php endif; ?>
 
-        <div class="search-result-center">
-			<form action="<?php echo html_escape($this->url()); ?>" method="get" accept-charset="utf-8">
-			<?php
-			$hiddenParams = array();
-			$entries = explode('&', http_build_query($getParams));
-			foreach ($entries as $entry) {
-				if(!$entry) {
-					continue;
-				}
-				list($key, $value) = explode('=', $entry);
-				$hiddenParams[urldecode($key)] = urldecode($value);
-			}
+            <li class="page-input">
+                <form action="<?php echo html_escape($this->url()); ?>" method="get" accept-charset="utf-8">
+                    <?php
+                    $hiddenParams = array();
+                    $entries = explode('&', http_build_query($getParams));
+                    foreach ($entries as $entry) {
+                        if(!$entry) {
+                            continue;
+                        }
+                        list($key, $value) = explode('=', $entry);
+                        $hiddenParams[urldecode($key)] = urldecode($value);
+                    }
 
-			foreach($hiddenParams as $key => $value) {
-				if($key != 'page') {
-					echo $this->formHidden($key,$value);
-				}
-			}
+                    foreach($hiddenParams as $key => $value) {
+                        if($key != 'page') {
+                            echo $this->formHidden($key,$value);
+                        }
+                    }
 
-			// Manually create this input to allow an omitted ID
-			$pageInput = '<input class="search-result-center-input" type="text" name="page" title="'
-						. html_escape(__('Current Page'))
-						. '" value="'
-						. html_escape($this->current) . '">';
-			echo __('%s of %s', $pageInput, $this->last);
-			?>
-			</form>
-        </div>
+                    // Manually create this input to allow an omitted ID
+                    $pageInput = '<input type="text" name="page" title="'
+                                 . html_escape(__('Current Page'))
+                                 . '" value="'
+                                 . html_escape($this->current) . '">';
+                    echo __('%s of %s', $pageInput, $this->last);
+                    ?>
+                </form>
+            </li>
 
-        <?php if (isset($this->next)) { ?>
-        <!-- Next page link -->
-        <div class="search-result-next">
-			<?php $getParams['page'] = $next; ?>
-			<a rel="next" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>">
-				<div class="search-result-image-next">keyboard_arrow_right</div>
-				<?php echo __('Next'); ?>
-            </a>
-        </div>
-        <?php } else { ?>
-			<div class="search-result-next" style="opacity: 0.4"><div class="search-result-image-next">keyboard_arrow_right</div>
-				Next
-			</div>
-        <?php } ?>
-    </div>
-</nav>
-
-<?php } else { ?>
-	
-<?php } ?>
+            <?php if (isset($this->next)): ?>
+                <!-- Next page link -->
+                <li class="search-result-next">
+                    <?php $getParams['page'] = $next; ?>
+                    <a rel="next" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>"><?php echo __('Next Page'); ?></a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+<?php endif; ?>
