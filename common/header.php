@@ -314,6 +314,8 @@ $(document).ready(function(){
 			$( "#nav-bar-limit-toggle" ).css('cursor', 'default');
 		} else {
 			$( "#nav-bar-limit-toggle" ).css('cursor', 'pointer');
+			$("#container").animate({ 'margin-left': '0' }, 0);
+			$("#footer").animate({ 'margin-left': '0' }, 0);
 		}
 	});
 	
@@ -398,7 +400,7 @@ $(document).ready(function(){
 <div id="container" style='overflow:hidden;min-height: 100%;'>
     <a href="#content" id="skipnav"><?php echo __('Skip to main content'); ?></a>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-		<div class="header-image"></div>
+		<div class="header-image" style="background: url('<?php echo theme_header_image_url(); ?>') no-repeat center left; background-size: cover;"></div>
 		<div class="header-overlay"></div>
         <header role="banner">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>     
