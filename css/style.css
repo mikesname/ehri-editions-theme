@@ -892,8 +892,6 @@ header a:hover {
 }
 
 .header-image {
-  background: url("../images/header.jpg") no-repeat center left;
-  background-size: cover;
   height: 180px;
   margin: 0 0 0 80px;
   position: relative;
