@@ -64,50 +64,17 @@ jQuery(function($) {
 		<div class="addthis_inline_share_toolbox"></div>
 	</div>
 
-	<div id="metadata-button" class="items-content-button"><?php echo __('Metadata'); ?></div>
-	<div id="document-text-button" class="items-content-button"><?php echo __('Document text'); ?></div>
-	<div id="map-button" class="items-content-button"><?php echo __('Map'); ?></div>
-	<?php if (plugin_is_active('Commenting')) { ?>
-		<div id="comments-button" class="items-content-button"><?php echo __('Comments'); ?></div>
-	<?php } ?>
-	
     <!-- Items metadata -->
-    <div id="item-metadata">
-        <?php echo all_element_texts('item'); ?>
+    <div id="item-texts">
+        <?php echo tei_editions_render_item_text('item'); ?>
     </div>
 
-	<!-- Mobile navigation -->
+
+    <!-- Mobile navigation -->
 	<div id="item-pagination-mobile" class="item-pagination navigation">
         <div class="item-pagination-previous"><?php echo link_to_previous_item_show_custom(); ?></div><br>
         <div class="item-pagination-next"><?php echo link_to_next_item_show_custom(); ?></div>
     </div>
-
-	<?php if (plugin_is_active('Commenting')) { ?>
-		<h4 id="comments"><?php echo __('Comments'); ?></h4>
-		<div id="comments-empty" class="comments-empty"><?php echo __('There are no comments yet.'); ?></div>
-		<?php CommentingPlugin::showComments(); ?>
-		<div id="comment-expand-button" class="items-content-button"><?php echo __('Comment'); ?></div>
-	<?php } ?>
-	
-     <!-- The following prints a list of all tags associated with the item -->
-    <h4><?php echo __('Related chapters'); ?></h4>
-    <div class="related-chapters-box">
-    <a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-		<div class="related-chapters">
-			<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-			<div class="related-chapters-title">Additional narrative texts</div>
-			<p>How belowed Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans</p>
-		</div>
-    </a>
-    <a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-		<div class="related-chapters">
-			<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-			<div class="related-chapters-title">Lorem Ipsum</div>
-			<p>How belowed Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans</p>
-		</div>
-    </a>
-    </div>
-
 </div> <!-- End of Primary. -->
 
  <?php echo foot(); ?>
