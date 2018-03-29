@@ -1,19 +1,21 @@
 <script>
-$("#metadata-button").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#metadata").offset().top + (+4)
-    }, 400);
-});
-$("#document-text-button").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#document-text").offset().top + (+4)
-    } , 400);
-});
-$("#map-button").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#map").offset().top + (+17)
-    } , 400);
-});
+    jQuery(function($) {
+        $("#metadata-button").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#metadata").offset().top + (+4)
+            }, 400);
+        });
+        $("#document-text-button").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#document-text").offset().top + (+4)
+            }, 400);
+        });
+        $("#map-button").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#map").offset().top + (+17)
+            }, 400);
+        });
+    });
 </script>
 
 <?php foreach ($elementsForDisplay as $setName => $setElements): ?>
@@ -111,11 +113,11 @@ $("#map-button").click(function() {
 		<div id="annotation-001" class="content-info-annotation">
 			1. Kárný, M.: Obóz familijny w Brzezince dla Zydów z Theresienstadt, in: Zeszyty oświecimskie nr 20, 1993, s.159.
 		</div>
-		<div id="person-001" class="content-info-person">
+		<div id="person-001" class="content-info-entity">
 			<h5>Edita Hellerová</h5>
-			<div id="content-info-person-close" class="material-icons">close</div>
-			<div id="content-info-person-open" class="material-icons">launch</div>
-			<div class="content-info-person-body">
+			<div id="content-info-entity-close" class="material-icons">close</div>
+			<div id="content-info-entity-open" class="material-icons">launch</div>
+			<div class="content-info-entity-body">
 				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/edita.png" alt="photo">
 				<p>Narozena 02. 03. 1896</p>
 				<p>Poslední bydliště před deportací: Praha I</p>
@@ -152,25 +154,31 @@ $("#map-button").click(function() {
 <iframe class="element-map" src="<?php echo $mapString ?>" width=100% height="410" frameborder="0" allowfullscreen></iframe>
 <?php } else { ?>
 <script>
-	$( "#map-button" ).hide(0, function() {});
+	jQuery( "#map-button" ).hide(0, function() {});
 </script>
     
 <?php }?>
 
 <script>
-	$( "#language-button-02" ).click(function() {
-		$( "#language-01" ).hide( "fast", function() {});
-		$( "#language-02" ).show( "fast", function() {});
-		$( "#language-button-01" ).attr('class', 'element-text-language');
-		$( "#language-button-02" ).attr('class', 'element-text-language-selected');
-	});
+    jQuery(function($) {
+        $("#language-button-02").click(function () {
+            $("#language-01").hide("fast", function () {
+            });
+            $("#language-02").show("fast", function () {
+            });
+            $("#language-button-01").attr('class', 'element-text-language');
+            $("#language-button-02").attr('class', 'element-text-language-selected');
+        });
 
-	$( "#language-button-01" ).click(function() {
-		$( "#language-02" ).hide( "fast", function() {});
-		$( "#language-01" ).show( "fast", function() {});
-		$( "#language-button-02" ).attr('class', 'element-text-language');
-		$( "#language-button-01" ).attr('class', 'element-text-language-selected');
-	});
+        $("#language-button-01").click(function () {
+            $("#language-02").hide("fast", function () {
+            });
+            $("#language-01").show("fast", function () {
+            });
+            $("#language-button-02").attr('class', 'element-text-language');
+            $("#language-button-01").attr('class', 'element-text-language-selected');
+        });
+    });
 </script>
 
 

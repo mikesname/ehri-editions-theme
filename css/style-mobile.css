@@ -81,7 +81,16 @@ h4 {
   width: 100%;
 }
 
-.nav-bar {
+.search-results-pagination li {
+  list-style-type: none;
+}
+
+.search-results-pagination li {
+  list-style-type: none;
+}
+
+
+  .nav-bar {
   display: none;
 }
 

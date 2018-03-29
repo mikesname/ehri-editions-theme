@@ -1,6 +1,6 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 <script>
-$(function() {
+jQuery(function($) {
   var doc = new jsPDF();
   var specialElementHandlers = {
     '#editor': function(element, renderer) {

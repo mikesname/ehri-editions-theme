@@ -107,7 +107,7 @@
 
 <!-- slick --> 
   <script type="text/javascript">
-    $(document).on('ready', function() {
+    jQuery(function($) {
       $(".regular").slick({
         dots: true,
         infinite: true,
