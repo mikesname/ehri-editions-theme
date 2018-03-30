@@ -3,7 +3,7 @@
 <div class="header-search-background"></div>
 	<div id="header-search">
 		<div id="search-container" role="search">
-			<?php echo search_form(array('submit_value' => 'search')); ?>
+			<?php echo search_form(array('submit_value' => 'search', 'text_value' => __('Search'))); ?>
 		</div>
 	</div>
 
@@ -105,16 +105,29 @@
 	</div>
 </div><!-- end secondary -->
 
-<!-- slick --> 
-  <script type="text/javascript">
-    jQuery(function($) {
-      $(".regular").slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-    });
+
+<script type="text/javascript">
+	jQuery(function($) {
+		<!-- slick --> 
+		$(".regular").slick({
+			dots: true,
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 3
+		});
+		
+		<!-- search fields --> 
+		$('#search-container input[type=text]').on('click focusin', function() {
+			if (this.value === 'Search') {
+				this.value = '';
+			}
+		});
+		$('#search-container input[type=text]').on('focusout', function() {
+			if (this.value.length === 0) {
+				this.value = 'Search';
+			}
+		});
+	});
 </script>
 
 <?php echo foot(); ?>
