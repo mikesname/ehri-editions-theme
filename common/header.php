@@ -26,6 +26,7 @@
     echo head_css();
     ?>
     <!-- java -->
+    <?php queue_js_file('menu', 'javascripts'); ?>
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
     <?php queue_js_file('vendor/jquery-accessibleMegaMenu'); ?>
@@ -45,6 +46,7 @@
         
 	<!-- slick -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.css"; ?>" />
+    
     <!-- photoswipe -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>" />
@@ -103,62 +105,64 @@
 
         <!-- Facets. -->
         <div id="solr-facets">
+			<div id="nav-bar-limit-toggle">
             <h2 class="nav-bar-search-category">Limit your search</h2>
+            <div id="nav-bar-limit-expand">keyboard_arrow_down</div><div id="nav-bar-limit-shrink">keyboard_arrow_up</div></div>
+			<div id="nav-bar-limit-search">
+				<?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
-            <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
+				<!-- Does the facet have any hits? -->
+				<?php if (count(get_object_vars($facets))) { ?>
 
-            <!-- Does the facet have any hits? -->
-            <?php if (count(get_object_vars($facets))) { ?>
+				<!-- Facet label. -->
+				<?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
+				<div class="nav-bar-search-group"><?php echo $label; ?></div>
 
-            <!-- Facet label. -->
-            <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
-            <div class="nav-bar-search-group"><?php echo $label; ?></div>
+					<!-- Facets. -->
+					<?php foreach ($facets as $value => $count): ?>
+					  <div class="nav-bar-search-item" value="<?php echo $value; ?>">
 
-                <!-- Facets. -->
-                <?php foreach ($facets as $value => $count): ?>
-                  <div class="nav-bar-search-item" value="<?php echo $value; ?>">
+						<!-- Facet URL. -->
+						<?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
 
-                    <!-- Facet URL. -->
-                    <?php $url = SolrSearch_Helpers_Facet::addFacet($name, $value); ?>
+						<!-- Facet link. -->
+						<a href="<?php echo $url; ?>" class="facet-value">
+						  <?php echo $value; ?>
+						</a>
 
-                    <!-- Facet link. -->
-                    <a href="<?php echo $url; ?>" class="facet-value">
-                      <?php echo $value; ?>
-                    </a>
+						<!-- Facet count. -->
+						(<span class="facet-count"><?php echo $count; ?></span>)
 
-                    <!-- Facet count. -->
-                    (<span class="facet-count"><?php echo $count; ?></span>)
+					  </div>
+					<?php endforeach; ?>
 
-                  </div>
-                <?php endforeach; ?>
+				<?php } ?>
 
-            <?php } ?>
+			  <?php endforeach; ?>
 
-          <?php endforeach; ?>
+			</div>
 
-        </div>
+			<?php if (count(get_object_vars($facets)) == 0): ?>
+				<div class="nav-bar-search-item">None</div>
+			<?php endif; ?>
+		<?php else: ?>
 
-        <?php if (count(get_object_vars($facets)) == 0): ?>
-            <div class="nav-bar-search-item">None</div>
-        <?php endif; ?>
-    <?php else: ?>
-
-        <div id="search-container" role="search">
-            <?php echo search_form(array('submit_value' => 'search')); ?>
-        </div>
-        <div class="nav-bar-search-category">Applied facets</div>
-        <div class="nav-bar-search-item">None</div>
-        <div class="nav-bar-search-line"></div>
-        <div id="nav-bar-limit-toggle"><div class="nav-bar-search-category">Limit your search</div><div id="nav-bar-limit-expand">keyboard_arrow_down</div><div id="nav-bar-limit-shrink">keyboard_arrow_up</div></div>
-        <div id="nav-bar-limit-search">
-            <div class="nav-bar-search-item">None</div>
-        </div>
-    <?php endif; ?>
+			<div id="search-container" role="search">
+				<?php echo search_form(array('submit_value' => 'search')); ?>
+			</div>
+			<div class="nav-bar-search-category">Applied facets</div>
+			<div class="nav-bar-search-item">None</div>
+			<div class="nav-bar-search-line"></div>
+			<div id="nav-bar-limit-toggle"><div class="nav-bar-search-category">Limit your search</div><div id="nav-bar-limit-expand">keyboard_arrow_down</div><div id="nav-bar-limit-shrink">keyboard_arrow_up</div></div>
+			<div id="nav-bar-limit-search">
+				<div class="nav-bar-search-item">None</div>
+			</div>
+		<?php endif; ?>
+     </div>
 </div>
 
 <div class="nav-bar-menu" id="nav-bar-menu">
     <div class="nav-bar-menu-back" id="nav-bar-menu-back"><div class="nav-bar-back-icon">chevron_left</div></div>
-
     <?php foreach (get_db()->getTable("Exhibit")->findAll() as $exhibit): ?>
         <?php echo exhibit_builder_page_tree($exhibit); ?>
     <?php endforeach; ?>
@@ -177,209 +181,10 @@
 </div>
 <!-- / mobile navbar -->
 
-<!-- jquery menu control -->
-<script>
-jQuery(function($){
-	<!-- dekstop -->
-	<!-- desktop/menu -->
-	$( "#nav-bar-button-menu" ).click(function() {
-		if( $("#nav-bar-menu").css("display") == 'none' ) {
-		   if( $( "#nav-bar-search" ).css("display") == 'none' ) {
-				$( "#nav-bar-menu" ).show( "slide", function() {});
-				$( "#nav-bar-search" ).hide( "slide", function() {}); 
-		   } else {
-			   $( "#nav-bar-menu" ).show( 0, function() {});
-			   $( "#nav-bar-search" ).hide( 0, function() {}); 
-		   }
-		   $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu-selected');
-		   $("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
-		   if ($(window).width() > 1180) {
-				$("#container").animate({ 'margin-left': '240px'}, 400);
-				$("#footer").animate({ 'margin-left': '240px' }, 400);
-				$("#home-map").attr('class', 'home-map-resized');
-				$("#nav-bar-menu").attr('class', 'nav-bar-menu');
-			} else {
-				$("#nav-bar-menu").attr('class', 'nav-bar-menu-shadow');
-			} 			   
-		} else {
-		   $( "#nav-bar-search" ).hide( "slide", function() {});
-		   $( "#nav-bar-menu" ).hide( "slide", function() {});
-		   $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
-		   $("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
-		   $("#container").animate({ 'margin-left': '0' }, 400);
-		   $("#footer").animate({ 'margin-left': '0' }, 400);
-		   $("#home-map").attr('class', 'home-map');
-		}			
-	});
-	
-	$( "#nav-bar-menu-back" ).click(function() {
-		$( "#nav-bar-menu" ).hide( "slide", function() {});
-		$("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
-		$("#container").animate({ 'margin-left': '0' }, 400);
-		$("#footer").animate({ 'margin-left': '0' }, 400);
-		$("#home-map").attr('class', 'home-map');
-	});
-	
-	<!-- desktop/search -->
-	$( "#nav-bar-button-search" ).click(function() {
-		$("#nav-bar-limit-search").css('display', 'block');
-		$("#nav-bar-limit-expand").css('display', 'none');
-		$("#nav-bar-limit-shrink").css('display', 'none');
-		if( $( "#nav-bar-search" ).css("display") == 'none' ) {
-		   if( $("#nav-bar-menu").css("display") == 'none' ) {
-				$( "#nav-bar-search" ).show( "slide", function() {});
-				$( "#nav-bar-menu" ).hide( "slide", function() {}); 
-				$("#query").focus();
-		   } else {
-			   $( "#nav-bar-search" ).show( 0, function() {});
-			   $( "#nav-bar-menu" ).hide( 0, function() {}); 
-				$("#query").focus();
-		   }
-		   $("#nav-bar-button-search").attr('class', 'nav-bar-button-search-selected');
-		   $("#nav-bar-button-menu" ).attr('class', 'nav-bar-button-menu');
-		   if ($(window).width() > 1180) {
-				$("#container").animate({ 'margin-left': '240px'}, 400);
-				$("#footer").animate({ 'margin-left': '240px' }, 400);
-				$("#home-map").attr('class', 'home-map-resized');
-				$( "#nav-bar-search" ).attr('class', 'nav-bar-search');
-			} else {
-				$( "#nav-bar-search" ).attr('class', 'nav-bar-search-shadow');
-			} 
-		} else {
-		   $( "#nav-bar-menu" ).hide( "", function() {});
-		   $( "#nav-bar-search" ).hide( "slide", function() {});
-		   $("#nav-bar-button-search").attr('class', 'nav-bar-button-search');
-		   $("#nav-bar-button-menu" ).attr('class', 'nav-bar-button-menu');
-		   $("#container").animate({ 'margin-left': '0' }, 400);
-		   $("#footer").animate({ 'margin-left': '0' }, 400);
-		   $("#home-map").attr('class', 'home-map');
-		}		
-	});
-	$( "#nav-bar-search-back" ).click(function() {
-		$( "#nav-bar-search" ).hide( "slide", function() {});
-		$("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
-		$("#container").animate({ 'margin-left': '0' }, 400);
-		$("#footer").animate({ 'margin-left': '0' }, 400);
-		$("#home-map").attr('class', 'home-map');
-	});
-	$( window ).resize(function() {
-		if ($(window).width() < 1180) {
-			if ($(window).width() > 930) {
-				if ($("#nav-bar-menu").is(":visible")) {
-					$( "#nav-bar-menu" ).hide( "slide", function() {});
-					$("#nav-bar-button-menu" ).attr('class', 'nav-bar-button-menu');
-					$("#container").animate({ 'margin-left': '0' }, 400);
-					$("#footer").animate({ 'margin-left': '0' }, 400);
-					
-				} else if ($( "#nav-bar-search" ).is(":visible")) {
-					if (!( "header" ).attr('class', 'search')) {
-						$( "#nav-bar-search" ).hide( "slide", function() {});
-						$("#nav-bar-button-search" ).attr('class', 'nav-bar-button-search');
-						$("#container").animate({ 'margin-left': '0' }, 400);
-						$("#footer").animate({ 'margin-left': '0' }, 400);
-					}
-				}
-				$("#home-map").attr('class', 'home-map');
-				$("#nav-bar-mobile-icon-search").text('search');
-				$("#nav-bar-mobile-icon-menu").text('menu');
-				$("#nav-bar-mobile-icon-menu").css('font-size', '48px');
-				$("#nav-bar-mobile-icon-menu").css('margin-top', '0px');
-				$("#nav-bar-mobile-button-search").attr('class', 'nav-bar-mobile-button-search');
-				$("#nav-bar-mobile-button-menu" ).attr('class', 'nav-bar-mobile-button-menu');
-			}
-		}
-		
-		if ($(window).width() > 930) {
-			$( "#nav-bar-limit-toggle" ).css('cursor', 'default');
-		} else {
-			$( "#nav-bar-limit-toggle" ).css('cursor', 'pointer');
-			$("#container").animate({ 'margin-left': '0' }, 0);
-			$("#footer").animate({ 'margin-left': '0' }, 0);
-		}
-	});
-	
-	<!-- mobile -->
-	<!-- mobile/menu -->
-	$( "#nav-bar-mobile-button-menu" ).click(function() {
-		if( $("#nav-bar-menu").css("display") == 'none' ) {
-		   $("#nav-bar-mobile-icon-menu").text('close');
-		   $("#nav-bar-mobile-icon-menu").css('font-size', '36px');
-		   $("#nav-bar-mobile-icon-menu").css('margin-top', '7px');
-		   if( $("#nav-bar-search").css("display") == 'none' ) {
-				$( "#nav-bar-menu" ).show( 0, function() {});
-		        $( "#nav-bar-search" ).hide( 0, function() {}); 
-		   } else {
-			   $( "#nav-bar-menu" ).show( 0, function() {});
-			   $( "#nav-bar-search" ).hide( 0, function() {}); 
-		   }
-		   $("#nav-bar-mobile-button-menu").attr('class', 'nav-bar-mobile-button-menu-selected');
-		   $("#nav-bar-mobile-button-search" ).attr('class', 'nav-bar-mobile-button-search');
-		   					   
-		} else {
-		   $("#nav-bar-mobile-icon-menu").text('menu');
-		   $("#nav-bar-mobile-icon-menu").css('font-size', '48px');
-		   $("#nav-bar-mobile-icon-menu").css('margin-top', '0px');
-		   $( "#nav-bar-search" ).hide( 0, function() {});
-		   $( "#nav-bar-menu" ).hide( 0, function() {});
-		   $("#nav-bar-mobile-button-menu").attr('class', 'nav-bar-mobile-button-menu');
-		   $("#nav-bar-mobile-button-search" ).attr('class', 'nav-bar-mobile-button-search');
-		}		
-	    $("#nav-bar-mobile-icon-search").text('search');		
-	});
-	
-	<!-- mobile/search -->
-	$( "#nav-bar-mobile-button-search" ).click(function() {
-		$("#nav-bar-limit-search").css('display', 'none');
-		$("#nav-bar-limit-shrink").css('display', 'none');
-		$("#nav-bar-limit-expand").css('display', 'inline');
-		if( $("#nav-bar-search").css("display") == 'none' ) {
-		   $("#nav-bar-mobile-icon-search").text('close');
-		   if( $("#nav-bar-menu").css("display") == 'none' ) {
-				$( "#nav-bar-search" ).show( 0, function() {});
-		        $( "#nav-bar-menu" ).hide( 0, function() {}); 
-		        $("#query").focus();
-		   } else {
-			   $( "#nav-bar-search" ).show( 0, function() {});
-			   $( "#nav-bar-menu" ).hide( 0, function() {}); 
-			   	$("#query").focus();
-		   }
-		   $("#nav-bar-mobile-button-search").attr('class', 'nav-bar-mobile-button-search-selected');
-		   $("#nav-bar-mobile-button-menu" ).attr('class', 'nav-bar-mobile-button-menu');
-			
-		} else {
-		   $("#nav-bar-mobile-icon-search").text('search');
-		   $( "#nav-bar-menu" ).hide( 0, function() {});
-		   $( "#nav-bar-search" ).hide( 0, function() {});
-		   $("#nav-bar-mobile-button-search").attr('class', 'nav-bar-mobile-button-search');
-		   $("#nav-bar-mobile-button-menu" ).attr('class', 'nav-bar-mobile-button-menu');
-		}				
-		$("#nav-bar-mobile-icon-menu").text('menu');
-		$("#nav-bar-mobile-icon-menu").css('font-size', '48px');
-		$("#nav-bar-mobile-icon-menu").css('margin-top', '0px');
-	});
-	
-	<!-- mobile expand search limits -->
-	$( "#nav-bar-limit-toggle" ).click(function() {
-		if ($(window).width() < 930) {
-			if ( $("#nav-bar-limit-expand").css('display') == 'none' ) {
-				$("#nav-bar-limit-search").css('display', 'none');
-				$("#nav-bar-limit-shrink").css('display', 'none');
-				$("#nav-bar-limit-expand").css('display', 'inline');
-			} else {	
-				$("#nav-bar-limit-search").css('display', 'block');
-				$("#nav-bar-limit-shrink").css('display', 'inline');
-				$("#nav-bar-limit-expand").css('display', 'none');	
-			}
-		}
-	});
-});
-</script>
-<!-- / jquery menu control -->
-
 <div id="container" style='overflow:hidden;min-height: 100%;'>
     <a href="#content" id="skipnav"><?php echo __('Skip to main content'); ?></a>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-		<div class="header-image" style="background: url('<?php echo theme_header_image_url(); ?>') no-repeat center left; background-size: cover;"></div>
+		<div class="header-image" id="header-image" style="background: url('<?php echo theme_header_image_url(); ?>') no-repeat center left; background-size: cover;"></div>
 		<div class="header-overlay"></div>
         <header role="banner">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>     

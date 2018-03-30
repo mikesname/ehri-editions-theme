@@ -3,16 +3,22 @@ if ($this->pageCount > 1):
     $getParams = $_GET;
     ?>
     <nav class="pagination-nav" aria-label="<?php echo __('Pagination'); ?>">
-        <ul class="search-results-pagination">
-            <?php if (isset($this->previous)): ?>
+        <div class="search-results-pagination">
+            <?php if (isset($this->previous)) { ?>
                 <!-- Previous page link -->
-                <li class="search-result-previous">
+                <div class="search-result-previous">
                     <?php $getParams['page'] = $previous; ?>
-                    <a rel="prev" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>"><?php echo __('Previous Page'); ?></a>
-                </li>
-            <?php endif; ?>
+                    <a rel="prev" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>">
+                    <div class="search-result-image-previous">keyboard_arrow_left</div>
+                    <?php echo __('Previous'); ?></a>
+                </div>
+			<?php } else { ?>
+				<div class="search-result-previous" style="opacity: 0.4"><div class="search-result-image-previous">keyboard_arrow_left</div>
+					<?php echo __('Previous'); ?>
+				</div>
+			<?php } ?>
 
-            <li class="page-input">
+            <div class="search-result-center">
                 <form action="<?php echo html_escape($this->url()); ?>" method="get" accept-charset="utf-8">
                     <?php
                     $hiddenParams = array();
@@ -39,15 +45,21 @@ if ($this->pageCount > 1):
                     echo __('%s of %s', $pageInput, $this->last);
                     ?>
                 </form>
-            </li>
+            </div>
 
-            <?php if (isset($this->next)): ?>
+            <?php if (isset($this->next)) { ?>
                 <!-- Next page link -->
-                <li class="search-result-next">
+                <div class="search-result-next">
                     <?php $getParams['page'] = $next; ?>
-                    <a rel="next" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>"><?php echo __('Next Page'); ?></a>
-                </li>
-            <?php endif; ?>
-        </ul>
+                    <a rel="next" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>">
+                    <div class="search-result-image-next">keyboard_arrow_right</div>
+                    <?php echo __('Next'); ?></a>
+                </div>
+			<?php } else { ?>
+				<div class="search-result-next" style="opacity: 0.4"><div class="search-result-image-next">keyboard_arrow_right</div>
+					<?php echo __('Next'); ?>
+				</div>
+			<?php } ?>
+        </div>
     </nav>
 <?php endif; ?>
