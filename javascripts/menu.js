@@ -170,6 +170,12 @@ jQuery(function($){
 				}
 			}
 		});
+		
+		if ($(window).width() < 930) {
+			$("#nav-bar-limit-search").css('display', 'none');
+			$("#nav-bar-limit-shrink").css('display', 'none');
+			$("#nav-bar-limit-expand").css('display', 'inline');
+		}
 	});
 		
 	$( window ).resize(function() {
