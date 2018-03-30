@@ -116,13 +116,13 @@
 			slidesToScroll: 3
 		});
 		
-		<!-- search fields --> 
-		$('#search-container input[type=text]').on('click focusin', function() {
+		<!-- search fields text --> 
+		$('#header-search input[type=text]').on('click focusin', function() {
 			if (this.value === 'Search') {
 				this.value = '';
 			}
 		});
-		$('#search-container input[type=text]').on('focusout', function() {
+		$('#header-search input[type=text]').on('focusout', function() {
 			if (this.value.length === 0) {
 				this.value = 'Search';
 			}
