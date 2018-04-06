@@ -12,8 +12,14 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
 <?php echo head(array('title' => __('Solr Search'), 'results' => $results, 'bodyclass' => 'search'));?>
 
-<?php if (isset($_GET["q"]) and trim($_GET["q"]) !== "" and ($results->response->numFound)>0): ?>
-    <h1><?php echo __("Search Results for \"%s\": %d", $searchQuery, $results->response->numFound); ?></h1>
+<?php if ($results->response->numFound > 0): ?>
+    <h1>
+        <?php if ($searchQuery): ?>
+            <?php echo __("Search Results for \"%s\": %d", $searchQuery, $results->response->numFound); ?>
+        <?php else: ?>
+            <?php echo __("All Documents"); ?>
+        <?php endif; ?>
+    </h1>
 
 	<?php echo pagination_links(); ?>
 
