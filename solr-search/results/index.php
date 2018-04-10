@@ -29,36 +29,8 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 	  <!-- Number found. -->
 		<?php $db = get_db(); ?>
 		<?php foreach ($results->response->docs as $doc): ?>
-
-			<?php $record = $db->getTable("Item")->find($doc->modelid); ?>
-            <?php if ($record): ?>
-                <?php $url = SolrSearch_Helpers_Index::getUri($record); ?>
-
-                <?php set_current_record("item", $record); ?>
-
-                <div class="search-result">
-                    <?php
-                        $date = metadata($record, array('Dublin Core', 'Date'));
-                        $place = metadata($record, array('Dublin Core', 'Publisher'));
-                    ?>
-                    <a href="<?php echo $url;?>">
-                        <?php if ($recordImage = record_image("item")):  ?>
-                            <?php echo $recordImage ?>
-                        <?php else: ?>
-                            <div class="search-result-image-blank"></div>
-                        <?php endif; ?>
-                    </a>
-                    <div class="search-result-wrapper">
-                        <a class="search-result-link" href="<?php echo $url; ?>">
-                            <div class="search-result-title"><?php echo metadata($record, 'display_title'); ?></div>
-                        </a>
-                        <?php if (isset($date)){ $addition = $date; } ?>
-                        <?php if (isset($place)){ $addition = $date . " | " . $place; }?>
-                        <?php if($addition){echo "<p>$addition</p>";} ?>
-                        <p><?php echo metadata($record, array('Dublin Core', 'Description'), array('snippet'=>300)); ?></p>
-                        <p>Languages: <?php echo metadata($record, array('Dublin Core', 'Language')); ?></p>
-                    </div>
-                </div>
+            <?php if ($item = $db->getTable("Item")->find($doc->modelid)): ?>
+                <?php echo tei_editions_render_search_item($item); ?>
             <?php endif; ?>
 		<?php endforeach; ?>
 	</div>
