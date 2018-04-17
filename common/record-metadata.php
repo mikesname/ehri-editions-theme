@@ -30,13 +30,12 @@
 		  }
     ?>
     <?php foreach ($setElements as $elementName => $elementInfo): ?>
-		<?php if (in_array($elementName, array("Creator", "Date", "Description", "Identifier", "Language", "Original Format", "Publisher", "Source", "Text", "Type")) == True) { ?>
+		<?php if (in_array($elementName, array("Creator", "Date", "Description", "Language", "Original Format", "Publisher", "Source", "Text", "Type")) == True) { ?>
 			<div id="<?php echo text_to_id(html_escape("$setName $elementName")); ?>" class="element">
 				<?php foreach ($elementInfo['texts'] as $text):
 						if ($elementName=="Creator") { $creatorString = $text; }
 						if ($elementName=="Date") { $dateString = $text; }
 						if ($elementName=="Description") { $descriptionString = $text; }
-						if ($elementName=="Identifier") { $mapType = $text; }	
 						if ($elementName=="Language") { $languageString = $text; }	
 						if ($elementName=="Original Format") { $textOriginalString = $text; }
 						if ($elementName=="Publisher") { $placeString = $text; }
@@ -152,17 +151,7 @@
 <!-- MAP -->
 <?php if (isset($mapString)) { ?>
 	<div id="map"></div><h3 class="map-document">Map</h3><h3 class="map-document-mobile">View Map</h3><div id="map-toggle-fullscreen"><span class="map-document-text">Toggle fullscreen</span><div id="map-toggle-fullscreen-icon" class="material-icons">fullscreen</div></div>
-	<?php if (isset($mapType)) { ?>
-		<?php if ($mapType=="small") { ?>
-			<iframe class="element-map" src="<?php echo $mapString ?>" width=100% height="410" frameborder="0" allowfullscreen></iframe>
-		<?php } elseif ($mapType=="wide") { ?>
-			<iframe id="element-map-wide" class="element-map-wide" src="<?php echo $mapString ?>" width=100% height="460" frameborder="0" allowfullscreen></iframe>
-		<?php } elseif ($mapType=="large") { ?>
-			<iframe id="element-map-large" class="element-map-large" src="<?php echo $mapString ?>" width=100% height="600" frameborder="0" allowfullscreen></iframe>
-		<?php }?>	
-	<?php } else { ?>
-		<iframe class="element-map" src="<?php echo $mapString ?>" width=100% height="410" frameborder="0" allowfullscreen></iframe>
-	<?php }?>	
+	<iframe class="element-map" src="<?php echo $mapString ?>" width=100% height="410" frameborder="0" allowfullscreen></iframe>
 <?php } else { ?>
 		<script>
 			jQuery( "#map-button" ).hide(0, function() {});
