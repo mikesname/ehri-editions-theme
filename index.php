@@ -26,6 +26,7 @@
     <?php endif; ?>
 
     <?php if ((get_theme_option('Display Featured Exhibit')) && function_exists('exhibit_builder_display_random_featured_exhibit')): ?>
+    
     <!-- Featured Exhibit -->
     <?php $featuredString = "How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy"; ?>
     <h4>Edition Chapters</h4>
@@ -69,39 +70,29 @@
 
     <!--<php echo exhibit_builder_display_random_featured_exhibit(); ?>-->
     <?php endif; ?>
+    
+    <!-- MAP OF ITEMS-->
     <h4>Map of items</h4>
     <div class="home-map-wrapper">
 		<iframe id="home-map" class="home-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d96815.27473282232!2d-74.07053318395133!3d40.68548380090549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ses!4v1521111530896" width="100%" height="460px" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</div>
+	
+	<!-- RECENTLY ADDED ITEMS-->
     <h4>Recently added items</h4>
     <div class="recently-added-wrapper">
-		<div class="search-result">
-			<div class="search-result-image-blank"></div>
-			<div class="search-result-wrapper">
-				<div class="search-result-title">Sachsová, Gerta: Dopis o osudu rodiny Artura a Edity Hellerových z Prahy</div>			
-				<p>May 20, 1945  |   Prague</p>
-				<p>Letter describes the fate of her parents and husband. Gerta Sachs shortly tells about her actual situation.</p>
-				<p>Languages: English, Czech (original)</p>
-			</div>
-		</div>
-		<div class="search-result">
-			<div class="search-result-image-blank"></div>
-			<div class="search-result-wrapper">
-				<div class="search-result-title">Sachsová, Gerta: Dopis o osudu rodiny Artura a Edity Hellerových z Prahy</div>			
-				<p>May 20, 1945  |   Prague</p>
-				<p>Letter describes the fate of her parents and husband. Gerta Sachs shortly tells about her actual situation.</p>
-				<p>Languages: English, Czech (original)</p>
-			</div>
-		</div>
-		<div class="search-result">
-			<div class="search-result-image-blank"></div>
-			<div class="search-result-wrapper">
-				<div class="search-result-title">Sachsová, Gerta: Dopis o osudu rodiny Artura a Edity Hellerových z Prahy</div>			
-				<p>May 20, 1945  |   Prague</p>
-				<p>Letter describes the fate of her parents and husband. Gerta Sachs shortly tells about her actual situation.</p>
-				<p>Languages: English, Czech (original)</p>
-			</div>
-		</div>
+	<?php
+    $recentItems = get_theme_option('Homepage Recent Items');
+    if ($recentItems === null || $recentItems === ''):
+        $recentItems = 3;
+    else:
+        $recentItems = (int) $recentItems;
+    endif;
+    if ($recentItems):
+    ?>
+    
+	<?php echo recent_items_custom($recentItems); ?>
+    <?php endif; ?>
+    <?php fire_plugin_hook('public_home', array('view' => $this)); ?>
 	</div>
 </div><!-- end secondary -->
 
