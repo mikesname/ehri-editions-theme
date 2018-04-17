@@ -26,8 +26,11 @@ echo head(array(
     });
 </script>
 
+<?php $title = metadata('exhibit_page', 'title'); ?>
+
 <div class="exhibit-pagination">
-    <?php echo exhibit_builder_page_trail();?>
+    <div class="item-pagination-previous"><?php echo exhibit_builder_link_to_previous_page_custom();?></div>
+    <div class="item-pagination-next"><?php echo exhibit_builder_link_to_next_page_custom();?></div>
 </div>
 
 <h1><?php echo metadata('exhibit_page', 'title'); ?></h1>
@@ -42,11 +45,6 @@ echo head(array(
 
 <div id="exhibit-blocks" class="clearfix">
     <?php exhibit_builder_render_exhibit_page(); ?>
-</div>
-
-<div id="exhibit-footer">
-    <?php echo exhibit_builder_link_to_previous_page();?>
-    <?php echo exhibit_builder_link_to_next_page();?>
 </div>
 
 <?php echo foot(); ?>
