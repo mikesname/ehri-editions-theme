@@ -118,7 +118,7 @@ h4 {
   left: 0;
   margin: 0;
   overflow: auto;
-  padding: 5% 5% 2% 5%;
+  padding: 15px 2.5% 2.5% 2.5%;
   position: relative;
   top: 50px;
   width: 100%;
@@ -128,6 +128,16 @@ h4 {
 .nav-bar-menu-back,
 .nav-bar-search-back {
   display: none;
+}
+
+.nav-bar-menu > ul > li > a,
+.nav-bar-menu-item {
+  margin: 0 0 15px 0;
+}
+
+.nav-bar-menu > ul > li > ul > li a,
+.nav-bar-menu-subitem {
+  margin: 0 0 15px 0;
 }
 
 .nav-bar-search-category {
@@ -170,7 +180,7 @@ footer p {
 
 .footer-logo {
   margin-right: 15px;
-  width: 80px;
+  height: 57px;
 }
 
 header {

@@ -829,7 +829,6 @@ a.nav-bar-search-item-close {
 
 #nav-bar-limit-toggle {
   cursor: pointer;
-  height: 50px;
 }
 
 .nav-bar-search-back {
@@ -2179,10 +2178,6 @@ footer nav + p {
 
 /* @end */
 /* @group ----- Exhibit Builder ----- */
-.exhibits h1 {
-	margin: 0 0 0 0;
-}
-
 .exhibit-pagination {
   clear: both;
   margin: 30px 0 15px 0px;
@@ -2278,8 +2273,7 @@ footer nav + p {
   margin: 0;
 }
 
-.exhibits #content > h1:first-of-type,
-#exhibit-blocks,
+.exhibits #content > #exhibit-blocks,
 #exhibit-page-navigation,
 .exhibits.summary #primary {
   display: inline;
@@ -2292,6 +2286,18 @@ footer nav + p {
   color: var(--colorText);
   font-size: 17px;
   margin: 0 0 15px 0;
+}
+
+#exhibit-blocks p.exhibit-note {
+  color: var(--colorBorderInput);
+  font-size: 14px;
+}
+
+#exhibit-blocks sup {
+  position: relative;
+  top: -5px;
+  vertical-align: top;
+  left: -2px;
 }
 
 #exhibit-blocks h2 {
@@ -2329,7 +2335,7 @@ footer nav + p {
   color: var(--colorTitle);
   font-size: 20px;
   line-height: 1.5em;
-  padding: 20px 0 15px 0;
+  margin: -10px 0 15px 0;
 }
 
 .exhibit-item-caption {
