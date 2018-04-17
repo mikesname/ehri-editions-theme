@@ -156,7 +156,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
         <div class="nav-bar-back-icon">chevron_left</div>
     </div>
     <ul>
-        <?php foreach (get_db()->getTable("Exhibit")->findAll() as $exhibit): ?>
+        <?php foreach (get_exhibit_menu_items() as $exhibit): ?>
             <li>
                 <a href="<?php echo record_url($exhibit); ?>"><?php echo $exhibit->title; ?></a>
                 <?php echo exhibit_builder_page_tree($exhibit); ?>
