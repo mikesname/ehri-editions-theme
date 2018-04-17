@@ -34,6 +34,38 @@ function footer_logo($num = 1)
     }
 }
 
+/**
+ * Get an array of exhibits ordered by the config value
+ * 'Menu Ordering', which consists of comma-separated
+ * exhibit slugs. If the value is unset exhibits will be
+ * returned in primary key order.
+ *
+ * @return array of exhibits
+ */
+function get_exhibit_menu_items()
+{
+    $exhibits = get_db()->getTable('Exhibit')->findAll();
+    if (($menu_order = get_theme_option("Menu Ordering")) and !empty(trim($menu_order))) {
+        $slugs = array();
+        foreach ($exhibits as $exhibit) {
+            $slugs[$exhibit->slug] = $exhibit;
+        }
+
+        $ordered = array();
+        foreach (explode(',', $menu_order) as $slug) {
+            $key = trim($slug);
+            if (array_key_exists( $key, $slugs)) {
+                $ordered[] = $slugs[$key];
+            } else {
+                error_log("Invalid slug in exhibit menu config: '$key'");
+            }
+        }
+        return $ordered;
+    }
+
+    return $exhibits;
+}
+
 
 function link_to_next_item_show_custom($text = null, $props = array())
 {
