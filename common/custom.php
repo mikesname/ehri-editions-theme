@@ -50,7 +50,6 @@ function get_exhibit_menu_items()
         foreach ($exhibits as $exhibit) {
             $slugs[$exhibit->slug] = $exhibit;
         }
-
         $ordered = array();
         foreach (explode(',', $menu_order) as $slug) {
             $key = trim($slug);
@@ -62,10 +61,8 @@ function get_exhibit_menu_items()
         }
         return $ordered;
     }
-
     return $exhibits;
 }
-
 
 function link_to_next_item_show_custom($text = null, $props = array())
 {
@@ -158,4 +155,84 @@ function theme_header_image_url()
     return $headerImage;
 }
 
+function recent_items_custom($count = 10)
+{
+    $items = get_recent_items($count);
+    if ($items) {
+        $html = '';
+        foreach ($items as $item) {
+            $html .= get_view()->partial('items/single-recent.php', array('item' => $item));
+            release_object($item);
+        }
+    } else {
+        $html = '<p>' . __('No recent items available.') . '</p>';
+    }
+    return $html;
+}
+
+/**
+ * Return a link to the next exhibit page
+ *
+ * @param string $text Link text
+ * @param array $props Link attributes
+ * @param ExhibitPage $exhibitPage If null, will use the current exhibit page
+ * @return string
+ */
+function exhibit_builder_link_to_next_page_custom($text = null, $props = array(), $exhibitPage = null)
+{
+    if (!$exhibitPage) {
+        $exhibitPage = get_current_record('exhibit_page');
+    }
+
+    $exhibit = get_record_by_id('Exhibit', $exhibitPage->exhibit_id);
+
+    $targetPage = null;
+
+    // if page object exists, grab link to the first child page if exists. If it doesn't, grab
+    // a link to the next page
+    $targetPage = $exhibitPage->firstChildOrNext();
+    if ($targetPage) {
+        if (!isset($props['class'])) {
+            $props['class'] = 'next-page';
+        }
+        if ($text === null) {
+            $text = metadata($targetPage, 'title') . __('<div id="next-item-icon" class="material-icons">keyboard_arrow_right</div>');
+        }
+        return exhibit_builder_link_to_exhibit($exhibit, $text, $props, $targetPage);
+    }
+
+    return null;
+}
+
+/**
+ * Return a link to the previous exhibit page
+ *
+ * @param string $text Link text
+ * @param array $props Link attributes
+ * @param ExhibitPage $exhibitPage If null, will use the current exhibit page
+ * @return string
+ */
+ 
+function exhibit_builder_link_to_previous_page_custom($text = null, $props = array(), $exhibitPage = null)
+{
+    if (!$exhibitPage) {
+        $exhibitPage = get_current_record('exhibit_page');
+    }
+    $exhibit = get_record_by_id('Exhibit', $exhibitPage->exhibit_id);
+
+    // If page object exists, grab link to previous exhibit page if exists. If it doesn't, grab
+    // a link to the last page on the previous parent page, or the exhibit if at top level
+    $previousPage = $exhibitPage->previousOrParent();
+    if ($previousPage) {
+        if(!isset($props['class'])) {
+            $props['class'] = 'previous-page';
+        }
+        if ($text === null) {
+            $text = __('<div id="previous-item-icon" class="material-icons">keyboard_arrow_left</div>') . metadata($previousPage, 'title');
+        }
+        return exhibit_builder_link_to_exhibit($exhibit, $text, $props, $previousPage);
+    }
+
+    return null;
+}
 ?>
