@@ -319,20 +319,12 @@
     };
 
     jQuery(function($) {
-          $("#gallery-item").click( function()
+          $(".gallery-item, .gallery-item-mobile").click( function()
                {
                  event.preventDefault();
                  openPhotoSwipe();
                }
           );
-    });
-
-    jQuery(function ($) {
-        $("#gallery-item-mobile").click(function () {
-                event.preventDefault();
-                openPhotoSwipe();
-            }
-        );
     });
 
 </script>
