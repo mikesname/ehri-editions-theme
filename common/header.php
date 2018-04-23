@@ -23,7 +23,6 @@
     <!-- css -->
     <?php
     queue_css_file(array('iconfonts', 'skeleton', 'style', 'style-mobile'));
-
     echo head_css();
     ?>
     <!-- java -->
@@ -142,12 +141,11 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
                     <?php endforeach; ?>
                 <?php endif; ?>
             <?php endforeach; ?>
+			<?php if (empty($counts)): ?>
+				<div class="nav-bar-search-item">None</div>
+			<?php endif; ?>
             </div>
         </div>
-
-        <?php if (empty($counts)): ?>
-            <div class="nav-bar-search-item">None</div>
-        <?php endif; ?>
     </div>
 </div>
 
