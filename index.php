@@ -34,35 +34,35 @@
 		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
 			<div class="related-chapters">
 				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png";>
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>200) { echo "style=\"margin-top: 0;\""; } ?>>Introduction</div>
-				<p >How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
-			</div>
-		</a>
-		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-			<div class="related-chapters">
-				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>200) { echo "style=\"margin-top: 0;\""; } ?>>Early Holocaust Documentation</div>
+				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Introduction</div>
 				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
 			</div>
 		</a>
 		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
 			<div class="related-chapters">
 				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>200) { echo "style=\"margin-top: 0;\""; } ?>>Additional narrative texts</div>
+				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Early Holocaust Documentation</div>
 				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
 			</div>
 		</a>
 		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
 			<div class="related-chapters">
 				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>200) { echo "style=\"margin-top: 0;\""; } ?>>Search individual testimony via map</div>
+				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Additional narrative texts</div>
 				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
 			</div>
 		</a>
 		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
 			<div class="related-chapters">
 				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>200) { echo "style=\"margin-top: 0;\""; } ?>>Witnesses</div>
+				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Search individual testimony via map</div>
+				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
+			</div>
+		</a>
+		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
+			<div class="related-chapters">
+				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
+				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Witnesses</div>
 				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
 			</div>
 		</a>
