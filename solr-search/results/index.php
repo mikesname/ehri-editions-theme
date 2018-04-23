@@ -10,7 +10,7 @@
 $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 ?>
 
-<?php echo head(array('title' => __('Solr Search'), 'results' => $results, 'bodyclass' => 'search'));?>
+<?php echo head(array('title' => __('Search'), 'results' => $results, 'bodyclass' => 'search'));?>
 
 <?php if ($results->response->numFound > 0): ?>
     <h1>
