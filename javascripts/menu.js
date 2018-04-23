@@ -2,6 +2,25 @@ jQuery(function($){
 	$(document).ready(function(){
 		/* DESKTOP */
 		/* DESKTOP:menu */
+		
+		/* check the neatline map */
+		var $neatlineMapDefault = 0;
+		var $neatlineMapType = 0;
+		$('.neatline-control').each(function () {
+			if ($(this).text() == 'large') {
+				$neatlineMapType = "exhibit-map-large";
+				$neatlineMapTypeResized = "exhibit-map-large-resized";
+			} else if ($(this).text() == 'wide') {
+				$neatlineMapType = "exhibit-map-wide";
+				$neatlineMapTypeResized = "exhibit-map-wide-resized";
+			}
+		});
+		if ($(".exhibit-block.exhibit-map-default")[0]){
+			$neatlineMapDefault = 1;
+		} else {
+			$neatlineMapDefault = 0;
+		}
+
 		$("#nav-bar-button-menu").click(function() {
 			if( $("#nav-bar-menu").css("display") == 'none' ) {
 			   if( $("#nav-bar-search").css("display") == 'none' ) {
@@ -18,6 +37,7 @@ jQuery(function($){
 						$("#container").animate({ 'margin-left': '240px'}, 400);
 						$("#footer").animate({ 'margin-left': '240px' }, 400);
 						$("#home-map").attr('class', 'home-map-resized');
+						if($neatlineMapDefault==0){$("#neatline-map").attr('class', $neatlineMapTypeResized);}
 						$("#nav-bar-menu").attr('class', 'nav-bar-menu');
 					} else {
 						$("#nav-bar-menu").attr('class', 'nav-bar-menu-shadow');
@@ -35,6 +55,7 @@ jQuery(function($){
 			   $("#container").animate({ 'margin-left': '0' }, 400);
 			   $("#footer").animate({ 'margin-left': '0' }, 400);
 			   $("#home-map").attr('class', 'home-map');
+			   if($neatlineMapDefault==0){$("#neatline-map").attr('class', $neatlineMapType);}
 			}			
 		});
 		
@@ -44,6 +65,7 @@ jQuery(function($){
 			$("#container").animate({ 'margin-left': '0' }, 400);
 			$("#footer").animate({ 'margin-left': '0' }, 400);
 			$("#home-map").attr('class', 'home-map');
+			if($neatlineMapDefault==0){$("#neatline-map").attr('class', $neatlineMapType);}
 		});
 		
 		/* DESKTOP:search */
@@ -55,11 +77,9 @@ jQuery(function($){
 			   if( $("#nav-bar-menu").css("display") == 'none' ) {
 					$("#nav-bar-search").show( "slide", function() {});
 					$("#nav-bar-menu").hide( "slide", function() {}); 
-					$("#query").focus();
 			   } else {
 				   $("#nav-bar-search").show( 0, function() {});
 				   $("#nav-bar-menu").hide( 0, function() {}); 
-					$("#query").focus();
 			   }
 			   $("#nav-bar-button-search").attr('class', 'nav-bar-button-search-selected');
 			   $("#nav-bar-button-menu" ).attr('class', 'nav-bar-button-menu');
@@ -68,6 +88,7 @@ jQuery(function($){
 						$("#container").animate({ 'margin-left': '240px'}, 400);
 						$("#footer").animate({ 'margin-left': '240px' }, 400);
 						$("#home-map").attr('class', 'home-map-resized');
+						if($neatlineMapDefault==0){$("#neatline-map").attr('class', $neatlineMapTypeResized);}
 						$("#nav-bar-search").attr('class', 'nav-bar-search');
 					} else {
 						$("#nav-bar-search").attr('class', 'nav-bar-search-shadow');
@@ -85,6 +106,7 @@ jQuery(function($){
 			   $("#container").animate({ 'margin-left': '0' }, 400);
 			   $("#footer").animate({ 'margin-left': '0' }, 400);
 			   $("#home-map").attr('class', 'home-map');
+			   if($neatlineMapDefault==0){$("#neatline-map").attr('class', $neatlineMapType);}
 			}		
 		});
 		$( "#nav-bar-search-back" ).click(function() {
@@ -93,6 +115,7 @@ jQuery(function($){
 			$("#container").animate({ 'margin-left': '0' }, 400);
 			$("#footer").animate({ 'margin-left': '0' }, 400);
 			$("#home-map").attr('class', 'home-map');
+			if($neatlineMapDefault==0){$("#neatline-map").attr('class', $neatlineMapType);}
 		});
 		
 		/* MOBILE */
@@ -133,11 +156,9 @@ jQuery(function($){
 			   if( $("#nav-bar-menu").css("display") == 'none' ) {
 					$("#nav-bar-search").show( 0, function() {});
 					$("#nav-bar-menu").hide( 0, function() {}); 
-					$("#query").focus();
 			   } else {
 				   $("#nav-bar-search").show( 0, function() {});
 				   $("#nav-bar-menu").hide( 0, function() {}); 
-					$("#query").focus();
 			   }
 			   $("#nav-bar-mobile-button-search").attr('class', 'nav-bar-mobile-button-search-selected');
 			   $("#nav-bar-mobile-button-menu" ).attr('class', 'nav-bar-mobile-button-menu');
@@ -193,6 +214,7 @@ jQuery(function($){
 					} 
 				} 
 				$("#home-map").attr('class', 'home-map');
+				if($neatlineMapDefault==0){$("#neatline-map").attr('class', $neatlineMapTypeResized);}
 				$("#nav-bar-mobile-icon-search").text('search');
 				$("#nav-bar-mobile-icon-menu").text('menu');
 				$("#nav-bar-mobile-icon-menu").css('font-size', '48px');
