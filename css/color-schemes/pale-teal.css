@@ -1,0 +1,25 @@
+ @import url("../style.css");
+ 
+  /*! THEME VARIABLES */
+ :root {
+  --colorAnnotation: #f9f2f6;
+  --colorBackground: #fff;
+  --colorBorderInput: #979797;
+  --colorBorderContent: #cecfcf;
+  --colorButton: #ecedee;
+  --colorButtonBack: #9b9b9b;
+  --colorHeader: #fff;
+  --colorHeaderBackground: rgba(54, 15, 79, 0.41);
+  --colorLine: #e0e0e0;
+  --colorLineDashed: #cbcbcb;
+  --colorLink: #65bfb7;
+  --colorLinkHover: #65bfb7;
+  --colorTitle: #085a4c;
+  --colorText: #5e5e5e;
+  --fontDocument: 'Roboto Mono', monospace;
+  --fontDocumentSize: 14px;
+  --fontHeader: 'Barlow Semi Condensed', sans-serif;
+  --fontTitle: 'Barlow Semi Condensed', sans-serif;
+  --fontText: 'Roboto', sans-serif;
+  --fontTextSize: 10.5pt;
+}
