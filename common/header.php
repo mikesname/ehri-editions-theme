@@ -22,9 +22,10 @@
 
     <!-- css -->
     <?php
-    queue_css_file(array('iconfonts', 'skeleton', 'style', 'style-mobile'));
+    queue_css_file(array('iconfonts', 'skeleton', 'style-mobile'));
     echo head_css();
     ?>
+    
     <!-- java -->
     <?php queue_js_file('menu', 'javascripts'); ?>
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
@@ -35,6 +36,30 @@
     <?php queue_js_file('photoswipe.min', 'photoswipe/dist'); ?>
     <?php queue_js_file('photoswipe-ui-default.min', 'photoswipe/dist'); ?>
     <?php echo head_js(); ?>
+    
+    <!-- color schemes -->
+    <?php 
+    $colorScheme = get_theme_option('Color scheme');
+    if ($colorScheme == "wine-violet") {
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/wine-violet.css">';
+	} elseif ($colorScheme == "dark-blue") {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/dark-blue.css">';
+	} elseif ($colorScheme == "deep-orange") {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/deep-orange.css">';
+	} elseif ($colorScheme == "pale-teal") {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/pale-teal.css">';
+	} elseif ($colorScheme == "light-blue") {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/light-blue.css">';
+	} elseif ($colorScheme == "tea-green") {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/tea-green.css">';
+	} elseif ($colorScheme == "dark-coral") {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/dark-coral.css">';
+	} elseif ($colorScheme == "windows-blue") {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/windows-blue.css">';
+	} else {	
+		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/wine-violet.css">';
+	}
+	?>
 
     <!-- custom search -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/results.css"; ?>"/>
