@@ -13,6 +13,9 @@ jQuery(function($){
 			} else if ($(this).text() == 'wide') {
 				$neatlineMapType = "exhibit-map-wide";
 				$neatlineMapTypeResized = "exhibit-map-wide-resized";
+			} else if ($(this).text() == 'default') {
+				$neatlineMapType = "exhibit-map-default";
+				$neatlineMapTypeResized = "exhibit-map-default";
 			}
 		});
 		if ($(".exhibit-block.exhibit-map-default")[0]){
