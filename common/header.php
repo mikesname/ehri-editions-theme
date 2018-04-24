@@ -20,6 +20,13 @@
 
     <?php fire_plugin_hook('public_head', array('view' => $this)); ?>
 
+    <!-- color schemes -->
+    <?php if ($colorScheme = get_theme_option('Color scheme')): ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/$colorScheme.css"; ?>">
+    <?php else: ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/wine-violet.css"; ?>">
+    <?php endif; ?>
+    
     <!-- css -->
     <?php
     queue_css_file(array('iconfonts', 'skeleton', 'style-mobile'));
@@ -37,13 +44,6 @@
     <?php queue_js_file('photoswipe-ui-default.min', 'photoswipe/dist'); ?>
     <?php echo head_js(); ?>
     
-    <!-- color schemes -->
-    <?php if ($colorScheme = get_theme_option('Color scheme')): ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/$colorScheme.css"; ?>">
-    <?php else: ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/wine-violet.css"; ?>">
-    <?php endif; ?>
-
     <!-- custom search -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/results.css"; ?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/fields.css"; ?>"/>
