@@ -944,7 +944,7 @@ header a:hover {
   font-weight: 600;
   letter-spacing: 0.06em;
   line-height: 36px;
-  margin: 68px 0 7px 11px;
+  margin: 68px 0 5px 11px;
   max-width: 600px; 
   padding: 0;
   position: relative;
@@ -955,7 +955,7 @@ header a:hover {
 #exhibit-home-site-title {
   font-size: 42px;
   line-height: 50px;
-  margin: 95px 0 7px 11px;
+  margin: 95px 0 5px 11px;
   max-width: 900px; 
   width: 75%;
 }
@@ -978,6 +978,7 @@ header a:hover {
   display: block;
   font-family: var(--fontText);
   font-size: 14px;
+  line-height: 1.5em;
   margin: 0 0 0 10px;
   max-width: 600px; 
   position: relative;
@@ -2321,6 +2322,7 @@ footer nav + p {
 #exhibit-blocks p {
   color: var(--colorText);
   font-size: 17px;
+  line-height: 1.5em;
   margin: 0 0 15px 0;
 }
 
@@ -2569,40 +2571,40 @@ footer nav + p {
 .exhibit-map-wide,
 .exhibit-map-wide-resized {
 	height: 410px;
-	margin-bottom: -25px;
+	margin-bottom: -45px;
 	}
 
 .exhibit-map-wide iframe {
 	  border: 0;
 	  height: 410px;
-	  margin: 15px 0 -40px -110px;
+	  margin: 10px 0 0 -110px;
 	  width: calc(100% + 571px);
 	}
 
 .exhibit-map-wide-resized iframe {
 	  border: 0;
 	  height: 410px;
-	  margin: 20px 0px 0 -70px;
+	  margin: 10px 0px 0 -70px;
 	  width: calc(100% + 320px);
 	}
 
 .exhibit-map-large,
 .exhibit-map-large-resized {
 	  height: 600px;
-	  margin-bottom: -25px;
+	  margin-bottom: -45px;
 	}
 
 .exhibit-map-large iframe {
 	  border: 0;
 	  height: 600px;
-	  margin: 15px 0 -40px -110px;
+	  margin: 10px 0 0 -110px;
 	  width: calc(100% + 571px);
 	}
 
 .exhibit-map-large-resized iframe {
 	  border: 0;
 	  height: 600px;
-	  margin: 20px 0px -24px -70px;
+	  margin: 10px 0px 0 -70px;
 	  width: calc(100% + 320px);
 	}
 
