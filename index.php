@@ -3,97 +3,39 @@
 <div class="header-search-background"></div>
 	<div id="header-search">
 		<div id="search-container" role="search">
-			<?php echo search_form(array('submit_value' => 'search', 'text_value' => __('Search'))); ?>
+			<?php echo search_form(array('submit_value' => 'search')); ?>
 		</div>
 	</div>
 
 <div id="primary">
     <?php if ($homepageText = get_theme_option('Homepage Text')): ?>
-		<div class="homepage-text"><?php echo $homepageText; ?></div>
+        <div class="homepage-text"><?php echo $homepageText; ?></div>
     <?php endif; ?>
-    <a class="homepage-project">More about the project</a>
-    <?php if (get_theme_option('Display Featured Item') == 1): ?>
-    <!-- Featured Item -->
 
-	<div id="featured-item" class="featured">
-        <h4>Featured Items</h4>
-		<div id="featured-carousel" class="featured-carousel">
-			<?php echo random_featured_items(15); ?>
+    <?php if ($exhibitPage = get_homepage_exhibit_page()): ?>
+        <div class="homepage-exhibit"></div>
+            <?php echo exhibit_builder_render_exhibit_page($exhibitPage); ?>
         </div>
-        
-    </div><!--end featured-item-->
-    
     <?php endif; ?>
 
-    <?php if ((get_theme_option('Display Featured Exhibit')) && function_exists('exhibit_builder_display_random_featured_exhibit')): ?>
-    
-    <!-- Featured Exhibit -->
-    <?php $featuredString = "How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy"; ?>
-    <h4>Edition Chapters</h4>
-    <div class="related-chapters-box">
-		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-			<div class="related-chapters">
-				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png";>
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Introduction</div>
-				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
-			</div>
-		</a>
-		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-			<div class="related-chapters">
-				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Early Holocaust Documentation</div>
-				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
-			</div>
-		</a>
-		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-			<div class="related-chapters">
-				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Additional narrative texts</div>
-				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
-			</div>
-		</a>
-		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-			<div class="related-chapters">
-				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Search individual testimony via map</div>
-				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
-			</div>
-		</a>
-		<a href="https://editionstest.ehri-project-stage.eu/items/show/92">
-			<div class="related-chapters">
-				<img src="https://editionstest.ehri-project-stage.eu/themes/ehri/images/related-chapters.png">
-				<div class="related-chapters-title" <?php if (strlen($featuredString)>300) { echo "style=\"margin-top: 0;\""; } ?>>Witnesses</div>
-				<p>How beloved Superman has become in our culture and the worldwide fascination with extraterrestrials and all things cosmic only emphasizes that there is a deep curiosity in all humans about nature and astronomy</p>
-			</div>
-		</a>
-    </div>
+    <?php if (get_theme_option('Display Featured Item')): ?>
+        <!-- Featured Item -->
+        <div id="featured-item" class="featured">
+            <h4>Featured Items</h4>
+            <div id="featured-carousel" class="featured-carousel">
+                <?php echo random_featured_items(15); ?>
+            </div>
+        </div><!--end featured-item-->
+    <?php endif; ?>
 
-    <!--<php echo exhibit_builder_display_random_featured_exhibit(); ?>-->
+    <?php if (($recent = get_theme_option('Homepage Recent Items')) > 0): ?>
+        <div id="recent-items" class="recent">
+            <h4><?php echo __("Recently added items"); ?></h4>
+            <?php foreach (get_recent_items($recent) as $item): ?>
+                <?php echo tei_editions_render_search_item($item); ?>
+            <?php endforeach; ?>
+        </div>
     <?php endif; ?>
-    
-    <!-- MAP OF ITEMS-->
-    <h4>Map of items</h4>
-    <div class="home-map-wrapper">
-		<iframe id="home-map" class="home-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d96815.27473282232!2d-74.07053318395133!3d40.68548380090549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ses!4v1521111530896" width="100%" height="460px" frameborder="0" style="border:0" allowfullscreen></iframe>
-	</div>
-	
-	<!-- RECENTLY ADDED ITEMS-->
-    <h4>Recently added items</h4>
-    <div class="recently-added-wrapper">
-	<?php
-    $recentItems = get_theme_option('Homepage Recent Items');
-    if ($recentItems === null || $recentItems === ''):
-        $recentItems = 3;
-    else:
-        $recentItems = (int) $recentItems;
-    endif;
-    if ($recentItems):
-    ?>
-    
-	<?php echo recent_items_custom($recentItems); ?>
-    <?php endif; ?>
-    <?php fire_plugin_hook('public_home', array('view' => $this)); ?>
-	</div>
 </div><!-- end secondary -->
 
 
@@ -105,18 +47,6 @@
 			infinite: true,
 			slidesToShow: 3,
 			slidesToScroll: 3
-		});
-		
-		<!-- search fields text --> 
-		$('#header-search input[type=text]').on('click focusin', function() {
-			if (this.value === 'Search') {
-				this.value = '';
-			}
-		});
-		$('#header-search input[type=text]').on('focusout', function() {
-			if (this.value.length === 0) {
-				this.value = 'Search';
-			}
 		});
 	});
 </script>

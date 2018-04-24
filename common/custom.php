@@ -64,6 +64,16 @@ function get_exhibit_menu_items()
     return $exhibits;
 }
 
+function get_homepage_exhibit_page()
+{
+    if ($slug = get_theme_option('Homepage Exhibit')) {
+        if ($e = get_db()->getTable('Exhibit')->findBy(array('slug' => $slug), $limit = 1)) {
+            return $e[0]->getFirstTopPage();
+        }
+    }
+    return null;
+}
+
 function link_to_next_item_show_custom($text = null, $props = array())
 {
     if (!$text) {

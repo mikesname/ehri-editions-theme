@@ -88,11 +88,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
         <div class="nav-bar-back-icon">chevron_left</div>
     </div>
     <div id="search-container" role="search">
-        <form id="solr-search-form" action="<?php echo url('search'); ?>">
-            <input type="text" title="<?php echo __('Search keywords') ?>" name="q"
-                   value="<?php echo $searchQuery; ?>"/>
-            <input class="search-button-solr" type="submit" value="search"/>
-        </form>
+        <?php echo search_form(array('submit_value' => 'search')); ?>
     </div>
 
     <!-- Applied facets. -->
