@@ -38,28 +38,11 @@
     <?php echo head_js(); ?>
     
     <!-- color schemes -->
-    <?php 
-    $colorScheme = get_theme_option('Color scheme');
-    if ($colorScheme == "wine-violet") {
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/wine-violet.css">';
-	} elseif ($colorScheme == "dark-blue") {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/dark-blue.css">';
-	} elseif ($colorScheme == "deep-orange") {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/deep-orange.css">';
-	} elseif ($colorScheme == "pale-teal") {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/pale-teal.css">';
-	} elseif ($colorScheme == "light-blue") {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/light-blue.css">';
-	} elseif ($colorScheme == "tea-green") {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/tea-green.css">';
-	} elseif ($colorScheme == "dark-coral") {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/dark-coral.css">';
-	} elseif ($colorScheme == "windows-blue") {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/windows-blue.css">';
-	} else {	
-		echo '<link rel="stylesheet" type="text/css" href="' . WEB_ROOT . '/themes/ehri/css/color-schemes/wine-violet.css">';
-	}
-	?>
+    <?php if ($colorScheme = get_theme_option('Color scheme')): ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/$colorScheme.css"; ?>">
+    <?php else: ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/wine-violet.css"; ?>">
+    <?php endif; ?>
 
     <!-- custom search -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/results.css"; ?>"/>
