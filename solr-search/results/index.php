@@ -15,9 +15,9 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <?php if ($results->response->numFound > 0): ?>
     <h1>
         <?php if ($searchQuery): ?>
-            <?php echo __("Search Results for \"%s\": %d", $searchQuery, $results->response->numFound); ?>
+            <?php echo __('Search Results for "%s": %d', $searchQuery, $results->response->numFound); ?>
         <?php else: ?>
-            <?php echo __("All Documents"); ?>
+            <?php echo __('All Documents'); ?>
         <?php endif; ?>
     </h1>
 
@@ -56,7 +56,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
                         <?php if (isset($place)){ $addition = $date . " | " . $place; }?>
                         <?php if($addition){echo "<p>$addition</p>";} ?>
                         <p><?php echo metadata($record, array('Dublin Core', 'Description'), array('snippet'=>300)); ?></p>
-                        <p>Languages: <?php echo metadata($record, array('Dublin Core', 'Language')); ?></p>
+                        <p><?php echo __('Languages: '); ?><?php echo metadata($record, array('Dublin Core', 'Language')); ?></p>
                     </div>
                 </div>
             <?php endif; ?>
@@ -68,9 +68,9 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <?php else: ?>
 	<div id="no-results" class="search-result-empty"><h1>
 	<?php if (strlen($searchQuery)>0) { ?>
-		No results for “<?php echo $searchQuery; ?>”.
+		<?php echo __('No results for'); ?> "<?php echo $searchQuery; ?>”.
 	<?php } else { ?>
-		Search query is empty.
+		<?php echo __('Search query is empty.'); ?>
 	<?php } ?>
 	</h1></div>
 <?php endif; ?>
