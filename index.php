@@ -21,7 +21,7 @@
     <?php if (get_theme_option('Display Featured Item')): ?>
         <!-- Featured Item -->
         <div id="featured-item" class="featured">
-            <h4>Featured Items</h4>
+            <h4><?php echo __('Featured Items'); ?></h4>
             <div id="featured-carousel" class="featured-carousel">
                 <?php echo random_featured_items(15); ?>
             </div>
