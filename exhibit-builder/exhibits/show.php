@@ -17,10 +17,10 @@ echo head(array(
 <?php } ?>
 
 <div id="content-share">
-    <div id="content-share-title">Download</div> 
-		<a id="pdf-create" class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div>PDF</a>
-		<a class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div>E-pub</a>
-	<div id="content-share-subtitle">Share</div>
+    <div id="content-share-title"><?php echo __('Download'); ?></div> 
+		<a id="pdf-create" class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div><?php echo __('PDF'); ?></a>
+		<a class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div><?php echo __('E-pub'); ?></a>
+	<div id="content-share-subtitle"><?php echo __('Share'); ?></div>
 	<div class="addthis_inline_share_toolbox"></div>
 </div>
 
