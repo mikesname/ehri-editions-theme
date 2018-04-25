@@ -18,10 +18,10 @@ jQuery(function($) {
 </script>
 
 <div id="content-share">
-    <div id="content-share-title">Download</div> 
-		<a id="pdf-create" class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div>PDF</a>
-		<a class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div>E-pub</a>
-	<div id="content-share-subtitle">Share</div>
+    <div id="content-share-title"><?php echo __('Download'); ?></div> 
+		<a id="pdf-create" class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div><?php echo __('PDF'); ?></a>
+		<a class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div><?php echo __('E-pub'); ?></a>
+	<div id="content-share-subtitle"><?php echo __('Share'); ?></div>
 	<div class="addthis_inline_share_toolbox"></div>
 </div>
 
@@ -34,16 +34,16 @@ jQuery(function($) {
     <h1><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
 
 	<div id="content-share-mobile">
-		<div id="content-share-title">Download</div> 
-			<a id="pdf-create" class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div>PDF</a>
-			<a class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div>E-pub</a>
-		<div id="content-share-subtitle">Share</div>
+		<div id="content-share-title"><?php echo __('Download'); ?></div> 
+			<a id="pdf-create" class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div><?php echo __('PDF'); ?></a>
+			<a class="content-share-item"><div class="content-share-item-icon">insert_drive_file</div><?php echo __('E-pub'); ?></a>
+		<div id="content-share-subtitle"><?php echo __('Share'); ?></div>
 		<div class="addthis_inline_share_toolbox"></div>
 	</div>
 
-	<div id="metadata-button" class="items-content-button">Metadata</div>
-	<div id="document-text-button" class="items-content-button">Document text</div>
-	<div id="map-button" class="items-content-button">Map</div>
+	<div id="metadata-button" class="items-content-button"><?php echo __('Metadata'); ?></div>
+	<div id="document-text-button" class="items-content-button"><?php echo __('Document text'); ?></div>
+	<div id="map-button" class="items-content-button"><?php echo __('Map'); ?></div>
 	
     <!-- Items metadata -->
     <div id="item-metadata">
