@@ -421,6 +421,11 @@ h1 {
   width: 90%;
 }
 
+#exhibit-title {
+  margin: 20px 0 25px -1px;
+  min-height: 0;
+}
+
 h2 {
   font-size: 22px;
   line-height: 36px;
@@ -695,7 +700,7 @@ img a {
   margin: 0;
   overflow: auto;
   overflow-x: hidden;
-  padding: 49px 0 0 0;
+  padding: 30px 0 0 0;
   position: fixed;
   top: 0;
   width: 280px;
@@ -783,7 +788,7 @@ a.nav-bar-search-item-close {
   cursor: pointer; 
   height: 39px;
   position: fixed;
-  margin: -49px 0 0 280px;
+  margin: -30px 0 0 280px;
   width: 20px;
   z-index: 9050;
 }
@@ -815,6 +820,7 @@ a.nav-bar-search-item-close {
 
 .nav-bar-menu ul {
   padding: 0;
+  margin-top: 15px;
 }
 
 .nav-bar-menu > ul > li > a,
@@ -822,15 +828,15 @@ a.nav-bar-search-item-close {
   cursor: pointer;
   display: block;
   font-weight: bold;
-  margin: 0 0 15px 15px;
-  padding-top: 5px;
+  margin: 0 0 15px 10px;
+  padding-top: 10px;
 }
 
 .nav-bar-menu > ul > li > ul > li a,
 .nav-bar-menu-subitem {
   cursor: pointer;
   display: block;
-  margin: 0 0 15px 15px;
+  margin: 0 20px 15px 10px;
 }
 
 .search-button-solr {
