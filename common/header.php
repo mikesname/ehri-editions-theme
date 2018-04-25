@@ -75,11 +75,11 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <div class="nav-bar">
     <div class="nav-bar-button-search" id="nav-bar-button-search">
         <div id="nav-bar-icon-search" class="material-icons">search</div>
-        <div id="nav-bar-icon-text-search">SEARCH</div>
+        <div id="nav-bar-icon-text-search"><?php echo __('SEARCH'); ?></div>
     </div>
     <div class="nav-bar-button-menu" id="nav-bar-button-menu">
         <div id="nav-bar-icon-menu" class="material-icons">menu</div>
-        <div id="nav-bar-icon-text-menu">MENU</div>
+        <div id="nav-bar-icon-text-menu"><?php echo __('MENU'); ?></div>
     </div>
 </div>
 
@@ -92,7 +92,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
     </div>
 
     <!-- Applied facets. -->
-    <h2 class="nav-bar-search-category">Applied facets</h2>
+    <h2 class="nav-bar-search-category"><?php echo __('Applied facets'); ?></h2>
     <div id="solr-applied-facets">
 
         <!-- Get the applied facets. -->
@@ -106,7 +106,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
         <!-- If facet is empty -->
         <?php if (empty($facets)): ?>
-            <div class="nav-bar-search-item">None</div>
+            <div class="nav-bar-search-item"><?php echo __('None'); ?></div>
         <?php endif; ?>
     </div>
 
@@ -116,7 +116,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
     <?php $counts = isset($results) ? $results->facet_counts->facet_fields : array(); ?>
     <div id="solr-facets">
         <div id="nav-bar-limit-toggle">
-            <h2 class="nav-bar-search-category">Limit your search</h2>
+            <h2 class="nav-bar-search-category"><?php echo __('Limit your search'); ?></h2>
             <div id="nav-bar-limit-expand">keyboard_arrow_down</div>
             <div id="nav-bar-limit-shrink">keyboard_arrow_up</div>
             <div id="nav-bar-limit-search">
@@ -146,7 +146,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
                 <?php endif; ?>
             <?php endforeach; ?>
 			<?php if (empty($counts)): ?>
-				<div class="nav-bar-search-item">None</div>
+				<div class="nav-bar-search-item"><?php echo __('None'); ?></div>
 			<?php endif; ?>
             </div>
         </div>

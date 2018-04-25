@@ -51,7 +51,7 @@
 <?php endforeach; ?>
 
 <!-- METADATA -->
-<h3 id="metadata"><?php echo "Metadata" ?></h3>	
+<h3 id="metadata"><?php echo __('Metadata'); ?></h3>	
 	<?php 
 		if(isset($descriptionString)){ $metadataString = $descriptionString; ;}
 		if(isset($creatorString)){ $metadataString = $creatorString  . " | " . $metadataString; ;}
@@ -97,7 +97,7 @@
 
 <!-- DOCUMENT TEXT -->
 <?php if (isset($textString)) { ?>
-	<h3 id="document-text"><?php echo "Document text" ?></h3>
+	<h3 id="document-text"><?php echo __('Document text'); ?></h3>
 	<?php if ( $language = 1 ) { 
 		$arr = explode(',',trim($languageString));
 		$language01 = $arr[0];
@@ -150,7 +150,7 @@
 	
 <!-- MAP -->
 <?php if (isset($mapString)) { ?>
-	<div id="map"></div><h3 class="map-document">Map</h3><h3 class="map-document-mobile">View Map</h3><div id="map-toggle-fullscreen"><span class="map-document-text">Toggle fullscreen</span><div id="map-toggle-fullscreen-icon" class="material-icons">fullscreen</div></div>
+	<div id="map"></div><h3 class="map-document"><?php echo __('Map'); ?></h3><h3 class="map-document-mobile">View Map</h3><div id="map-toggle-fullscreen"><span class="map-document-text">Toggle fullscreen</span><div id="map-toggle-fullscreen-icon" class="material-icons">fullscreen</div></div>
 	<iframe class="element-map" src="<?php echo $mapString ?>" width=100% height="410" frameborder="0" allowfullscreen></iframe>
 <?php } else { ?>
 		<script>

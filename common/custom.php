@@ -77,7 +77,7 @@ function get_homepage_exhibit_page()
 function link_to_next_item_show_custom($text = null, $props = array())
 {
     if (!$text) {
-        $text = __('<div id="next-item-icon" class="material-icons">keyboard_arrow_right</div>');
+        $text = '<div id="next-item-icon" class="material-icons">keyboard_arrow_right</div>';
     }
     $item = get_current_record('item');
     if($next = $item->next()) {
@@ -92,7 +92,7 @@ function link_to_next_item_show_custom($text = null, $props = array())
 function link_to_previous_item_show_custom($text = null, $props = array())
 {
     if (!$text) {
-        $text = __('<div id="previous-item-icon" class="material-icons">keyboard_arrow_left</div>');
+        $text = '<div id="previous-item-icon" class="material-icons">keyboard_arrow_left</div>';
     }
     $item = get_current_record('item');
     if($previous = $item->previous()) {
@@ -206,7 +206,7 @@ function exhibit_builder_link_to_next_page_custom($text = null, $props = array()
             $props['class'] = 'next-page';
         }
         if ($text === null) {
-            $text = metadata($targetPage, 'title') . __('<div id="next-item-icon" class="material-icons">keyboard_arrow_right</div>');
+            $text = metadata($targetPage, 'title') . '<div id="next-item-icon" class="material-icons">keyboard_arrow_right</div>';
         }
         return exhibit_builder_link_to_exhibit($exhibit, $text, $props, $targetPage);
     }
@@ -238,7 +238,7 @@ function exhibit_builder_link_to_previous_page_custom($text = null, $props = arr
             $props['class'] = 'previous-page';
         }
         if ($text === null) {
-            $text = __('<div id="previous-item-icon" class="material-icons">keyboard_arrow_left</div>') . metadata($previousPage, 'title');
+            $text = '<div id="previous-item-icon" class="material-icons">keyboard_arrow_left</div>' . metadata($previousPage, 'title');
         }
         return exhibit_builder_link_to_exhibit($exhibit, $text, $props, $previousPage);
     }
