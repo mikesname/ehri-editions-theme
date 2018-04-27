@@ -14,37 +14,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de_DE\n"
 
+# Facet Types
+msgid "Subject"
+msgstr "Thema"
+
+msgid "Person"
+msgstr "Person"
+
+msgid "Organisation"
+msgstr "Organisation"
+
+msgid "Place"
+msgstr "Ort"
+
 #: common/header.php:78
 msgid "Search"
 msgstr "Suchen"
 
 #: common/header.php:82
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 #: common/header.php:95
 msgid "Applied facets"
-msgstr ""
+msgstr "Angewandte facetten"
 
 #: common/header.php:109 common/header.php:149
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 #: common/header.php:119
 msgid "Limit your search"
-msgstr ""
+msgstr "Sucheinschränkung"
 
 #: common/pagination_control.php:13 common/pagination_control.php:17
 msgid "Previous"
-msgstr ""
+msgstr "Vorherige"
 
 #: common/pagination_control.php:56 common/pagination_control.php:60
 msgid "Next"
-msgstr ""
+msgstr "Nächste"
 
 #: common/record-metadata.php:54 items/show.php:44
 msgid "Metadata"
-msgstr ""
+msgstr "Metadaten"
 
 #: common/record-metadata.php:100 items/show.php:45
 msgid "Document text"
@@ -52,7 +65,7 @@ msgstr ""
 
 #: common/record-metadata.php:153 items/show.php:46
 msgid "Map"
-msgstr ""
+msgstr "Karte"
 
 #: exhibit-builder/exhibits/browse.php:2
 msgid "Browse Exhibits"
@@ -64,7 +77,7 @@ msgstr ""
 
 #: exhibit-builder/exhibits/show.php:20 items/show.php:21 items/show.php:37
 msgid "Download"
-msgstr ""
+msgstr "Herunterladen"
 
 #: exhibit-builder/exhibits/show.php:21 items/show.php:22 items/show.php:38
 msgid "PDF"
@@ -76,7 +89,7 @@ msgstr ""
 
 #: exhibit-builder/exhibits/show.php:23 items/show.php:24 items/show.php:40
 msgid "Share"
-msgstr ""
+msgstr "Teilen"
 
 #: exhibit-builder/exhibits/summary.php:15
 msgid "Credits"
@@ -88,33 +101,33 @@ msgstr ""
 
 #: index.php:24
 msgid "Featured Items"
-msgstr ""
+msgstr "Empfohlene objekte"
 
 #: index.php:33
-msgid "Recently added items"
-msgstr ""
+msgid "Recently Added Items"
+msgstr "Zuletzt Hinzugefügte Objekte"
 
 #: items/show.php:60
 msgid "Related chapters"
-msgstr ""
+msgstr "Verwandte kapitel"
 
 #: solr-search/results/index.php:18
 #, php-format
 msgid "Search Results for \"%s\": %d"
-msgstr ""
+msgstr "Suchergebnisse für \"%s\": %d"
 
 #: solr-search/results/index.php:20
 msgid "All Documents"
-msgstr ""
+msgstr "Alle Dokumente"
 
 #: solr-search/results/index.php:59
 msgid "Languages: %s"
-msgstr ""
+msgstr "Sprachen"
 
 #: solr-search/results/index.php:71
 msgid "No results for \"%s\""
-msgstr ""
+msgstr "Keine Ergebnisse für \"%s\""
 
 #: solr-search/results/index.php:73
 msgid "Search query is empty."
-msgstr ""
+msgstr "Suchabfrage ist leer"

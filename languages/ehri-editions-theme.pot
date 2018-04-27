@@ -89,10 +89,6 @@ msgstr ""
 msgid "Featured Items"
 msgstr ""
 
-#: index.php:33
-msgid "Recently added items"
-msgstr ""
-
 #: items/show.php:60
 msgid "Related chapters"
 msgstr ""

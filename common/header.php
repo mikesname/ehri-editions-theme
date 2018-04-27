@@ -127,7 +127,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
                     <!-- Facet label. -->
                     <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
-                    <div class="nav-bar-search-group"><?php echo $label; ?></div>
+                    <div class="nav-bar-search-group"><?php echo __($label); ?></div>
 
                     <!-- Facets. -->
                     <?php foreach ($facets as $value => $count): ?>
