@@ -65,7 +65,7 @@
 
     <!-- Items metadata -->
     <div id="item-texts">
-        <?php echo tei_editions_render_item_text('item'); ?>
+        <?php echo all_element_texts('item'); ?>
     </div>
 
 
