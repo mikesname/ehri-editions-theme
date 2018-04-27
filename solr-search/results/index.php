@@ -27,9 +27,8 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 	<div class="search-results">
 
 	  <!-- Number found. -->
-		<?php $db = get_db(); ?>
 		<?php foreach ($results->response->docs as $doc): ?>
-            <?php if ($item = $db->getTable("Item")->find($doc->modelid)): ?>
+            <?php if ($item = get_db()->getTable("Item")->find($doc->modelid)): ?>
                 <?php echo tei_editions_render_item_summary($item); ?>
             <?php endif; ?>
 		<?php endforeach; ?>
