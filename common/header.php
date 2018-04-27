@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="<?php echo get_theme_option('Style Sheet'); ?>" lang="<?php echo get_html_lang(); ?>">
 <head>
+    <?php add_translation_source(dirname(dirname(__FILE__)) . '/languages');?>
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
@@ -75,11 +76,11 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <div class="nav-bar">
     <div class="nav-bar-button-search" id="nav-bar-button-search">
         <div id="nav-bar-icon-search" class="material-icons">search</div>
-        <div id="nav-bar-icon-text-search"><?php echo __('SEARCH'); ?></div>
+        <div id="nav-bar-icon-text-search"><?php echo __('Search'); ?></div>
     </div>
     <div class="nav-bar-button-menu" id="nav-bar-button-menu">
         <div id="nav-bar-icon-menu" class="material-icons">menu</div>
-        <div id="nav-bar-icon-text-menu"><?php echo __('MENU'); ?></div>
+        <div id="nav-bar-icon-text-menu"><?php echo __('Menu'); ?></div>
     </div>
 </div>
 
@@ -126,7 +127,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
                     <!-- Facet label. -->
                     <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
-                    <div class="nav-bar-search-group"><?php echo $label; ?></div>
+                    <div class="nav-bar-search-group"><?php echo __($label); ?></div>
 
                     <!-- Facets. -->
                     <?php foreach ($facets as $value => $count): ?>

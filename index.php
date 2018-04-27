@@ -30,7 +30,7 @@
 
     <?php if (($recent = get_theme_option('Homepage Recent Items')) > 0): ?>
         <div id="recent-items" class="recent">
-            <h4><?php echo __("Recently added items"); ?></h4>
+            <h4><?php echo __("Recently Added Items"); ?></h4>
             <?php foreach (get_recent_items($recent) as $item): ?>
                 <?php echo tei_editions_render_search_item($item); ?>
             <?php endforeach; ?>
