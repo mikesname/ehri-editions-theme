@@ -56,7 +56,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
                         <?php if (isset($place)){ $addition = $date . " | " . $place; }?>
                         <?php if($addition){echo "<p>$addition</p>";} ?>
                         <p><?php echo metadata($record, array('Dublin Core', 'Description'), array('snippet'=>300)); ?></p>
-                        <p><?php echo __('Languages: '); ?><?php echo metadata($record, array('Dublin Core', 'Language')); ?></p>
+                        <p><?php echo __('Languages: %s', metadata($record, array('Dublin Core', 'Language'))); ?></p>
                     </div>
                 </div>
             <?php endif; ?>
@@ -68,7 +68,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <?php else: ?>
 	<div id="no-results" class="search-result-empty"><h1>
 	<?php if (strlen($searchQuery)>0) { ?>
-		<?php echo __('No results for'); ?> "<?php echo $searchQuery; ?>”.
+		<?php echo __("No results for \"%s\"", $searchQuery); ?>.
 	<?php } else { ?>
 		<?php echo __('Search query is empty.'); ?>
 	<?php } ?>
