@@ -35,10 +35,12 @@ echo head(array(
     <?php exhibit_builder_render_exhibit_page(); ?>
 </div>
 
-<?php if ($title == "Homepage") { 
+<?php 
+if ($title == "Homepage") { 
 	echo "</div>";
-	}
+}
 ?>
+
 <script type="text/javascript">
 jQuery(function($) {
 	var $homepage = 0;
