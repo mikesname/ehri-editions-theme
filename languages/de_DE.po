@@ -1,18 +1,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ehri-editions-theme\n"
 "Report-Msgid-Bugs-To: http://github.com/EHRI/ehri-editions-theme/issues\n"
 "POT-Creation-Date: 2018-04-27 11:48-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2018-04-30 22:06+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de_DE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 # Facet Types
 msgid "Subject"
@@ -37,7 +37,7 @@ msgstr "Menü"
 
 #: common/header.php:95
 msgid "Applied facets"
-msgstr "Angewandte facetten"
+msgstr "Angewandte Facetten"
 
 #: common/header.php:109 common/header.php:149
 msgid "None"
@@ -45,15 +45,15 @@ msgstr "Keine"
 
 #: common/header.php:119
 msgid "Limit your search"
-msgstr "Sucheinschränkung"
+msgstr "Suche einschränken"
 
 #: common/pagination_control.php:13 common/pagination_control.php:17
 msgid "Previous"
-msgstr "Vorherige"
+msgstr "Zurück"
 
 #: common/pagination_control.php:56 common/pagination_control.php:60
 msgid "Next"
-msgstr "Nächste"
+msgstr "Weiter"
 
 #: common/record-metadata.php:54 items/show.php:44
 msgid "Metadata"
@@ -61,7 +61,7 @@ msgstr "Metadaten"
 
 #: common/record-metadata.php:100 items/show.php:45
 msgid "Document text"
-msgstr ""
+msgstr "Transcription"
 
 #: common/record-metadata.php:153 items/show.php:46
 msgid "Map"
@@ -101,15 +101,15 @@ msgstr ""
 
 #: index.php:24
 msgid "Featured Items"
-msgstr "Empfohlene objekte"
+msgstr "Empfohlene Dokumente"
 
 #: index.php:33
 msgid "Recently Added Items"
-msgstr "Zuletzt Hinzugefügte Objekte"
+msgstr "Zuletzt hinzugefügte Dokumente"
 
 #: items/show.php:60
 msgid "Related chapters"
-msgstr "Verwandte kapitel"
+msgstr "Verwandte Kapitel"
 
 #: solr-search/results/index.php:18
 #, php-format
@@ -122,7 +122,7 @@ msgstr "Alle Dokumente"
 
 #: solr-search/results/index.php:59
 msgid "Languages: %s"
-msgstr "Sprachen"
+msgstr "Sprachen: %s"
 
 #: solr-search/results/index.php:71
 msgid "No results for \"%s\""
@@ -130,4 +130,4 @@ msgstr "Keine Ergebnisse für \"%s\""
 
 #: solr-search/results/index.php:73
 msgid "Search query is empty."
-msgstr "Suchabfrage ist leer"
+msgstr "Suchabfrage ist leer."
