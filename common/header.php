@@ -48,6 +48,9 @@
     <!-- custom search -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/results.css"; ?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/fields.css"; ?>"/>
+    
+    <!-- print -->
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/print.css"; ?>" media="print"/>
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Roboto|Roboto+Mono"

@@ -15,6 +15,15 @@
                 scrollTop: $("#map").offset().top + (+17)
             }, 400);
         });
+        $("#comments-button").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#comments").offset().top + (+5)
+            }, 400);
+        });
+        $("#comment-expand-button").click(function () {
+			$("#comment-form").show( 400, function() {});
+			$("#comment-expand-button").hide( 0, function() {});
+        });
     });
 </script>
 

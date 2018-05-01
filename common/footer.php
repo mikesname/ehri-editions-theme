@@ -336,7 +336,30 @@
     });
 
 </script>
-<!-- / PhotoSwipe js -->
+
+<!-- Feedback js -->
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+	$("#feedback-tab").click(function() {
+		$("#feedback-form").show(400);
+		$("#feedback-tab").hide(0);
+	});
+	
+	$("#feedback-close").click(function() {
+		$("#feedback-form").hide(400);
+		$("#feedback-tab").show(400);
+	});
+});
+</script>
+
+<!-- Comments js -->
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+	if (document.getElementById('comment-1')) {
+		$("#comments-empty").hide(0);
+	}
+});
+</script>
 
 <!-- addThis --> 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5aa59d527f6db3d6"></script>
