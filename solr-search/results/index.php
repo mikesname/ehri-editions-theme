@@ -15,7 +15,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <?php if ($results->response->numFound > 0): ?>
     <h1>
         <?php if ($searchQuery): ?>
-            <?php echo __('Search Results for "%s": %d', $searchQuery, $results->response->numFound); ?>
+            <?php echo __('Documents found: '.$results->response->numFound); ?>
         <?php else: ?>
             <?php echo __('All Documents'); ?>
         <?php endif; ?>
