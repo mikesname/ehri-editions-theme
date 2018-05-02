@@ -1465,12 +1465,11 @@ header a:hover {
 #content-files {
   background: var(--colorBackground);
   color: var(--colorText);
+  float: right;
   height: 215px;
-  margin: 0;
+  margin: -82px -300px -150px 0;
   padding: 0;
-  position: absolute;
-  right: -300px;
-  margin-top: -82px;
+  position: relative;
   width: 265px;
 }
 
