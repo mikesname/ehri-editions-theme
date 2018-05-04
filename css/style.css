@@ -2840,6 +2840,9 @@ p.comment-author-name {
   position: relative;
   width: 265px;
   z-index: 20000;
+  -webkit-box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.24);
+  -moz-box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.24);
+  box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.24);
 }
 
 #feedback-tab {
@@ -2894,6 +2897,14 @@ float: right;
     margin: 13px 0 -10px 0;
 }
 
+#feedback-thanks {
+  display: none;
+  background-color: #28a745;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.2em;
+  float: left;
+}
 
 #feedback-tab:hover { text-decoration: underline; }
 
