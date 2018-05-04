@@ -194,7 +194,16 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
     <header role="banner">
         <?php fire_plugin_hook('public_header', array('view' => $this)); ?>
         <a href="<?php echo WEB_ROOT ?>">
-            <div id="site-title"><?php echo option('site_title'); ?></div>
+			<?php $textTransform = 'uppercase';
+				  $textTransform = get_theme_option('title_display'); 
+				  if ($textTransform == "small-caps") {
+					  $textTransform = 'text-transform: none; font-variant:'.$textTransform;
+				  } else { 
+					  $textTransform = 'font-variant: normal; text-transform:'.$textTransform;
+				  }
+			?>
+			
+            <div id="site-title" style="<?php echo $textTransform; ?>"><?php echo option('site_title'); ?></div>
         </a>
         <div id="site-subtitle"><?php echo $description; ?></div>
     </header>
