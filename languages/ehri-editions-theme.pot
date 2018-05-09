@@ -17,19 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: common/header.php:83
+#: common/header.php:86
 msgid "Menu"
 msgstr ""
 
-#: common/header.php:96
+#: common/header.php:99
 msgid "Applied facets"
 msgstr ""
 
-#: common/header.php:110 common/header.php:150
+#: common/header.php:113 common/header.php:153
 msgid "None"
 msgstr ""
 
-#: common/header.php:120
+#: common/header.php:123
 msgid "Limit your search"
 msgstr ""
 
@@ -41,15 +41,15 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: common/record-metadata.php:54 items/show.php:44
+#: common/record-metadata.php:63 items/show.php:67
 msgid "Metadata"
 msgstr ""
 
-#: common/record-metadata.php:100 items/show.php:45
+#: common/record-metadata.php:109 items/show.php:68
 msgid "Document text"
 msgstr ""
 
-#: common/record-metadata.php:153 items/show.php:46
+#: common/record-metadata.php:162 items/show.php:69
 msgid "Map"
 msgstr ""
 
@@ -61,19 +61,19 @@ msgstr ""
 msgid "There are no exhibits available yet."
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:20 items/show.php:21 items/show.php:37
+#: exhibit-builder/exhibits/show.php:20 items/show.php:21 items/show.php:60
 msgid "Download"
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:21 items/show.php:22 items/show.php:38
+#: exhibit-builder/exhibits/show.php:21 items/show.php:22 items/show.php:61
 msgid "PDF"
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:22 items/show.php:23 items/show.php:39
+#: exhibit-builder/exhibits/show.php:22 items/show.php:23 items/show.php:62
 msgid "E-pub"
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:23 items/show.php:24 items/show.php:40
+#: exhibit-builder/exhibits/show.php:23 items/show.php:24 items/show.php:63
 msgid "Share"
 msgstr ""
 
@@ -89,13 +89,40 @@ msgstr ""
 msgid "Featured Items"
 msgstr ""
 
-#: items/show.php:60
+#: items/show.php:29 items/show.php:45
+msgid "Feedback"
+msgstr ""
+
+#: items/show.php:33
+msgid "Your e-mail"
+msgstr ""
+
+#: items/show.php:38
+msgid "Your feedback..."
+msgstr ""
+
+#: items/show.php:42
+msgid "Send"
+msgstr ""
+
+#: items/show.php:46
+msgid "Thanks for your feedback!"
+msgstr ""
+
+#: items/show.php:71 items/show.php:86
+msgid "Comments"
+msgstr ""
+
+#: items/show.php:87
+msgid "There are no comments yet."
+msgstr ""
+
+#: items/show.php:93
 msgid "Related chapters"
 msgstr ""
 
 #: solr-search/results/index.php:18
-#, php-format
-msgid "Search Results for \"%s\": %d"
+msgid "Documents found: "
 msgstr ""
 
 #: solr-search/results/index.php:20

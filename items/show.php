@@ -35,7 +35,7 @@ jQuery(function($) {
 					<input type="hidden" name="timestamp" id="timestamp" value="<?php echo (new DateTime())->format('Y-m-d H:i:s'); ?>">
 				</div>
 				<div class="form-group">
-					<textarea class="form-control" name="feedback" id="feedback" placeholder="<?php echo __('Please write your feedback here...'); ?>" rows="8"></textarea>
+					<textarea class="form-control" name="feedback" id="feedback" placeholder="<?php echo __('Your feedback...'); ?>" rows="8"></textarea>
 				</div>
                 <input class="form-control" name="url" id="url" type="hidden" value="<?php echo absolute_url(); ?>" />
                 <input class="form-control" name="title" id="title" type="hidden" value="<?php echo metadata('item', array('Dublin Core', 'Title')); ?>" />
@@ -84,7 +84,7 @@ jQuery(function($) {
 
 	<?php if (plugin_is_active('Commenting')) { ?>
 		<h4 id="comments"><?php echo __('Comments'); ?></h4>
-		<div id="comments-empty" class="comments-empty"><?php echo __('There is no comment yet.'); ?></div>
+		<div id="comments-empty" class="comments-empty"><?php echo __('There are no comments yet.'); ?></div>
 		<?php CommentingPlugin::showComments(); ?>
 		<div id="comment-expand-button" class="items-content-button"><?php echo __('Comment'); ?></div>
 	<?php } ?>
