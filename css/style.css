@@ -2914,25 +2914,25 @@ p.comment-author-name {
 }
 
   /* REFERENCES */
-.ehri-item-container > .ehri-item {
+#document-refs.ehri-item-container > #document-refs.ehri-item {
   padding: 18px;
 }
 
-.ehri-item-footer {
+#document-refs.ehri-item-footer {
   margin-top: 5px;
   padding: 6px;
 }
 
-.ehri-item-container {
+#document-refs.ehri-item-container {
   border: 1px solid #ddd;
   box-shadow: none;
 }
 
-.ehri-item-container > .ehri-item > .ehri-item-heading > h2 {
+#document-refs.ehri-item-container > #document-refs.ehri-item > #document-refs.ehri-item-heading > h2 {
   margin-bottom: 5px;
 }
 
-.ehri-item .ehri-item-details ul {
+#document-refs.ehri-item #document-refs.ehri-item-details ul {
   margin: 5px 0 10px 0;
 }
 
