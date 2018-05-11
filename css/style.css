@@ -1610,13 +1610,18 @@ header a:hover {
 }
 
 .content-info-entity-body > .content-info-entity-note{
-  padding: 0 18px 0 18px;
+  padding: 0 18px 0 18px !important;
 }
 
 .content-info-entity-body .content-info-entity-footer a .material-icons {
-    margin-right: 6px;
+    margin-right: 6px !important;
     font-size: 20px;
     margin-top: -3px;
+}
+
+.content-info-entity-body .content-info-entity-footer a:hover {
+    background-color: var(--colorEntityRef);
+    text-decoration: none;
 }
 
 .hidden {
@@ -2848,9 +2853,6 @@ p.comment-author-name {
   position: relative;
   width: 265px;
   z-index: 20000;
-  -webkit-box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.24);
-  -moz-box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.24);
-  box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.24);
 }
 
 #feedback-tab {
@@ -2947,20 +2949,21 @@ p.comment-author-name {
 
   /* NOTES */
 .tei-note {
-  background: var(--colorEntityRef);
-  font-weight: normal;
+  background: var(--colorEntityRef) !important;
+  font-weight: normal  !important;
+  margin-top: 35px  !important;
   width: 265px;
 }
 
 .tei-note-num {
-  color: var(--colorText);
+  color: var(--colorText) !important;
   font-weight: bold;
 }
 
 .content-info-entity{
-  margin-top: 35px;
+  margin-top: 35px  !important;
 }
 
 .content-info-entity.affixed, #content-info .tei-note.affixed {
-  top: 0;
+  top: 0  !important;
 }
