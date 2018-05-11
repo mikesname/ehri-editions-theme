@@ -1620,7 +1620,7 @@ header a:hover {
 }
 
 .content-info-entity-body .content-info-entity-footer a:hover {
-    background-color: var(--colorEntityRef);
+    background-color: var(--colorEntityRef) !important;
     text-decoration: none;
 }
 
