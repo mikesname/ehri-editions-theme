@@ -1203,6 +1203,10 @@ header a:hover {
   width: calc(100% - 250px);
 }
 
+.search-result-exhibit-container {
+  padding: 35px 0;
+}
+
 .search-result-empty {
   margin: 70px 0 0 0;
 }

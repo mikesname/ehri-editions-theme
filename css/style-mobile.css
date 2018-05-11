@@ -98,6 +98,9 @@ h4 {
   list-style-type: none;
 }
 
+.search-result-exhibit-container {
+  padding: 25px 0;
+}
 
   .nav-bar {
   display: none;
