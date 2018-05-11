@@ -2943,6 +2943,10 @@ p.comment-author-name {
     margin-bottom: 5px;
 }
 
+#document-refs .ehri-item-container > .ehri-item-footer a {
+    margin-right: 4px;
+}
+
 #document-refs .ehri-item .ehri-item-details ul {
     margin: 5px 0 10px 0;
 }
