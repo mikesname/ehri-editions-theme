@@ -349,6 +349,23 @@ jQuery(document).ready(function ($) {
 		$("#feedback-form").hide(400);
 		$("#feedback-tab").show(400);
 	});
+
+	$("#feedback-form").find("form").on("submit", function(e) {
+	  var $form = $(this);
+	  e.preventDefault();
+	  $.post({
+        url: $form.attr("action"),
+        data: $form.serialize(),
+        success: function() {
+          $("#feedback-form").hide(400);
+          $("#feedback-tab").show(400);
+          $("#feedback-thanks").show(400);
+          setTimeout(function () {
+            $("#feedback-thanks").hide(400);
+          }, 2000)
+        }
+      })
+    });
 });
 </script>
 
