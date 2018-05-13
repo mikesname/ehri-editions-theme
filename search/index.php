@@ -37,9 +37,9 @@ $( document ).ready(function(){
 
 	if ($total_results <= 50) {
 		echo "<div class=\"search-results-pagination\">
-				<div class=\"search-result-previous\"><div class=\"search-result-image-previous\">keyboard_arrow_left</div>Previous</div>
-				<div class=\"search-result-center\"><input class=\"search-result-center-input\" value=\"1\">of 1</div>
-				<div class=\"search-result-next\"><div class=\"search-result-image-next\">keyboard_arrow_right</div>Next</div>
+				<div class=\"search-results-previous\"><div class=\"search-results-image-previous\">keyboard_arrow_left</div>Previous</div>
+				<div class=\"search-results-center\"><input class=\"search-results-center-input\" value=\"1\">of 1</div>
+				<div class=\"search-results-next\"><div class=\"search-results-image-next\">keyboard_arrow_right</div>Next</div>
 			  </div>";}
 ?>
 <?php echo pagination_links(); ?>
@@ -50,8 +50,8 @@ $( document ).ready(function(){
         <?php $recordType = $searchText['record_type']; ?>
         <?php set_current_record($recordType, $record); ?>
         
-        <a clas="search-result-link" href="<?php echo record_url($record, 'show'); ?>">
-			<div class="search-result">
+        <a class="item-summary-link" href="<?php echo record_url($record, 'show'); ?>">
+			<div class="item-summary">
 				<?php
 				$date = metadata($record, array('Dublin Core', 'Date'));
 				$place = metadata($record, array('Dublin Core', 'Publisher'));
@@ -59,10 +59,10 @@ $( document ).ready(function(){
 				<?php if ($recordImage = record_image($recordType)) {  ?>
                     <?php echo $recordImage ?>                    
                 <?php } else { ?>
-					<div class="search-result-image-blank"></div>
+					<div class="item-summary-image-blank"></div>
 				<?php } ?>
-				<div class="search-result-wrapper">
-					<div class="search-result-title"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></div>
+				<div class="item-summary-wrapper">
+					<div class="item-summary-title"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></div>
 					<?php if (isset($date)){ $addition = $date; } ?> 
 					<?php if (isset($place)){ $addition = $date . " | " . $place; }?>           
 					<?php if($addition){echo "<p>$addition</p>";} ?> 
@@ -75,14 +75,14 @@ $( document ).ready(function(){
 
 <?php if ($total_results >= 2) {
 	echo "<div class=\"search-results-pagination\">
-			<div class=\"search-result-previous\"><div class=\"search-result-image-previous\">keyboard_arrow_left</div>Previous</div>
-			<div class=\"search-result-center\"><input class=\"search-result-center-input\" value=\"1\">of 1</div>
-			<div class=\"search-result-next\"><div class=\"search-result-image-next\">keyboard_arrow_right</div>Next</div>
+			<div class=\"search-results-previous\"><div class=\"search-results-image-previous\">keyboard_arrow_left</div>Previous</div>
+			<div class=\"search-results-center\"><input class=\"search-results-center-input\" value=\"1\">of 1</div>
+			<div class=\"search-results-next\"><div class=\"search-results-image-next\">keyboard_arrow_right</div>Next</div>
 		  </div>";}
 ?>
 <?php else: ?>
 
-<div id="no-results" class="search-result-empty">
+<div id="no-results" class="search-results-empty">
     <h1><br>No results for “TEXT”.</h1>
 </div>
 

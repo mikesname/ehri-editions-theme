@@ -6,19 +6,19 @@ if ($this->pageCount > 1):
         <div class="search-results-pagination">
             <?php if (isset($this->previous)) { ?>
                 <!-- Previous page link -->
-                <div class="search-result-previous">
+                <div class="search-results-previous">
                     <?php $getParams['page'] = $previous; ?>
                     <a rel="prev" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>">
-                    <div class="search-result-image-previous">keyboard_arrow_left</div>
+                    <div class="search-results-image-previous">keyboard_arrow_left</div>
                     <?php echo __('Previous'); ?></a>
                 </div>
 			<?php } else { ?>
-				<div class="search-result-previous" style="opacity: 0.4"><div class="search-result-image-previous">keyboard_arrow_left</div>
+				<div class="search-results-previous" style="opacity: 0.4"><div class="search-results-image-previous">keyboard_arrow_left</div>
 					<?php echo __('Previous'); ?>
 				</div>
 			<?php } ?>
 
-            <div class="search-result-center">
+            <div class="search-results-center">
                 <form action="<?php echo html_escape($this->url()); ?>" method="get" accept-charset="utf-8">
                     <?php
                     $hiddenParams = array();
@@ -49,14 +49,14 @@ if ($this->pageCount > 1):
 
             <?php if (isset($this->next)) { ?>
                 <!-- Next page link -->
-                <div class="search-result-next">
+                <div class="search-results-next">
                     <?php $getParams['page'] = $next; ?>
                     <a rel="next" href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>">
-                    <div class="search-result-image-next">keyboard_arrow_right</div>
+                    <div class="search-results-image-next">keyboard_arrow_right</div>
                     <?php echo __('Next'); ?></a>
                 </div>
 			<?php } else { ?>
-				<div class="search-result-next" style="opacity: 0.4"><div class="search-result-image-next">keyboard_arrow_right</div>
+				<div class="search-results-next" style="opacity: 0.4"><div class="search-results-image-next">keyboard_arrow_right</div>
 					<?php echo __('Next'); ?>
 				</div>
 			<?php } ?>
