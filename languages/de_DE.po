@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ehri-editions-theme\n"
 "Report-Msgid-Bugs-To: http://github.com/EHRI/ehri-editions-theme/issues\n"
-"POT-Creation-Date: 2018-05-09 14:11+0100\n"
-"PO-Revision-Date: 2018-05-09 14:11+0100\n"
+"POT-Creation-Date: 2018-05-16 10:48+0100\n"
+"PO-Revision-Date: 2018-05-16 10:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -38,17 +38,33 @@ msgstr "Zurück"
 msgid "Next"
 msgstr "Weiter"
 
-#: common/record-metadata.php:63 items/show.php:67
+#: common/record-metadata.php:31 common/record-metadata.php:52
 msgid "Metadata"
 msgstr "Metadaten"
 
-#: common/record-metadata.php:109 items/show.php:68
-msgid "Document text"
-msgstr "Transcription"
+#: common/record-metadata.php:34 common/record-metadata.php:59
+msgid "Document Text"
+msgstr ""
 
-#: common/record-metadata.php:162 items/show.php:69
+#: common/record-metadata.php:38 common/record-metadata.php:66
 msgid "Map"
 msgstr "Karte"
+
+#: common/record-metadata.php:42 common/record-metadata.php:78
+msgid "References"
+msgstr "Quellenverweise"
+
+#: common/record-metadata.php:45 common/record-metadata.php:84
+msgid "Comments"
+msgstr ""
+
+#: common/record-metadata.php:68
+msgid "Toggle fullscreen"
+msgstr ""
+
+#: common/record-metadata.php:85
+msgid "There are no comments yet."
+msgstr "Es liegen noch keine Kommentare vor."
 
 #: exhibit-builder/exhibits/browse.php:2
 msgid "Browse Exhibits"
@@ -58,19 +74,19 @@ msgstr ""
 msgid "There are no exhibits available yet."
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:20 items/show.php:21 items/show.php:60
+#: exhibit-builder/exhibits/show.php:20 items/show.php:76
 msgid "Download"
 msgstr "Herunterladen"
 
-#: exhibit-builder/exhibits/show.php:21 items/show.php:22 items/show.php:61
+#: exhibit-builder/exhibits/show.php:21 items/show.php:77
 msgid "PDF"
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:22 items/show.php:23 items/show.php:62
+#: exhibit-builder/exhibits/show.php:22 items/show.php:78
 msgid "E-pub"
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:23 items/show.php:24 items/show.php:63
+#: exhibit-builder/exhibits/show.php:23 items/show.php:40 items/show.php:79
 msgid "Share"
 msgstr "Teilen"
 
@@ -86,37 +102,25 @@ msgstr ""
 msgid "Featured Items"
 msgstr "Empfohlene Dokumente"
 
-#: items/show.php:29 items/show.php:45
+#: items/show.php:45 items/show.php:61
 msgid "Feedback"
 msgstr ""
 
-#: items/show.php:33
+#: items/show.php:49
 msgid "Your e-mail"
 msgstr ""
 
-#: items/show.php:38
+#: items/show.php:54
 msgid "Your feedback..."
 msgstr ""
 
-#: items/show.php:42
+#: items/show.php:58
 msgid "Send"
 msgstr ""
 
-#: items/show.php:46
+#: items/show.php:62
 msgid "Thanks for your feedback!"
 msgstr ""
-
-#: items/show.php:71 items/show.php:86
-msgid "Comments"
-msgstr ""
-
-#: items/show.php:87
-msgid "There are no comments yet."
-msgstr ""
-
-#: items/show.php:93
-msgid "Related chapters"
-msgstr "Verwandte Kapitel"
 
 #: solr-search/results/index.php:18
 msgid "Documents found: "
@@ -126,19 +130,23 @@ msgstr ""
 msgid "All Documents"
 msgstr "Alle Dokumente"
 
-#: solr-search/results/index.php:59
-#, php-format
-msgid "Languages: %s"
-msgstr "Sprachen: %s"
-
-#: solr-search/results/index.php:71
+#: solr-search/results/index.php:42
 #, php-format
 msgid "No results for \"%s\""
 msgstr "Keine Ergebnisse für \"%s\""
 
-#: solr-search/results/index.php:73
+#: solr-search/results/index.php:44
 msgid "Search query is empty."
 msgstr "Suchabfrage ist leer."
+
+#~ msgid "Document text"
+#~ msgstr "Transcription"
+
+#~ msgid "Related chapters"
+#~ msgstr "Verwandte Kapitel"
+
+#~ msgid "Languages: %s"
+#~ msgstr "Sprachen: %s"
 
 #~ msgid "Search Results for \"%s\": %d"
 #~ msgstr "Suchergebnisse für \"%s\": %d"
