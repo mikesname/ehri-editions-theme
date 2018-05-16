@@ -36,7 +36,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
                 <?php set_current_record("item", $record); ?>
 
-                <div class="search-result">
+                <div class="item-summary">
                     <?php
                         $date = metadata($record, array('Dublin Core', 'Date'));
                         $place = metadata($record, array('Dublin Core', 'Publisher'));
@@ -45,12 +45,12 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
                         <?php if ($recordImage = record_image("item")):  ?>
                             <?php echo $recordImage ?>
                         <?php else: ?>
-                            <div class="search-result-image-blank"></div>
+                            <div class="item-summary-image-blank"></div>
                         <?php endif; ?>
                     </a>
-                    <div class="search-result-wrapper">
-                        <a class="search-result-link" href="<?php echo $url; ?>">
-                            <div class="search-result-title"><?php echo metadata($record, 'display_title'); ?></div>
+                    <div class="item-summary-wrapper">
+                        <a class="item-summary-link" href="<?php echo $url; ?>">
+                            <div class="item-summary-title"><?php echo metadata($record, 'display_title'); ?></div>
                         </a>
                         <?php if (isset($date)){ $addition = $date; } ?>
                         <?php if (isset($place)){ $addition = $date . " | " . $place; }?>
@@ -66,7 +66,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 	<?php echo pagination_links(); ?>
 
 <?php else: ?>
-	<div id="no-results" class="search-result-empty"><h1>
+	<div id="no-results" class="search-results-empty"><h1>
 	<?php if (strlen($searchQuery)>0) { ?>
 		<?php echo __("No results for \"%s\"", $searchQuery); ?>.
 	<?php } else { ?>

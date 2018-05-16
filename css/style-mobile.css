@@ -98,11 +98,11 @@ h4 {
   list-style-type: none;
 }
 
-.search-result-exhibit-container {
+.editions-item {
   padding: 25px 0;
 }
 
-  .nav-bar {
+.nav-bar {
   display: none;
 }
 
@@ -423,30 +423,30 @@ height: 270px;
   top: 3px;
 }
 
-.search-result {
+.item-summary {
   min-width: 0;
   width: 100%;
 }
 
-.search-result-wrapper {
+.item-summary-wrapper {
   margin-left: 0;
   width: 100%;
 }
 
-.search-result-title {
+.item-summary-title {
   color: var(--colorTitle);
   margin: 0 0 0 93px;
 }
 
-#home .search-result-title {
+#home .item-summary-title {
   margin: 0;
 }
 
-.search-result-wrapper {
+.item-summary-wrapper {
   padding: 0;
 }
 
-.search-result p {
+.item-summary p {
   display: inline-block;
   float: none;
   margin: 12px 0 0 0;
@@ -454,13 +454,13 @@ height: 270px;
 }
 
 
-.search-result img {
+.item-summary img {
   height: 76px;
   width: 76px;
   margin: 0 17px 5px 0;
 }
 
-.search-result-image-blank {
+.item-summary-image-blank {
   display: none;
 }
 
