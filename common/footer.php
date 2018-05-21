@@ -22,7 +22,7 @@
 <!-- slick -->
 <script type="text/javascript" src="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.js" ?>"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function ($) {
+    jQuery(function($) {
         $('.featured-carousel').slick({
             dots: true,
             infinite: true,
@@ -339,7 +339,7 @@
 
 <!-- Feedback js -->
 <script type="text/javascript">
-jQuery(document).ready(function ($) {
+jQuery(function ($) {
 	$("#feedback-tab").click(function() {
 		$("#feedback-form").show(400);
 		$("#feedback-tab").hide(0);
@@ -371,8 +371,8 @@ jQuery(document).ready(function ($) {
 
 <!-- Comments js -->
 <script type="text/javascript">
-jQuery(document).ready(function ($) {
-	if (document.getElementsByClassName('comment')[0]) {
+jQuery(function($) {
+	if ($(".comment").length) {
 		$("#comments-empty").hide(0);
 	}
 });

@@ -10,7 +10,7 @@
 $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 ?>
 
-<?php echo head(array('title' => __('Search'), 'results' => $results, 'bodyclass' => 'search'));?>
+<?php echo head(array('title' => __('Search'), 'results' => $results, 'bodyclass' => 'search-menu'));?>
 
 <?php if ($results->response->numFound > 0): ?>
     <h1>
@@ -76,54 +76,45 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <?php endif; ?>
 
 <script>
-<!-- show sidebar -->
 jQuery(function($) {
-    if ($(window).width() < 930) {
-		$("#nav-bar-search").show( 0, function() {});
-		$("#nav-bar-mobile-icon-search").text('close');
-		$("#nav-bar-mobile-button-menu").attr('class', 'nav-bar-mobile-button-menu');
-		$("#nav-bar-mobile-button-search").attr('class', 'nav-bar-mobile-button-search-selected');
-		$("#nav-bar-mobile-icon-menu").text('menu');
-		$("#nav-bar-mobile-icon-menu").css('font-size', '48px');
-		$("#nav-bar-mobile-icon-menu").css('margin-top', '0px');
-		$("#nav-bar-limit-toggle").css('cursor', 'pointer');
-		$("#nav-bar-limit-search").css('display', 'none');
-		$("#nav-bar-limit-shrink").css('display', 'none');
-		$("#nav-bar-limit-expand").css('display', 'inline');
-		$("#header-image").hide( 0, function() {}); 
-    } else {
-        $("#nav-bar-mobile-icon-search").text('close');
-        $("#nav-bar-mobile-button-search").attr('class', 'nav-bar-mobile-button-search-selected');
-        $("#nav-bar-search").show(0, function () {
-        });
-        $("#container").animate({'margin-left': '240px'}, 0);
-        $("#footer").animate({'margin-left': '240px'}, 0);
-        $("#nav-bar-button-search").attr('class', 'nav-bar-button-search-selected');
-        $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
-    }
-
-    $(window).resize(function () {
-        <!-- hide logo -->
-        if ($(window).width() < 1000) {
-            $("#site-logo").hide(0, function () {
-            });
-        } else {
-            $("#site-logo").show(0, function () {
-            });
-        }
-
-        <!-- move content -->
-        if ($(window).width() > 930) {
-            $("#nav-bar-search").show(0, function () {
-            });
-            $("#nav-bar-button-search").attr('class', 'nav-bar-button-search-selected');
-            $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
-            $("#container").animate({'margin-left': '240px'}, 0);
-            $("#footer").animate({'margin-left': '240px'}, 0);
-        } else {
-			$("#header-image").hide( 0, function() {}); 
-        }
-    });
+    // Show/hide sidebar
+    // if ($(window).width() < 930) {
+		// //$("#nav-bar-search").show();
+		// $("#nav-bar-mobile-icon-search").text('close');
+		// $("#nav-bar-mobile-button-menu").addClass('nav-bar-mobile-button-menu');
+		// $("#nav-bar-mobile-button-search").addClass('selected');
+		// $("#nav-bar-mobile-icon-menu")
+    //         .text('menu')
+    //         .css({fontSize: 48, marginTop: 0});
+		// $("#nav-bar-limit-toggle").css('cursor', 'pointer');
+		// $("#nav-bar-limit-search").hide();
+		// $("#nav-bar-limit-shrink").hide();
+		// $("#nav-bar-limit-expand").show();
+		// $("#header-image").hide();
+    // } else {
+    //     $("#nav-bar-mobile-icon-search").text('close');
+    //     $("#nav-bar-mobile-button-search").addClass('selected');
+    //     //$("#nav-bar-search").show();
+    //     //$("#container").animate({marginLeft: 240}, 0);
+    //     //$("#footer").animate({marginLeft: 240}, 0);
+    //     //$("#nav-bar-button-search").addClass('nav-bar-button-search-selected');
+    //     //$("#nav-bar-button-menu").addClass('nav-bar-button-menu');
+    // }
+    //
+    // $(window).resize(function () {
+    //     <!-- hide logo -->
+    //     $("#site-logo").toggle(window.offsetWidth > 1000);
+    //     $("#header-image").toggle(window.offsetWidth > 930);
+    //
+    //     <!-- move content -->
+    //     if (window.offsetWidth > 930) {
+    //         $("#nav-bar-search").show();
+    //         $("#nav-bar-button-search").addClass('selected');
+    //         $("#nav-bar-button-menu").attr('class', 'nav-bar-button-menu');
+    //         $("#container").animate({marginLeft: 240}, 0);
+    //         $("#footer").animate({marginLeft: 240}, 0);
+    //     }
+    // });
 });
 </script>
 

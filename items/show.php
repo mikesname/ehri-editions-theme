@@ -1,21 +1,4 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
-<script>
-jQuery(function($) {
-  var doc = new jsPDF();
-  var specialElementHandlers = {
-    '#editor': function(element, renderer) {
-      return true;
-    }
-  };
-  $('#pdf-create').click(function() {
-    doc.fromHTML($('.element-text-document').html(), 20, 20, {
-      'width': 170,
-      'elementHandlers': specialElementHandlers
-    });
-    doc.save('sample-file.pdf');
-  });
-});
-</script>
 
 <div id="content-share">
     <div id="content-share-title"><?php echo __('Download'); ?></div> 
@@ -107,7 +90,6 @@ jQuery(function($) {
 		</div>
     </a>
     </div>
+</div>
 
-</div> <!-- End of Primary. -->
-
- <?php echo foot(); ?>
+<?php echo foot(); ?>

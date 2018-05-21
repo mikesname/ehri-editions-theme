@@ -71,24 +71,24 @@
 
 <!-- url and customized functions-->
 <?php
-include("./themes/ehri/common/custom.php");
+include(dirname(__FILE__) . "/custom.php");
 $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 ?>
 
 <!-- desktop navbar -->
-<div class="nav-bar">
-    <div class="nav-bar-button-search" id="nav-bar-button-search">
+<div id="nav-bar-buttons">
+    <div class="nav-bar-button" id="nav-bar-button-search" data-target="#nav-bar-search" data-class="search-menu">
         <div id="nav-bar-icon-search" class="material-icons">search</div>
         <div id="nav-bar-icon-text-search"><?php echo __('Search'); ?></div>
     </div>
-    <div class="nav-bar-button-menu" id="nav-bar-button-menu">
+    <div class="nav-bar-button" id="nav-bar-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
         <div id="nav-bar-icon-menu" class="material-icons">menu</div>
         <div id="nav-bar-icon-text-menu"><?php echo __('Menu'); ?></div>
     </div>
 </div>
 
-<div class="nav-bar-search" id="nav-bar-search">
-    <div class="nav-bar-search-back" id="nav-bar-search-back">
+<div class="nav-bar" id="nav-bar-search">
+    <div class="nav-bar-back" id="nav-bar-search-back">
         <div class="nav-bar-back-icon">chevron_left</div>
     </div>
     <div id="search-container" role="search">
@@ -119,11 +119,11 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
     <!-- Facets. -->
     <?php $counts = isset($results) ? $results->facet_counts->facet_fields : array(); ?>
     <div id="solr-facets">
-        <div id="nav-bar-limit-toggle">
+        <div id="nav-bar-limit-toggle" data-target="#nav-bar-limit-search">
             <h2 class="nav-bar-search-category"><?php echo __('Limit your search'); ?></h2>
             <div id="nav-bar-limit-expand">keyboard_arrow_down</div>
-            <div id="nav-bar-limit-shrink">keyboard_arrow_up</div>
-            <div id="nav-bar-limit-search">
+        </div>
+        <div id="nav-bar-limit-search">
             <?php foreach ($counts as $name => $facets): ?>
                 <!-- Does the facet have any hits? -->
                 <?php if (!empty($facets)): ?>
@@ -152,13 +152,12 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 			<?php if (empty($counts)): ?>
 				<div class="nav-bar-search-item"><?php echo __('None'); ?></div>
 			<?php endif; ?>
-            </div>
         </div>
     </div>
 </div>
 
-<div class="nav-bar-menu" id="nav-bar-menu">
-    <div class="nav-bar-menu-back" id="nav-bar-menu-back">
+<div class="nav-bar" id="nav-bar-menu">
+    <div class="nav-bar-back" id="nav-bar-menu-back">
         <div class="nav-bar-back-icon">chevron_left</div>
     </div>
     <ul>
@@ -173,14 +172,13 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <!-- / desktop navbar -->
 
 <!-- mobile navbar -->
-<div class="nav-bar-mobile"></div>
-<div id="nav-bar-mobile-icons">
-    <div class="nav-bar-mobile-button-search" id="nav-bar-mobile-button-search">
-        <div id="nav-bar-mobile-icon-search" class="material-icons">search</div>
-    </div>
-    <div class="nav-bar-mobile-button-menu" id="nav-bar-mobile-button-menu">
-        <div id="nav-bar-mobile-icon-menu" class="material-icons">menu</div>
-    </div>
+<div id="nav-bar-mobile-buttons">
+        <div class="nav-bar-mobile-button" id="nav-bar-mobile-button-search" data-target="#nav-bar-search" data-class="search-menu">
+            <div id="nav-bar-mobile-icon-search" data-text="search" class="material-icons">search</div>
+        </div>
+        <div class="nav-bar-mobile-button" id="nav-bar-mobile-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
+            <div id="nav-bar-mobile-icon-menu" data-text="menu" class="material-icons">menu</div>
+        </div>
 </div>
 
 <!-- / mobile navbar -->
