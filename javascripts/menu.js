@@ -26,6 +26,7 @@ jQuery(function($) {
   // button is clicked, ensure that class is added
   // and other menu button's classes removed.
   $(".nav-bar-button").click(function(e) {
+    e.preventDefault();
     var $this = $(this),
         cls = $this.data("class"),
         $target = $($this.data("target"));
@@ -44,6 +45,7 @@ jQuery(function($) {
   $(".nav-bar-mobile-button").each(function (i, elem) {
     resetMenuButtonState(elem);
   }).click(function (e) {
+    e.preventDefault();
     var $this = $(this);
     $($this.data("target")).toggle(!$this.hasClass("selected"));
     resetMenuButtonState(this);

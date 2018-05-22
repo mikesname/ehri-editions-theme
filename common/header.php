@@ -77,14 +77,14 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
 <!-- desktop navbar -->
 <div id="nav-bar-buttons">
-    <div class="nav-bar-button" id="nav-bar-button-search" data-target="#nav-bar-search" data-class="search-menu">
+    <a href="/search" class="nav-bar-button" id="nav-bar-button-search" data-target="#nav-bar-search" data-class="search-menu">
         <div id="nav-bar-icon-search" class="material-icons">search</div>
         <div id="nav-bar-icon-text-search"><?php echo __('Search'); ?></div>
-    </div>
-    <div class="nav-bar-button" id="nav-bar-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
+    </a>
+    <a href="/exhibits" class="nav-bar-button" id="nav-bar-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
         <div id="nav-bar-icon-menu" class="material-icons">menu</div>
         <div id="nav-bar-icon-text-menu"><?php echo __('Menu'); ?></div>
-    </div>
+    </a>
 </div>
 
 <div class="nav-bar" id="nav-bar-search">
@@ -173,12 +173,12 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
 <!-- mobile navbar -->
 <div id="nav-bar-mobile-buttons">
-        <div class="nav-bar-mobile-button" id="nav-bar-mobile-button-search" data-target="#nav-bar-search" data-class="search-menu">
+        <a href="/search" class="nav-bar-mobile-button" id="nav-bar-mobile-button-search" data-target="#nav-bar-search" data-class="search-menu">
             <div id="nav-bar-mobile-icon-search" data-text="search" class="material-icons">search</div>
-        </div>
-        <div class="nav-bar-mobile-button" id="nav-bar-mobile-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
+        </a>
+        <a href="/exhibits" class="nav-bar-mobile-button" id="nav-bar-mobile-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
             <div id="nav-bar-mobile-icon-menu" data-text="menu" class="material-icons">menu</div>
-        </div>
+        </a>
 </div>
 
 <!-- / mobile navbar -->
