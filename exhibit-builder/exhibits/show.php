@@ -27,12 +27,14 @@ echo head(array(
 
 <script type="text/javascript">
 	// slick
-	$(".regular").slick({
-		dots: true,
-		infinite: true,
-		slidesToShow: 3,
-		slidesToScroll: 3
-	});
+    jQuery(function($) {
+        $(".regular").slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        })
+    });
 </script>
 
 <?php echo foot(); ?>
