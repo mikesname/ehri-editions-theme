@@ -2565,6 +2565,12 @@ footer .navigation {
   margin-bottom: 75px;
 }
 
+#home .exhibit-block.layout-neatline iframe {
+  height: 449px;
+  width: 100%;
+  border: 0;
+}
+
 .home-map-wrapper,
 .exhibit-block.layout-neatline {
   height: 449px;
