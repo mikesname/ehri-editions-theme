@@ -1366,7 +1366,6 @@ header a:hover {
   border: 0;
   margin: 0 40px 40px 190px;
   padding: 0;
-  width: 100%;
 }
 
 #content-share {
@@ -1379,6 +1378,11 @@ header a:hover {
   position: relative;
   top: 0;
   width: 200px;
+}
+
+/* FIXME: content-share positioning hacks */
+body.exhibits-menu #content-share {
+  margin-right: 0;
 }
 
 #content-share-mobile {
