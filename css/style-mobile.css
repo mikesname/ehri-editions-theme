@@ -326,9 +326,11 @@ height: 270px;
   width: 100%;
 }
 
-.exhibit-block.layout-neatline iframe {
+#homepage-exhibit .exhibit-block.layout-neatline iframe,
+#exhibit-blocks .exhibit-block.layout-neatline iframe {
   margin: 5px 0 0 -5%;
   width: 100%;
+  border: 0;
 }
 
 #home .exhibit-block.layout-neatline {

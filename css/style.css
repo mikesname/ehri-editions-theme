@@ -2568,7 +2568,7 @@ footer .navigation {
 #exhibit-blocks .exhibit-block.layout-neatline > iframe {
   height: 449px;
   width: 100%;
-  border: 0;
+  border: 1px solid var(--colorBorderInput);
 }
 
 .home-map-wrapper,
