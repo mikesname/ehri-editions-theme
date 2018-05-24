@@ -707,8 +707,8 @@ body.exhibits-menu > #container, body.exhibits-menu > footer#footer {
   margin-left: 240px;
 }
 
-body.mobile > #container, body.search-menu > footer#footer,
-body.mobile > #container, body.exhibits-menu > footer#footer {
+body.mobile > #container
+body.mobile > footer#footer {
   margin-left: 0;
 }
 
