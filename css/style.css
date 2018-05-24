@@ -2564,7 +2564,8 @@ footer .navigation {
   margin-bottom: 75px;
 }
 
-#home .exhibit-block.layout-neatline iframe {
+#homepage-exhibit .exhibit-block.layout-neatline > iframe,
+#exhibit-blocks .exhibit-block.layout-neatline > iframe {
   height: 449px;
   width: 100%;
   border: 0;

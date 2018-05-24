@@ -13,7 +13,7 @@
     <?php endif; ?>
 
     <?php if ($exhibitPage = get_homepage_exhibit_page()): ?>
-        <div class="homepage-exhibit"></div>
+        <div id="homepage-exhibit">
             <?php echo exhibit_builder_render_exhibit_page($exhibitPage); ?>
         </div>
     <?php endif; ?>
