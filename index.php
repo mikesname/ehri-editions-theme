@@ -41,13 +41,21 @@
 
 <script type="text/javascript">
 	jQuery(function($) {
-		<!-- slick --> 
+		// slick
 		$(".regular").slick({
 			dots: true,
 			infinite: true,
 			slidesToShow: 3,
 			slidesToScroll: 3
 		});
+
+		// Disable pointer events on homepage maps until clicked
+        $(".layout-neatline")
+            .find("iframe").css({pointerEvents: "none"})
+            .end()
+            .click(function(e) {
+                $(this).find("iframe").css({pointerEvents: "auto"});
+            });
 	});
 </script>
 
