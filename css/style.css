@@ -2418,12 +2418,11 @@ footer nav + p {
   margin-bottom: 1.5em;
 }
 
-#exhibit-blocks .exhibit-subtitle {
+.exhibit-block .exhibit-subtitle {
   color: var(--colorTitle);
   font-size: 20px;
   line-height: 1.5em;
   margin: -10px 0 15px 0;
-  max-width: 850px;
 }
 
 #exhibit-blocks .exhibit-strong-title {
