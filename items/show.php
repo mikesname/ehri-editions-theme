@@ -1,4 +1,4 @@
-<?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
+<?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'two-columns items show')); ?>
 
 <div id="content-share">
     <div id="content-share-title"><?php echo __('Download'); ?></div> 

@@ -1172,22 +1172,17 @@ header a:hover {
 
 .item-summary {
   border-bottom: 1px dashed var(--colorLineDashed);
-  border-TOP: 1px dashed var(--colorLineDashed);
   color: var(--colorText);
   cursor: pointer;
   margin: -1px 0 0 0;
   max-width: 960px;
   min-height: 197px;
-  padding: 30px 0 30px 0;
   width: calc(100% - 250px);
+  padding: 30px;
 }
 
-.editions-item {
+.editions-item-group {
   padding: 35px 0;
-}
-
-.search-results-empty {
-  margin: 70px 0 0 0;
 }
 
 .item-summary:hover.item-summary-title {
@@ -1236,6 +1231,14 @@ header a:hover {
 
 .search-results {
   margin: 0 0 30px 0;
+}
+
+.search-results .item-summary:last-child {
+  border-bottom: none;
+}
+
+.search-results-empty {
+  margin: 70px 0 0 0;
 }
 
 .item-summary-wrapper {
