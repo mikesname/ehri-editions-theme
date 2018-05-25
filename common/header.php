@@ -3,8 +3,7 @@
 <head>
     <?php add_translation_source(dirname(dirname(__FILE__)) . '/languages');?>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
     <?php if ($description = option('description')): ?>
         <meta name="description" content="<?php echo $description; ?>"/>
     <?php endif; ?>
@@ -29,42 +28,30 @@
     <?php endif; ?>
     
     <!-- css -->
-    <?php
-    queue_css_file(array('iconfonts', 'skeleton', 'style-mobile'));
-    echo head_css();
-    ?>
+    <?php queue_css_file(array('iconfonts', 'skeleton', 'style-mobile')); ?>
+    <?php echo head_css(); ?>
     
-    <!-- java -->
+    <!-- javascripts -->
     <?php queue_js_file('menu', 'javascripts'); ?>
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
-    <?php queue_js_file('vendor/jquery-accessibleMegaMenu'); ?>
-    <?php queue_js_file('jquery-fullscreen', 'javascripts/vendor'); ?>
-    <?php queue_js_file('jspdf.min', 'javascripts/vendor'); ?>
     <?php queue_js_file('photoswipe.min', 'photoswipe/dist'); ?>
     <?php queue_js_file('photoswipe-ui-default.min', 'photoswipe/dist'); ?>
     <?php echo head_js(); ?>
-    
-    <!-- custom search -->
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/results.css"; ?>"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/fields.css"; ?>"/>
     
     <!-- print -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/print.css"; ?>" media="print"/>
 
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Roboto|Roboto+Mono"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Roboto|Roboto+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- slick -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.css"; ?>"/>
 
     <!-- photoswipe -->
-    <link rel="stylesheet" type="text/css"
-          href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>"/>
-    <link rel="stylesheet" type="text/css"
-          href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>"/>
 </head>
 
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
