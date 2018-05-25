@@ -1,0 +1,26 @@
+#site-title {
+  font-size: 32px;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+
+#home #site-title,
+#exhibit-home-site-title {
+  font-size: 60px;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  line-height: 60px;
+  text-transform: none;
+}
+
+@media only screen and (max-width: 930px) {
+	#home #site-title,
+	#exhibit-home-site-title {
+	  letter-spacing: 0.05em;
+	  margin-top: calc(80px + 8%);
+	  margin-left: 0;
+	  font-size: 36px;
+	  line-height: 36px;
+	}
+}
