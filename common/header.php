@@ -3,8 +3,7 @@
 <head>
     <?php add_translation_source(dirname(dirname(__FILE__)) . '/languages');?>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
     <?php if ($description = option('description')): ?>
         <meta name="description" content="<?php echo $description; ?>"/>
     <?php endif; ?>
@@ -29,43 +28,31 @@
     <?php endif; ?>
     
     <!-- css -->
-    <?php
-    queue_css_file(array('iconfonts', 'skeleton', 'style-mobile'));
-    echo head_css();
-    ?>
+    <?php queue_css_file(array('iconfonts', 'skeleton', 'style-mobile')); ?>
+    <?php echo head_css(); ?>
     
-    <!-- java -->
+    <!-- javascripts -->
     <?php queue_js_file('menu', 'javascripts'); ?>
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
-    <?php queue_js_file('vendor/jquery-accessibleMegaMenu'); ?>
-    <?php queue_js_file('jquery-fullscreen', 'javascripts/vendor'); ?>
-    <?php queue_js_file('jspdf.min', 'javascripts/vendor'); ?>
     <?php queue_js_file('photoswipe.min', 'photoswipe/dist'); ?>
     <?php queue_js_file('photoswipe-ui-default.min', 'photoswipe/dist'); ?>
     <?php echo head_js(); ?>
-    
-    <!-- custom search -->
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/results.css"; ?>"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/fields.css"; ?>"/>
     
     <!-- print -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/print.css"; ?>" media="print"/>
 
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Roboto|Roboto+Mono"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600|Roboto|Roboto+Mono" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- slick -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.css"; ?>"/>
 
     <!-- photoswipe -->
-    <link rel="stylesheet" type="text/css"
-          href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>"/>
-    <link rel="stylesheet" type="text/css"
-          href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>"/>
-          
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/photoswipe.css"; ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/photoswipe/dist/default-skin/default-skin.css"; ?>"/>
+    
     <!-- site title -->
 	<?php 
 	$textTransform = 'uppercase';
@@ -82,24 +69,24 @@
 
 <!-- url and customized functions-->
 <?php
-include("./themes/ehri/common/custom.php");
+include(dirname(__FILE__) . "/custom.php");
 $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 ?>
 
 <!-- desktop navbar -->
-<div class="nav-bar">
-    <div class="nav-bar-button-search" id="nav-bar-button-search">
+<div id="nav-bar-buttons">
+    <a href="/search" class="nav-bar-button" id="nav-bar-button-search" data-target="#nav-bar-search" data-class="search-menu">
         <div id="nav-bar-icon-search" class="material-icons">search</div>
         <div id="nav-bar-icon-text-search"><?php echo __('Search'); ?></div>
-    </div>
-    <div class="nav-bar-button-menu" id="nav-bar-button-menu">
+    </a>
+    <a href="/exhibits" class="nav-bar-button" id="nav-bar-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
         <div id="nav-bar-icon-menu" class="material-icons">menu</div>
         <div id="nav-bar-icon-text-menu"><?php echo __('Menu'); ?></div>
-    </div>
+    </a>
 </div>
 
-<div class="nav-bar-search" id="nav-bar-search">
-    <div class="nav-bar-search-back" id="nav-bar-search-back">
+<div class="nav-bar" id="nav-bar-search">
+    <div class="nav-bar-back" id="nav-bar-search-back">
         <div class="nav-bar-back-icon">chevron_left</div>
     </div>
     <div id="search-container" role="search">
@@ -130,11 +117,11 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
     <!-- Facets. -->
     <?php $counts = isset($results) ? $results->facet_counts->facet_fields : array(); ?>
     <div id="solr-facets">
-        <div id="nav-bar-limit-toggle">
+        <div id="nav-bar-limit-toggle" data-target="#nav-bar-limit-search">
             <h2 class="nav-bar-search-category"><?php echo __('Limit your search'); ?></h2>
             <div id="nav-bar-limit-expand">keyboard_arrow_down</div>
-            <div id="nav-bar-limit-shrink">keyboard_arrow_up</div>
-            <div id="nav-bar-limit-search">
+        </div>
+        <div id="nav-bar-limit-search">
             <?php foreach ($counts as $name => $facets): ?>
                 <!-- Does the facet have any hits? -->
                 <?php if (!empty($facets)): ?>
@@ -163,13 +150,12 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 			<?php if (empty($counts)): ?>
 				<div class="nav-bar-search-item"><?php echo __('None'); ?></div>
 			<?php endif; ?>
-            </div>
         </div>
     </div>
 </div>
 
-<div class="nav-bar-menu" id="nav-bar-menu">
-    <div class="nav-bar-menu-back" id="nav-bar-menu-back">
+<div class="nav-bar" id="nav-bar-menu">
+    <div class="nav-bar-back" id="nav-bar-menu-back">
         <div class="nav-bar-back-icon">chevron_left</div>
     </div>
     <ul>
@@ -184,14 +170,13 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 <!-- / desktop navbar -->
 
 <!-- mobile navbar -->
-<div class="nav-bar-mobile"></div>
-<div id="nav-bar-mobile-icons">
-    <div class="nav-bar-mobile-button-search" id="nav-bar-mobile-button-search">
-        <div id="nav-bar-mobile-icon-search" class="material-icons">search</div>
-    </div>
-    <div class="nav-bar-mobile-button-menu" id="nav-bar-mobile-button-menu">
-        <div id="nav-bar-mobile-icon-menu" class="material-icons">menu</div>
-    </div>
+<div id="nav-bar-mobile-buttons">
+        <a href="/search" class="nav-bar-mobile-button" id="nav-bar-mobile-button-search" data-target="#nav-bar-search" data-class="search-menu">
+            <div id="nav-bar-mobile-icon-search" data-text="search" class="material-icons">search</div>
+        </a>
+        <a href="/exhibits" class="nav-bar-mobile-button" id="nav-bar-mobile-button-menu" data-target="#nav-bar-menu" data-class="exhibits-menu">
+            <div id="nav-bar-mobile-icon-menu" data-text="menu" class="material-icons">menu</div>
+        </a>
 </div>
 
 <!-- / mobile navbar -->
