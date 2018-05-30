@@ -19,41 +19,6 @@
 
 </footer>
 
-<!-- slick -->
-<script type="text/javascript" src="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.js" ?>"></script>
-<script type="text/javascript">
-    jQuery(function($) {
-        $('.featured-carousel').slick({
-            dots: true,
-            infinite: true,
-            speed: 400,
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            responsive: [
-                {
-                    breakpoint: 1070,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 430,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        });
-    });
-</script>
-
 <!-- PhotoSwipe html -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="pswp__bg"></div>
@@ -370,7 +335,27 @@ jQuery(function($) {
 });
 </script>
 
-<!-- addThis --> 
+<script type="text/javascript" src="<?php echo WEB_ROOT . "/themes/ehri/slick/slick.js" ?>"></script>
+<script type="text/javascript">
+  jQuery(function($) {
+    // slick
+    $(".featured-items").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    });
+
+    // Disable pointer events on homepage maps until clicked
+    $(".layout-neatline")
+        .find("iframe").css({pointerEvents: "none"})
+        .end()
+        .click(function(e) {
+          $(this).find("iframe").css({pointerEvents: "auto"});
+        });
+  });
+</script>
+<!-- addThis -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5aa59d527f6db3d6"></script>
 </body>
 

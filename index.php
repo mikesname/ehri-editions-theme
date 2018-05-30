@@ -42,7 +42,7 @@
 <script type="text/javascript">
 	jQuery(function($) {
 		// slick
-		$(".regular").slick({
+		$(".featured-items").slick({
 			dots: true,
 			infinite: true,
 			slidesToShow: 3,

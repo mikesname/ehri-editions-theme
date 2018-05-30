@@ -22,16 +22,4 @@ echo head(array(
     <?php exhibit_builder_render_exhibit_page(); ?>
 </div>
 
-<script type="text/javascript">
-	// slick
-    jQuery(function($) {
-        $(".regular").slick({
-            dots: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        })
-    });
-</script>
-
 <?php echo foot(); ?>
