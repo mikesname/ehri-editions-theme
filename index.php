@@ -20,9 +20,9 @@
 
     <?php if (get_theme_option('Display Featured Item')): ?>
         <!-- Featured Item -->
-        <div id="featured-item" class="featured">
+        <div id="featured-items-container" class="featured">
             <h4><?php echo __('Featured Items'); ?></h4>
-            <div id="featured-carousel" class="featured-carousel">
+            <div class="featured-items">
                 <?php echo random_featured_items(15); ?>
             </div>
         </div><!--end featured-item-->
@@ -37,26 +37,5 @@
         </div>
     <?php endif; ?>
 </div><!-- end secondary -->
-
-
-<script type="text/javascript">
-	jQuery(function($) {
-		// slick
-		$(".featured-items").slick({
-			dots: true,
-			infinite: true,
-			slidesToShow: 3,
-			slidesToScroll: 3
-		});
-
-		// Disable pointer events on homepage maps until clicked
-        $(".layout-neatline")
-            .find("iframe").css({pointerEvents: "none"})
-            .end()
-            .click(function(e) {
-                $(this).find("iframe").css({pointerEvents: "auto"});
-            });
-	});
-</script>
 
 <?php echo foot(); ?>

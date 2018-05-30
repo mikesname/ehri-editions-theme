@@ -341,9 +341,9 @@ jQuery(function($) {
     // slick
     $(".featured-items").slick({
       dots: true,
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 3
+      arrows: true,
+      slidesToShow: 4,
+      slidesToScroll: 4
     });
 
     // Disable pointer events on homepage maps until clicked

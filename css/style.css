@@ -1859,6 +1859,37 @@ nav + .exhibit {
   margin-top: 0;
 }
 
+.featured-items {
+  border-collapse: collapse;
+  margin-left: -20px;
+}
+
+.item.record {
+  float: left;
+  position: relative;
+  padding: 20px;
+  /*margin-left: 20px;*/
+}
+
+.item.record img {
+  width: 100%;
+}
+
+.item.record .item-title-overlay {
+  background-color: rgba(0,0,0,.4);
+  overflow: auto;
+  position: absolute;
+  bottom: 20px;
+  /*color: var(--colorLink);*/
+  color: #fff;
+  margin-right: 20px;
+}
+
+.item.record .item-title {
+  padding: 10px;
+  font-size: 1.4em;
+}
+
 /* @end */
 /* @group ----- Items/Browse ----- */
 .browse .item h2,
