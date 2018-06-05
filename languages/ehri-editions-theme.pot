@@ -17,19 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: common/header.php:86
+#: common/content_share.php:6
+msgid "Download"
+msgstr ""
+
+#: common/content_share.php:21 exhibit-builder/exhibits/show.php:10
+msgid "Share"
+msgstr ""
+
+#: common/header.php:94
 msgid "Menu"
 msgstr ""
 
-#: common/header.php:99
+#: common/header.php:107
 msgid "Applied facets"
 msgstr ""
 
-#: common/header.php:113 common/header.php:153
+#: common/header.php:121 common/header.php:161
 msgid "None"
 msgstr ""
 
-#: common/header.php:123
+#: common/header.php:131
 msgid "Limit your search"
 msgstr ""
 
@@ -77,22 +85,6 @@ msgstr ""
 msgid "There are no exhibits available yet."
 msgstr ""
 
-#: exhibit-builder/exhibits/show.php:20 items/show.php:76
-msgid "Download"
-msgstr ""
-
-#: exhibit-builder/exhibits/show.php:21 items/show.php:77
-msgid "PDF"
-msgstr ""
-
-#: exhibit-builder/exhibits/show.php:22 items/show.php:78
-msgid "E-pub"
-msgstr ""
-
-#: exhibit-builder/exhibits/show.php:23 items/show.php:40 items/show.php:79
-msgid "Share"
-msgstr ""
-
 #: exhibit-builder/exhibits/summary.php:15
 msgid "Credits"
 msgstr ""
@@ -105,23 +97,23 @@ msgstr ""
 msgid "Featured Items"
 msgstr ""
 
-#: items/show.php:45 items/show.php:61
+#: items/show.php:8 items/show.php:24
 msgid "Feedback"
 msgstr ""
 
-#: items/show.php:49
+#: items/show.php:12
 msgid "Your e-mail"
 msgstr ""
 
-#: items/show.php:54
+#: items/show.php:17
 msgid "Your feedback..."
 msgstr ""
 
-#: items/show.php:58
+#: items/show.php:21
 msgid "Send"
 msgstr ""
 
-#: items/show.php:62
+#: items/show.php:25
 msgid "Thanks for your feedback!"
 msgstr ""
 
