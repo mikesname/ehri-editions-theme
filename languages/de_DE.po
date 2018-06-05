@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: ehri-editions-theme\n"
 "Report-Msgid-Bugs-To: http://github.com/EHRI/ehri-editions-theme/issues\n"
 "POT-Creation-Date: 2018-04-27 11:48-0500\n"
-"PO-Revision-Date: 2018-06-05 15:27+0300\n"
+"PO-Revision-Date: 2018-06-05 16:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -115,8 +115,9 @@ msgid "Thanks for your feedback!"
 msgstr "Danke für Ihr Feedback!"
 
 #: solr-search/results/index.php:18
-msgid "Documents found: "
-msgstr "Dokumente gefunden: "
+#, php-format
+msgid "Documents found: %d"
+msgstr "Dokumente gefunden: %d"
 
 #: solr-search/results/index.php:20
 msgid "All Documents"
@@ -128,42 +129,57 @@ msgid "No results for \"%s\""
 msgstr "Keine Ergebnisse für \"%s\""
 
 #: solr-search/results/index.php:44
-msgid "Search query is empty."
-msgstr "Suchabfrage ist leer."
-
-#~ msgid "PDF"
-#~ msgstr "PDF"
-
-#~ msgid "E-pub"
-#~ msgstr "E-pub"
-
-#~ msgid "Document text"
-#~ msgstr "Transcription"
-
-#~ msgid "Related chapters"
-#~ msgstr "Verwandte Kapitel"
-
-#~ msgid "Languages: %s"
-#~ msgstr "Sprachen: %s"
-
-#~ msgid "Search Results for \"%s\": %d"
-#~ msgstr "Suchergebnisse für \"%s\": %d"
+msgid "Search query is empty"
+msgstr "Suchabfrage ist leer"
 
 # Facet Types
-#~ msgid "Subject"
-#~ msgstr "Thema"
+msgid "Subject"
+msgstr "Thema"
 
-#~ msgid "Person"
-#~ msgstr "Person"
+msgid "Person"
+msgstr "Person"
 
-#~ msgid "Organisation"
-#~ msgstr "Organisation"
+msgid "Organisation"
+msgstr "Organisation"
 
-#~ msgid "Place"
-#~ msgstr "Ort"
+msgid "Place"
+msgstr "Ort"
 
-#~ msgid "Search"
-#~ msgstr "Suchen"
+msgid "Search"
+msgstr "Suchen"
 
-#~ msgid "Recently Added Items"
-#~ msgstr "Zuletzt hinzugefügte Dokumente"
+msgid "Type"
+msgstr "Dokumententyp"
+
+msgid "Archive"
+msgstr "Archiv"
+
+msgid "Recently Added Items"
+msgstr "Zuletzt hinzugefügte Dokumente"
+
+msgid "English"
+msgstr "Englisch"
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Czech"
+msgstr "Tschechisch"
+
+msgid "Slovak"
+msgstr "Slowakisch"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "E-pub"
+msgstr "E-pub"
+
+msgid "Related chapters"
+msgstr "Verwandte Kapitel"
+
+msgid "Languages: %s"
+msgstr "Sprachen: %s"
+
+msgid "Search results for \"%s\": %d"
+msgstr "Suchergebnisse für \"%s\": %d"

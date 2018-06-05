@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html class="<?php echo get_theme_option('Style Sheet'); ?>" lang="<?php echo get_html_lang(); ?>">
 <head>
+    <?php
+        // FIXME: remove this when figured out why translations don't show!
+        Zend_Translate::removeCache(); ?>
     <?php add_translation_source(dirname(dirname(__FILE__)) . '/languages');?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>

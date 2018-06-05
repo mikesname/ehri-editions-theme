@@ -118,7 +118,8 @@ msgid "Thanks for your feedback!"
 msgstr ""
 
 #: solr-search/results/index.php:18
-msgid "Documents found: "
+#, php-format
+msgid "Documents found: %d"
 msgstr ""
 
 #: solr-search/results/index.php:20
@@ -131,5 +132,58 @@ msgid "No results for \"%s\""
 msgstr ""
 
 #: solr-search/results/index.php:44
-msgid "Search query is empty."
+msgid "Search query is empty"
 msgstr ""
+
+# Facet Types
+msgid "Subject"
+msgstr ""
+
+msgid "Person"
+msgstr ""
+
+msgid "Organisation"
+msgstr ""
+
+msgid "Place"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Archive"
+msgstr ""
+
+msgid "Recently Added Items"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "Czech"
+msgstr ""
+
+msgid "Slovak"
+msgstr ""
+
+msgid "PDF"
+msgstr ""
+
+msgid "E-pub"
+msgstr ""
+
+msgid "Related chapters"
+msgstr ""
+
+msgid "Languages: %s"
+msgstr ""
+
+msgid "Search results for \"%s\": %d"
+msgstr ""
+
