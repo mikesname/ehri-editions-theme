@@ -1,16 +1,12 @@
 <?php
-$searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
+$searchQuery = array_key_exists('q', $_GET) ? trim($_GET['q']) : '';
 ?>
 
 <?php echo head(array('title' => __('Search'), 'results' => $results, 'bodyclass' => 'search-menu'));?>
 
 <?php if ($results->response->numFound > 0): ?>
     <h1>
-        <?php if ($searchQuery): ?>
-            <?php echo __("Documents found: %d", $results->response->numFound); ?>
-        <?php else: ?>
-            <?php echo __("All Documents"); ?>
-        <?php endif; ?>
+        <?php echo __("Documents found: %d", $results->response->numFound); ?>
     </h1>
 
 	<?php echo pagination_links(); ?>
@@ -27,7 +23,7 @@ $searchQuery = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 
 <?php else: ?>
 	<div id="no-results" class="search-results-empty"><h1>
-	<?php if (strlen($searchQuery)>0) { ?>
+	<?php if ($searchQuery) { ?>
 		<?php echo __("No results for \"%s\"", $searchQuery); ?>
 	<?php } else { ?>
 		<?php echo __('Search query is empty'); ?>
