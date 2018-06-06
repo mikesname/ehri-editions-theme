@@ -817,7 +817,7 @@ a.nav-bar-search-item-close {
   cursor: pointer;
   display: block;
   font-weight: bold;
-  margin: 0 0 15px 10px;
+  margin: 0 0 15px 15px;
   padding-top: 10px;
 }
 
@@ -825,7 +825,7 @@ a.nav-bar-search-item-close {
 .nav-bar-menu-subitem {
   cursor: pointer;
   display: block;
-  margin: 0 20px 15px 10px;
+  margin: 0 20px 15px 15px;
 }
 
 .search-button-solr {
@@ -1628,7 +1628,7 @@ nav + .exhibit {
   display: block;
   margin: 54px 0 0 0;
   max-width: 1170px;
-  padding: 0 0 35px 0;
+  padding: 0 0 1px 0;
   width: 100%;
 }
 
