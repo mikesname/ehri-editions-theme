@@ -26,8 +26,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
  */
 function footer_logo($num = 1)
 {
-    $logo = get_theme_option("Footer Logo$num");
-    if ($logo) {
+    if ($logo = get_theme_option("Footer Logo$num")) {
         $storage = Zend_Registry::get('storage');
         $uri = $storage->getUri($storage->getPathByType($logo, 'theme_uploads'));
         return "<img class='footer-logo' src='$uri'/>";
@@ -81,10 +80,7 @@ function link_to_next_item_show_custom($text = null, $props = array())
     }
     $item = get_current_record('item');
     if($next = $item->next()) {
-		$next_id = intval(substr(json_encode($next), -2, 1));
-		$next_item = metadata($item->next(), array('Dublin Core', 'Title'));
-		if (strlen($next_item) > 40) {$next_item = substr($next_item, 0, 40) . '...';}
-
+		$next_item = metadata($item->next(), array('Dublin Core', 'Title'), array('snippet' => 40));
         return link_to($next, 'show', $text . $next_item, $props);
     }
 }
@@ -96,10 +92,7 @@ function link_to_previous_item_show_custom($text = null, $props = array())
     }
     $item = get_current_record('item');
     if($previous = $item->previous()) {
-		$previous_id = intval(substr(json_encode($previous), -2, 1));
-		$previous_item = metadata($item->previous(), array('Dublin Core', 'Title'));
-		if (strlen($previous_item) > 40) {$previous_item = substr($previous_item, 0, 40) . '...'; }
-
+		$previous_item = metadata($item->previous(), array('Dublin Core', 'Title'), array('snippet' => 40));
         return link_to($previous, 'show', $previous_item . $text, $props);
     }
 }
