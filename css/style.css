@@ -228,7 +228,7 @@ svg:not(:root) {
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-  margin: 1em 40px;
+  margin: 0;
 }
 
 /**
@@ -1472,7 +1472,7 @@ body.exhibits-menu #content-share {
 }
 
 #content-files-gallery-icon {
-  color: var(--colorTitle);
+  color: var(--colorLink);
   float: left;
   font-size: 56px;
   left: 50px;
@@ -1506,7 +1506,7 @@ body.exhibits-menu #content-share {
 
 #content-files img,
 #content-files-mobile img {
-  margin: 0;
+  margin: 0 0 15px 0;
 }
 
 #content-info {
