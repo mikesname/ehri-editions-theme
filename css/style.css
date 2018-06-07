@@ -1376,10 +1376,13 @@ header a:hover {
   color: var(--colorLink);
   float: right;
   height: 0;
-  margin: 0 -235px 0 0;
   padding: 0;
   position: relative;
   top: 0;
+}
+
+body.items.show #content-share {
+  margin: 0 -235px 0 0;
   width: 200px;
 }
 
