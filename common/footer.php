@@ -284,7 +284,7 @@
   };
 
   jQuery(function ($) {
-    $(".gallery-item, .gallery-item-mobile").click(function () {
+    $(".gallery-item, .gallery-item-mobile").click(function (event) {
           event.preventDefault();
           openPhotoSwipe();
         }
