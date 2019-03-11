@@ -1,85 +1,82 @@
-# Translation for the Simple Pages plugin for Omeka.
-# Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
-# This file is distributed under the same license as the Omeka package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ehri-editions-theme\n"
 "Report-Msgid-Bugs-To: http://github.com/EHRI/ehri-editions-theme/issues\n"
 "POT-Creation-Date: 2018-04-27 11:48-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2019-03-11 13:46+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: common/content_share.php:6
 msgid "Download"
-msgstr ""
+msgstr "Stáhnout"
 
 #: common/content_share.php:21 exhibit-builder/exhibits/show.php:10
 msgid "Share"
-msgstr ""
+msgstr "Sdílet"
 
-#: common/header.php:99
+#: common/header.php:94
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
-#: common/header.php:112
+#: common/header.php:107
 msgid "Applied facets"
-msgstr ""
+msgstr "Podmínky vyhledávání"
 
-#: common/header.php:126 common/header.php:166
+#: common/header.php:121 common/header.php:161
 msgid "None"
-msgstr ""
+msgstr "Žádné"
 
-#: common/header.php:136
+#: common/header.php:131
 msgid "Limit your search"
-msgstr ""
+msgstr "Omezit hledání"
 
 #: common/pagination_control.php:13 common/pagination_control.php:17
 msgid "Previous"
-msgstr ""
+msgstr "Zpět"
 
 #: common/pagination_control.php:56 common/pagination_control.php:60
 msgid "Next"
-msgstr ""
+msgstr "Dopředu"
 
 #: common/record-metadata.php:31 common/record-metadata.php:52
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #: common/record-metadata.php:34 common/record-metadata.php:59
 msgid "Document Text"
-msgstr ""
+msgstr "Přepis"
 
 #: common/record-metadata.php:38 common/record-metadata.php:66
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 #: common/record-metadata.php:42 common/record-metadata.php:78
 msgid "References"
-msgstr ""
+msgstr "Odkazy na prameny"
 
 #: common/record-metadata.php:45 common/record-metadata.php:84
 msgid "Comments"
-msgstr ""
+msgstr "Komentáře"
 
 #: common/record-metadata.php:68
 msgid "Toggle fullscreen"
-msgstr ""
+msgstr "Zobrazit na celou obrazovku"
 
 #: common/record-metadata.php:85
 msgid "There are no comments yet."
-msgstr ""
+msgstr "Zatím nejsou žádné komentáře."
 
 #: exhibit-builder/exhibits/browse.php:2
 msgid "Browse Exhibits"
-msgstr ""
+msgstr "Prohlížet výstavy"
 
 #: exhibit-builder/exhibits/browse.php:43
 msgid "There are no exhibits available yet."
@@ -95,38 +92,94 @@ msgstr ""
 
 #: index.php:24
 msgid "Featured Items"
-msgstr ""
+msgstr "Doporučené dokumenty"
 
 #: items/show.php:8 items/show.php:24
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: items/show.php:12
 msgid "Your e-mail"
-msgstr ""
+msgstr "Váš email"
 
 #: items/show.php:17
 msgid "Your feedback..."
-msgstr ""
+msgstr "Váš feedback..."
 
 #: items/show.php:21
 msgid "Send"
-msgstr ""
+msgstr "Uložit"
 
 #: items/show.php:25
 msgid "Thanks for your feedback!"
-msgstr ""
+msgstr "Děkujeme za Váš feedback!"
 
-#: solr-search/results/index.php:9
+#: solr-search/results/index.php:18
 #, php-format
 msgid "Documents found: %d"
-msgstr ""
+msgstr "Nalezeno dokumentů: %d"
 
-#: solr-search/results/index.php:27
+#: solr-search/results/index.php:20
+msgid "All Documents"
+msgstr "Všechny dokumenty"
+
+#: solr-search/results/index.php:42
 #, php-format
 msgid "No results for \"%s\""
-msgstr ""
+msgstr "Žádné výsledky pro \"%s\""
 
-#: solr-search/results/index.php:29
+#: solr-search/results/index.php:44
 msgid "Search query is empty"
-msgstr ""
+msgstr "Podmínky hledání nejsou zadány"
+
+# Facet Types
+msgid "Subject"
+msgstr "Klíčové slovo"
+
+msgid "Person"
+msgstr "Osoba"
+
+msgid "Organisation"
+msgstr "Organizace"
+
+msgid "Place"
+msgstr "Místo"
+
+msgid "Search"
+msgstr "Hledat"
+
+msgid "Type"
+msgstr "Typ dokumentu"
+
+msgid "Archive"
+msgstr "Archiv"
+
+msgid "Recently Added Items"
+msgstr "Naposled přidané dokumenty"
+
+msgid "English"
+msgstr "Anglicky"
+
+msgid "German"
+msgstr "Německy"
+
+msgid "Czech"
+msgstr "Česky"
+
+msgid "Slovak"
+msgstr "Slovensky"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "E-pub"
+msgstr "E-pub"
+
+msgid "Related chapters"
+msgstr "Vztahující se kapitoly"
+
+msgid "Languages: %s"
+msgstr "Jazyky: %s"
+
+msgid "Search results for \"%s\": %d"
+msgstr "Výsledky hledání pro \"%s\": %d"
