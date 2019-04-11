@@ -32,11 +32,9 @@
 	<meta name="msapplication-TileColor" content="#603cba">
 	<meta name="theme-color" content="#ffffff">
 
-    <!-- Get appropriate color schemes, or the default. -->
-    <?php if (!$colorScheme = get_theme_option('Color scheme')) { $colorScheme = 'wine-violet'; } ?>
-    
     <!-- css -->
-    <?php queue_css_file(array('iconfonts', 'skeleton', 'normalize', "color-schemes/$colorScheme", 'theme')); ?>
+    <?php if (!$colorScheme = get_theme_option('Color scheme')) { $colorScheme = 'wine-violet'; } ?>
+    <?php queue_css_file(array('iconfonts', 'skeleton', 'normalize', 'theme', "color-schemes/$colorScheme")); ?>
     <?php echo head_css(); ?>
     
     <!-- javascripts -->
