@@ -1,0 +1,34 @@
+{
+  "name": "ehri-editions-theme",
+  "version": "1.0.0",
+  "description": "Omeka theme for EHRI digital edition sites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EHRI/ehri-editions-theme.git"
+  },
+  "keywords": [
+    "omeka"
+  ],
+  "author": "Štěpán Opekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EHRI/ehri-editions-theme/issues"
+  },
+  "homepage": "https://github.com/EHRI/ehri-editions-theme#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.15.0"
+  }
+}

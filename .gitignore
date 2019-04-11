@@ -2,3 +2,7 @@
 *.iml
 build.xml
 .ant-targets-build.xml
+node_modules
+
+css/theme.css
+javascripts/theme.min.js

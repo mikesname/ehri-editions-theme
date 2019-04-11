@@ -40,13 +40,12 @@
     <?php endif; ?>
     
     <!-- css -->
-    <?php queue_css_file(array('iconfonts', 'skeleton', 'style-mobile')); ?>
+    <?php queue_css_file(array('iconfonts', 'skeleton', 'theme')); ?>
     <?php echo head_css(); ?>
     
     <!-- javascripts -->
-    <?php queue_js_file('menu', 'javascripts'); ?>
     <?php queue_js_file('vendor/jquery.hoverIntent.min'); ?>
-    <?php queue_js_file('editions', 'javascripts'); ?>
+    <?php queue_js_file('theme.min', 'javascripts'); ?>
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
     <?php queue_js_file('photoswipe.min', 'photoswipe/dist'); ?>
