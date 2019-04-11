@@ -32,15 +32,11 @@
 	<meta name="msapplication-TileColor" content="#603cba">
 	<meta name="theme-color" content="#ffffff">
 
-    <!-- color schemes -->
-    <?php if ($colorScheme = get_theme_option('Color scheme')): ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/$colorScheme.css"; ?>">
-    <?php else: ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/wine-violet.css"; ?>">
-    <?php endif; ?>
+    <!-- Get appropriate color schemes, or the default. -->
+    <?php if (!$colorScheme = get_theme_option('Color scheme')) { $colorScheme = 'wine-violet'; } ?>
     
     <!-- css -->
-    <?php queue_css_file(array('iconfonts', 'skeleton', 'theme')); ?>
+    <?php queue_css_file(array('iconfonts', 'skeleton', 'normalize', "color-schemes/$colorScheme", 'theme')); ?>
     <?php echo head_css(); ?>
     
     <!-- javascripts -->
