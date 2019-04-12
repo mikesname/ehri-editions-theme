@@ -40,6 +40,8 @@ function watchFiles() {
     ], js);
 }
 
+gulp.task("dist", gulp.parallel(css, js));
+
 // Run:
 // gulp
 // Starts watcher (default task)
