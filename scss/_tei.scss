@@ -1,0 +1,70 @@
+/* TEI */
+.tei > .tei-text .tei-note {
+  display: none;
+}
+
+.tei-note {
+  padding: 10px;
+  display: block;
+  background-color: #fff3f3;;
+  font-weight: bold;
+}
+
+.tei > .tei-text .tei-note-ref {
+  vertical-align: super;
+  color: #FF6464;
+  margin-left: -5px;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+#content-info .tei-note-num {
+  color: #FF6464;
+  margin-right: 5px;
+  display: inline-flex;
+}
+
+.tei-entity-ref {
+  border-bottom: 1px dotted lightgrey;
+  background-color: var(--colorEntityRef);
+}
+
+/* NOTES */
+.tei-note {
+  background: var(--colorEntityRef) !important;
+  font-weight: normal !important;
+  margin-top: 35px !important;
+  width: 265px;
+}
+
+.tei-note-num {
+  color: var(--colorText) !important;
+  font-weight: bold;
+}
+
+.tei > .tei-entities > .tei-entity {
+  float: left;
+  display: none;
+}
+
+.tei-entity-data h5 {
+  margin: 5px 0;
+}
+
+.tei > .tei-text ol, .tei > .tei-text ul {
+  list-style-type: none;
+}
+
+.tei > .tei-text table {
+  width: 100%;
+}
+
+.tei > .tei-text table tr th {
+  text-align: left;
+}
+
+.tei > .tei-text table tr th,
+.tei > .tei-text table tr td {
+  padding: 5px;
+}
+

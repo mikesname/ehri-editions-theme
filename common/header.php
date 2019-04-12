@@ -32,21 +32,14 @@
 	<meta name="msapplication-TileColor" content="#603cba">
 	<meta name="theme-color" content="#ffffff">
 
-    <!-- color schemes -->
-    <?php if ($colorScheme = get_theme_option('Color scheme')): ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/$colorScheme.css"; ?>">
-    <?php else: ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo WEB_ROOT . "/themes/ehri/css/color-schemes/wine-violet.css"; ?>">
-    <?php endif; ?>
-    
     <!-- css -->
-    <?php queue_css_file(array('iconfonts', 'skeleton', 'style-mobile')); ?>
+    <?php if (!$colorScheme = get_theme_option('Color scheme')) { $colorScheme = 'wine-violet'; } ?>
+    <?php queue_css_file(array('iconfonts', 'skeleton', 'normalize', 'theme', "color-schemes/$colorScheme")); ?>
     <?php echo head_css(); ?>
     
     <!-- javascripts -->
-    <?php queue_js_file('menu', 'javascripts'); ?>
     <?php queue_js_file('vendor/jquery.hoverIntent.min'); ?>
-    <?php queue_js_file('editions', 'javascripts'); ?>
+    <?php queue_js_file('theme.min', 'javascripts'); ?>
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
     <?php queue_js_file('photoswipe.min', 'photoswipe/dist'); ?>

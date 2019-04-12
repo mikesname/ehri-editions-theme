@@ -1,0 +1,25 @@
+form, fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  border: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+}
+

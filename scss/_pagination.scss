@@ -1,0 +1,51 @@
+.item-pagination {
+  clear: both;
+  margin: 30px 0 15px 0;
+  overflow: hidden;
+  width: auto;
+}
+
+#item-pagination-desktop {
+  display: block;
+}
+
+#item-pagination-mobile {
+  border-top: 1px solid var(--colorLine);
+  margin: 25px 5% 0 -6%;
+  padding: 25px 5% 0 6%;
+  width: 112%;
+  display: none;
+}
+
+.item-pagination-previous {
+  float: left;
+  margin: 0 30px 0 0;
+}
+
+.item-pagination-next {
+  float: left;
+  margin: 0;
+}
+
+.exhibit-pagination a, .exhibit-pagination span {
+  display: inline;
+  float: left;
+  margin-right: 15px;
+}
+
+/* HACK */
+.exhibit-pagination br {
+  display: none;
+}
+
+.exhibit-pagination a, .exhibit-pagination span {
+  display: inline;
+  float: left;
+  margin-right: 15px;
+}
+
+/* HACK */
+.exhibit-pagination br {
+  display: none;
+}
+
