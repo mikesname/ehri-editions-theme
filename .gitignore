@@ -6,3 +6,5 @@ node_modules
 
 css/theme.css
 javascripts/theme.min.js
+
+release-config.sh
