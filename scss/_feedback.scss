@@ -1,0 +1,94 @@
+/* FEEDBACK */
+
+#feedback {
+  right: 0;
+  top: 0;
+  height: 250px;
+  margin-left: -3px;
+  margin-bottom: -3px;
+}
+
+#feedback-form {
+  background: var(--colorBackground);
+  border: 1px solid var(--colorBorderContent);
+  color: var(--colorText);
+  display: block;
+  height: 320px;
+  margin: 25px 0 0 3px;
+  max-height: 420px;
+  overflow: hidden;
+  padding: 18px;
+  position: relative;
+  width: 265px;
+  z-index: 20000;
+}
+
+#feedback-tab {
+  color: var(--colorLink);
+  cursor: pointer;
+  display: block;
+  float: left;
+  margin: 5px 0 10px 3px;
+  padding: 10px 0 0 0;
+  width: 100%;
+}
+
+#feedback-form h5 {
+  border-bottom: 1px solid var(--colorBorderContent);
+  margin: -18px 0 12px -18px;
+  padding: 12px 22px 12px 22px;
+  width: 125%;
+}
+
+#feedback-close {
+  color: var(--colorLink);
+  cursor: pointer;
+  font-size: 22px;
+  padding: 0;
+  position: absolute;
+  right: 10px;
+  top: 11px;
+}
+
+#feedback-form input[type="email"] {
+  width: 100%;
+  margin: 5px 0 5px 0;
+  padding: 7px 10px;
+}
+
+#feedback-form input[name="title"],
+#feedback-form input[name="username"],
+#feedback-form input[name="url"] {
+  display: none;
+}
+
+#feedback-form textarea {
+  height: 138px;
+  margin: 10px 0 -3px 0;
+  padding: 7px 10px;
+  width: 100%;
+}
+
+.feedback-button {
+  float: right;
+  margin: 13px 0 -10px 0;
+}
+
+#feedback-tab:hover {
+  text-decoration: underline;
+}
+
+#feedback-form textarea {
+  resize: none;
+}
+
+#feedback-thanks {
+  float: left;
+  margin-left: 3px;
+  background-color: #28a745;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.2em;
+  display: none;
+}
+

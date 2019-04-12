@@ -1,0 +1,117 @@
+/* @group ----- Collections/Browse ----- */
+.browse .collection.record,
+.browse .exhibit {
+  clear: both;
+  border-bottom: 1px solid #eee;
+  float: left;
+  width: 100%;
+  padding-top: 1.5em;
+}
+
+.browse .collection.record .view-items-link,
+.browse .exhibit .view-items-link {
+  margin-bottom: 2.25em;
+}
+
+.browse .collection.record h3,
+.browse .exhibit h3 {
+  margin: 0;
+}
+
+.collection .element-text p:only-child {
+  margin-bottom: 0;
+}
+
+.collection .image,
+.exhibit .image {
+  display: block;
+  margin: 0 1.5em 1.5em 9px;
+}
+
+.browse .collection h2,
+.browse .exhibit h2 {
+  display: inline;
+  float: left;
+  margin: 0 0 0.75em;
+  max-width: 100%;
+  width: 220px;
+}
+
+.browse .collection .image,
+.browse .exhibit .image {
+  float: right;
+  height: 10.5em;
+  margin-right: 0;
+  text-align: right;
+}
+
+.browse .collection .image img,
+.browse .exhibit .image img {
+  height: 100%;
+  width: auto;
+}
+
+.collection-meta {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 520px;
+}
+
+.collection-description p:first-of-type,
+.view-items-link:only-child {
+  margin-top: 0.75em;
+}
+
+.browse .collection .element {
+  clear: none;
+}
+
+/* @group ----- Collections/Show ----- */
+.collections .item-img {
+  float: left;
+  margin: 0 1.5em 0 0;
+}
+
+.collections .item-img a {
+  border: 1px solid #ccc;
+  display: block;
+  height: 6em;
+  padding: 2px;
+}
+
+.collections .item-img img {
+  height: 100%;
+  width: auto;
+}
+
+.collections .item {
+  border-color: #ccc;
+  border-top-style: solid;
+  border-top-width: 0.08333em;
+  margin-top: 1.5em;
+  overflow: hidden;
+  padding-top: -0.08333em;
+}
+
+/* @end */
+
+/* @group ----- Collections/Browse ----- */
+.collection-meta {
+  display: inline;
+  float: none;
+  width: 100%;
+}
+
+.browse .collection .image {
+  float: left;
+  margin: 1.5em 1.5em 1.5em 10px;
+}
+
+.browse .collection.record .view-items-link,
+.browse .exhibit .view-items-link {
+  clear: both;
+}
+
+

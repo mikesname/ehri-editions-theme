@@ -1,0 +1,52 @@
+.exhibit-map-default {
+  height: 410px;
+  margin-bottom: 15px;
+}
+
+.exhibit-map-default iframe {
+  border: 0;
+  height: 410px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.exhibit-map-wide,
+.exhibit-map-wide-resized {
+  height: 410px;
+  margin-bottom: -45px;
+}
+
+.exhibit-map-wide iframe {
+  border: 0;
+  height: 410px;
+  margin: 10px 0 0 -110px;
+  width: calc(100% + 571px);
+}
+
+.exhibit-map-wide-resized iframe {
+  border: 0;
+  height: 410px;
+  margin: 10px 0 0 -70px;
+  width: calc(100% + 320px);
+}
+
+.exhibit-map-large,
+.exhibit-map-large-resized {
+  height: 600px;
+  margin-bottom: -45px;
+}
+
+.exhibit-map-large iframe {
+  border: 0;
+  height: 600px;
+  margin: 10px 0 0 -110px;
+  width: calc(100% + 571px);
+}
+
+.exhibit-map-large-resized iframe {
+  border: 0;
+  height: 600px;
+  margin: 10px 0 0 -70px;
+  width: calc(100% + 320px);
+}
+

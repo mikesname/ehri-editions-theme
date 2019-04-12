@@ -1,0 +1,146 @@
+header {
+  clear: both;
+  height: 180px;
+  margin: -180px 0 0 180px;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+header a:link {
+  color: var(--colorHeader);
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+.header-image {
+  height: 180px;
+  margin: 0 0 0 80px;
+  position: relative;
+  width: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.header-overlay {
+  background: var(--colorTitle);
+  height: 180px;
+  margin: -180px 0 0 0;
+  opacity: 0.41;
+  position: relative;
+  width: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+#home header,
+.exhibit-home-header {
+  clear: both;
+  height: 400px;
+  margin: -350px 0 0 180px;
+  position: absolute;
+  width: 100%;
+}
+
+#home .header-image,
+.exhibit-home-header-image {
+  background: url("../images/header.jpg") no-repeat center left;
+  background-size: cover;
+  height: 400px;
+  margin: 0 0 0 80px;
+  position: relative;
+  width: 100%;
+}
+
+#home .header-overlay,
+.exhibit-home-header-overlay {
+  background: var(--colorTitle);
+  height: 400px;
+  margin: -400px 0 0 0;
+  opacity: 0.41;
+  position: relative;
+  width: 100%;
+}
+
+.header-search-background {
+  background: var(--colorBackground);
+  height: 80px;
+  margin: -80px 0 80px -110px;
+  opacity: 0.5;
+  width: 200%;
+}
+
+#header-search {
+  position: absolute;
+  height: 80px;
+  margin: -160px 0 80px -100px;
+  padding: 0 0 0 85px;
+  width: 100%;
+}
+
+#site-title,
+#exhibit-home-site-title {
+  color: var(--colorHeader);
+  display: block;
+  font-family: var(--fontHeader);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  line-height: 36px;
+  margin: 68px 0 5px 11px;
+  max-width: 600px;
+  padding: 0;
+  position: relative;
+  width: 65%;
+}
+
+#home #site-title,
+#exhibit-home-site-title {
+  font-size: 42px;
+  line-height: 50px;
+  margin: 95px 0 5px 11px;
+  max-width: 900px;
+  width: 75%;
+}
+
+#site-title img,
+#exhibit-home-site-title img {
+  max-width: 100%;
+  height: auto;
+}
+
+#site-title a,
+#exhibit-home-site-title a {
+
+  text-decoration: none;
+}
+
+#site-subtitle,
+#exhibit-home-site-subtitle {
+  color: var(--colorHeader);
+  display: block;
+  font-family: var(--fontText);
+  font-size: 14px;
+  line-height: 1.5em;
+  margin: 0 0 0 10px;
+  max-width: 600px;
+  position: relative;
+  width: 75%;
+}
+
+#site-logo {
+  background: var(--colorBackground);
+  border: 15px solid var(--colorBackground);
+  border-bottom: 12px solid var(--colorBackground);
+  border-top: 16px solid var(--colorBackground);
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+#home #site-subtitle,
+#exhibit-home-site-subtitle {
+  margin: 30px 0 7px 10px;
+  max-width: 900px;
+}
+
