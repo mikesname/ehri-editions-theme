@@ -1,5 +1,9 @@
 /* COMMENTS*/
 
+#document-comments-container {
+  border-top: 1px solid var(--colorLine);
+}
+
 .comments h2,
 .gravatar,
 .comment-flag,

@@ -54,6 +54,26 @@ label {
   font-feature-settings: 'liga';
 }
 
+/* -- Misc Block elements -- */
+p, ul, ol, dl {
+  margin: 1.5em 0;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+/* @group ----- Generic ----- */
+// NB: removing this really messes up
+// the display of the left menu
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
 *:focus {
   outline: none;
 }
@@ -79,17 +99,6 @@ body {
   overflow-x: hidden;
 }
 
-a:visited {
-  color: var(--colorLink);
-}
-
-/* @group ----- Generic ----- */
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 /* -- Headings -- */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: $margin-md;
@@ -100,12 +109,7 @@ h1 {
   font-weight: bold;
   letter-spacing: 0.03em;
   line-height: 1.25em;
-  margin: $margin-md 0 $margin-sm -1px;
-  min-height: 72px;
   text-transform: none;
-  max-width: 700px;
-  word-break: normal;
-  width: 90%;
 }
 
 #exhibit-title {
@@ -120,24 +124,13 @@ h2 {
 
 h3,
 #exhibit-blocks .exhibit-strong-title {
-  border-top: 1px dashed var(--colorLineDashed);
-  padding: $padding-lg 0 0 0;
   font-weight: bold;
   font-size: $font-size-xl;
-  letter-spacing: 0.03em;
-  margin-top: $margin-lg;
-  width: 840px;
 }
 
 h4 {
-  border-top: 1px solid var(--colorLine);
   font-weight: bold;
   font-size: $font-size-xl;
-  letter-spacing: 1px;
-  line-height: 18px;
-  margin: $margin-lg 0 0 -195px;
-  padding: $padding-lg 0 0 195px;
-  width: 10000px;
 }
 
 h5,
@@ -158,15 +151,6 @@ h6 {
 
 h1 a, h2 a, h3 a {
   text-decoration: none;
-}
-
-/* -- Misc Block elements -- */
-p, ul, ol, dl {
-  margin: 1.5em 0;
-}
-
-ul ul, ul ol, ol ol, ol ul {
-  margin-bottom: 0;
 }
 
 /* -- Misc Inline elements -- */
@@ -200,6 +184,12 @@ dd {
 a:link {
   color: var(--colorLink);
   text-decoration: none;
+}
+
+a:visited {
+  color: var(--colorLink);
+  // darken link colour
+  filter:brightness(85%);
 }
 
 a:hover, a:active {

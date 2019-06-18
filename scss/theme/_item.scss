@@ -112,6 +112,12 @@
   margin-left: -$margin-sm;
 }
 
+#featured-items-container,
+#recent-items
+{
+  border-top: 1px solid var(--colorLine);
+}
+
 .item.record {
 }
 

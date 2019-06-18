@@ -262,6 +262,20 @@ body.exhibits-menu #content-share {
   float: left;
 }
 
+.document-section-tabs {
+  margin-bottom: $margin-lg;
+}
+
+.document-section {
+  padding-bottom: $margin-lg;
+  border-bottom: 1px dashed var(--colorLineDashed);
+  margin-bottom: $margin-lg;
+}
+
+.document-section:last-child {
+  border-bottom: none;
+}
+
 #document-metadata #content-files {
   position: relative;
   right: 0;
@@ -280,11 +294,6 @@ body.exhibits-menu #content-share {
 
 .editions-item-group {
   padding: $padding-lg 0;
-}
-
-.element-metadata-field {
-  margin: $margin-sm 0 0 0;
-  font-size: $font-size-sm;
 }
 
 .element-text-document {
